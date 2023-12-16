@@ -30,3 +30,10 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  extra_footer: |
+    <br>
+    <p>This work is licensed under a <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero license</a></p>
+
+sphinx:
+  config:
+    html_show_copyright: false
