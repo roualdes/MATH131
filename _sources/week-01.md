@@ -12,7 +12,9 @@ kernelspec:
   name: python3
 ---
 
-# Week 01: Getting started
+# Week 01: Python basics
+
+[Colab notebook](https://colab.research.google.com/drive/1hh49hQRkhxcE1ldXCB7QKNkr3RkCiA4J?usp=sharing)
 
 Jupyter Book also lets you write text-based notebooks using MyST Markdown.
 See [the Notebooks with MyST Markdown documentation](https://jupyterbook.org/file-types/myst-notebooks.html) for more detailed instructions.
