@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Week 02: Introduction to working with data" href="week-02.html" />
-    <link rel="prev" title="Syllabus" href="syllabus.html" />
+    <link rel="prev" title="Week 00: Start here" href="week-00.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,11 +170,13 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-00.html">Week 00: Start here</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 01: Python basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-02.html">Week 02: Introduction to working with data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-03.html">Week 03: Wrangling data and intro to graphing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-04.html">Week 04: Intermediate grahping &amp; importing external data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-05.html">Week 05: Puting it all together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="and-beyond.html">Week 06 and beyond</a></li>
 </ul>
 
     </div>
@@ -370,8 +372,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable">Variable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-types">Variable types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structures">Data structures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list">List</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dict">Dict</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array">Array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes">DataFrames</a></li>
 </ul>
             </nav>
         </div>
@@ -385,41 +397,406 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-01-python-basics">
 <h1>Week 01: Python basics<a class="headerlink" href="#week-01-python-basics" title="Permalink to this heading">#</a></h1>
-<p><a class="reference external" href="https://colab.research.google.com/drive/1hh49hQRkhxcE1ldXCB7QKNkr3RkCiA4J?usp=sharing">Colab notebook</a></p>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Permalink to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
+<p><a class="reference external" href="https://colab.research.google.com/drive/1hh49hQRkhxcE1ldXCB7QKNkr3RkCiA4J?usp=sharing">Homework 01 (Colab notebook)</a></p>
+<section id="learning-objectives">
+<h2>Learning objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>This lesson is designed to explain the basics of programming in Python.</p>
+<ul class="simple">
+<li><p>learn and practice computer science terms: variable, comment, call, function, arguments, default values, float, int, string, boolean, list, dict, object, packages, array, DataFrame, Series</p></li>
+<li><p>calculate arithmetic operations</p></li>
+<li><p>call functions and change default values</p></li>
+<li><p>indexing</p></li>
+<li><p>logical statements</p></li>
+<li><p>control flow</p></li>
+<li><p>DataFrame, some details</p></li>
+</ul>
+</section>
+<section id="variable">
+<h2>Variable<a class="headerlink" href="#variable" title="Permalink to this heading">#</a></h2>
+<p>A <strong>variable</strong> consists of a name and value, where the name references the
+value.  The equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code> assigns to a name a specific value.  The code below
+creates a variable named <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code> which holds the value <code class="docutils literal notranslate"><span class="pre">55</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weight_kg</span> <span class="o">=</span> <span class="mi">55</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The code above follows the general pattern in Python for creating variables:
+<code class="docutils literal notranslate"><span class="pre">variable</span> <span class="pre">=</span> <span class="pre">expression</span></code>.  The left hand side of the <code class="docutils literal notranslate"><span class="pre">=</span></code> specifies a name and the
+right hand side can be any valid Python expression.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weight_lb</span> <span class="o">=</span> <span class="n">weight_kg</span> <span class="o">*</span> <span class="mf">2.2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the right hand side is now a Python/mathematical expression that
+uses the variable <code class="docutils literal notranslate"><span class="pre">weight_kg</span></code> to create a new value (55 * 2.2) and creates a new
+variable, named <code class="docutils literal notranslate"><span class="pre">weight_lb</span></code>.  We have thus assigned to the variable <code class="docutils literal notranslate"><span class="pre">weight_lb</span></code>
+the value as determined by the expression <code class="docutils literal notranslate"><span class="pre">weight_kg</span> <span class="pre">*</span> <span class="pre">2.2</span></code>.</p>
+<p>If we want to leave future readers of our code a note, within the code, to
+remind them of what this code is doing, we can leave a <strong>comment</strong>.  Comments
+are ignored by Python, and are intended to help readers of your code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weight_lb</span> <span class="o">=</span> <span class="n">weight_kg</span> <span class="o">*</span> <span class="mf">2.2</span> <span class="c1"># convert kg to pounds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is easy to get carried away with comments.  When you are starting, this is
+not necessarily a bad thing.  As your programming skills progress, your comments
+should focus less and less on how to read Python code and should instead focus
+more and more on the details surrounding why the code is was written as it is.
+This is a fine line.</p>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h2>
+<p>This section will focus on using Python functions.  We will look at writing
+functions later.  A Python <strong>function</strong> is a named and bundled sequence of
+actions to perform on a variable.  The inputs are called arguments and the
+outputs (if there are any) are called return values.</p>
+<p>Consider the function <code class="docutils literal notranslate"><span class="pre">abs</span></code>, which computes the absolute value of its argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.1415</span>
+<span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1415
 </pre></div>
 </div>
 </div>
 </div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
+<p>The input is the variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, which holds the value <code class="docutils literal notranslate"><span class="pre">-3.1415</span></code>, and the output is the
+value <code class="docutils literal notranslate"><span class="pre">3.1415</span></code>, which itself is not assigned to any variable.</p>
+<p>The general pattern in Python is to call a function named <code class="docutils literal notranslate"><span class="pre">f</span></code> as <code class="docutils literal notranslate"><span class="pre">f(x)</span></code>.</p>
+<p>Some functions take multiple arguments.  For instance, the function <code class="docutils literal notranslate"><span class="pre">round</span></code>
+accepts as the first argument a number and a second, named, argument the number
+of digits to round the first argument to.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ndigits</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-3.1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Named arguments have a few benefits.  Named arguments can make code easier to
+read, so that you and/or the reader of your code is (some what) reminded what
+the argument <code class="docutils literal notranslate"><span class="pre">1</span></code> is doing.  Named arguments also can have <strong>default values</strong>.
+The argument <code class="docutils literal notranslate"><span class="pre">ndigits</span></code> of the function <code class="docutils literal notranslate"><span class="pre">round</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>, if no other
+value is specified, which in this case instructions <code class="docutils literal notranslate"><span class="pre">round</span></code> to round the first
+argument to the nearest integer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-3
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you follow the correct order of the arguments, you do not need to specify the
+name of the named arguments, but this isn’t always good practice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-3.142
+</pre></div>
+</div>
+</div>
 </div>
 </section>
-<section id="create-a-notebook-with-myst-markdown">
-<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Permalink to this heading">#</a></h2>
-<p>MyST Markdown notebooks are defined by two things:</p>
-<ol class="arabic simple">
-<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-See the YAML at the top of this page for example.</p></li>
-<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
-</ol>
+<section id="variable-types">
+<h2>Variable types<a class="headerlink" href="#variable-types" title="Permalink to this heading">#</a></h2>
+<p>Each variable in Python is of a specific <strong>type</strong>.  Although we may think of the
+numbers <code class="docutils literal notranslate"><span class="pre">3</span></code> and <code class="docutils literal notranslate"><span class="pre">3.0</span></code> as mathematically equivalent, these numbers are of
+different types in Python (and most other programming languages).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Python type <code class="docutils literal notranslate"><span class="pre">float</span></code> is for variables that reference (something like) real
+valued numbers, numbers with decimals, like the value <code class="docutils literal notranslate"><span class="pre">-3.1415</span></code>.  The type <code class="docutils literal notranslate"><span class="pre">int</span></code>
+is for integer values.</p>
+<p>There are many other Python types: <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, and <code class="docutils literal notranslate"><span class="pre">dict</span></code>.  We’ll
+look at <code class="docutils literal notranslate"><span class="pre">str</span></code> and <code class="docutils literal notranslate"><span class="pre">bool</span></code> immediately, and save <code class="docutils literal notranslate"><span class="pre">list</span></code> and <code class="docutils literal notranslate"><span class="pre">dict</span></code> for the next
+section.</p>
+<p>The type <code class="docutils literal notranslate"><span class="pre">str</span></code> stands for string.  Strings are any sequence of characters
+between double <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> or single <code class="docutils literal notranslate"><span class="pre">'</span></code> quotes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;MATH 131&quot;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that I re-assigned the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> to now reference the value <code class="docutils literal notranslate"><span class="pre">&quot;MATH</span> <span class="pre">131&quot;</span></code>.  Most programming languages allow re-assignment of variables.  Dynamic
+languages, such as Python, go futher and allow re-assignment of variables even
+across two different types: <code class="docutils literal notranslate"><span class="pre">float</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
+<p>The type <code class="docutils literal notranslate"><span class="pre">bool</span></code> stands for boolean.  Boolean is the computer science term for
+the two specific values <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">z</span> <span class="o">=</span> <span class="s2">&quot;True&quot;</span>
+<span class="n">y</span> <span class="o">==</span> <span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Spend a second with the code above.  The variable <code class="docutils literal notranslate"><span class="pre">y</span></code> is of type <code class="docutils literal notranslate"><span class="pre">bool</span></code> because
+references one of the special Boolean values, specifically <code class="docutils literal notranslate"><span class="pre">True</span></code>.  The variable
+<code class="docutils literal notranslate"><span class="pre">z</span></code> is of type <code class="docutils literal notranslate"><span class="pre">str</span></code> because it references a string which contains the word
+True.  Python considers these different, since they are different types and
+have different values.  The last line indicates that Python treats <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">z</span></code>
+as not equal.  The Python code <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">==</span> <span class="pre">z</span></code> is like asking the question, is <code class="docutils literal notranslate"><span class="pre">y</span></code>
+equal to <code class="docutils literal notranslate"><span class="pre">z</span></code>?, to which Python returns the Boolean value <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Novice programmers sometimes think the different types are burdensome.  With
+some practice though, you will learn that types help programmers write good and
+logical code.  For instance, if you write code like</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: bad operand type for abs(): &#39;str&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> is a friendly reminder that you re-assigned the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> to
+hold a <code class="docutils literal notranslate"><span class="pre">str</span></code> value and the function <code class="docutils literal notranslate"><span class="pre">abs</span></code> has no meaning when applied to a <code class="docutils literal notranslate"><span class="pre">str</span></code>
+type.  I insist this is a friendly reminder, even if the error message itself is
+hard to parse :) If nothing else, we must get used to dealing with types
+appropriately.</p>
+<p>There are in fact many more variables types in Python and in programming more
+generally.  For now, we’ll skip to variable types that store (plural) data.</p>
+</section>
+<section id="data-structures">
+<h2>Data structures<a class="headerlink" href="#data-structures" title="Permalink to this heading">#</a></h2>
+<p>Variable types that contain more than one datum, data, are generally referred to
+as data structures.  Two important Python types for storing data are <code class="docutils literal notranslate"><span class="pre">list</span></code> and <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
+<p>Both <code class="docutils literal notranslate"><span class="pre">list</span></code> and <code class="docutils literal notranslate"><span class="pre">dict</span></code> are types that contain multiple elements.  For both
+types, the contained elements themselves do not need to be of the same type.
+What differentiates a <code class="docutils literal notranslate"><span class="pre">list</span></code> from a <code class="docutils literal notranslate"><span class="pre">dict</span></code> is how the contained elements are
+indexed or referenced.</p>
+<section id="list">
+<h3>List<a class="headerlink" href="#list" title="Permalink to this heading">#</a></h3>
+<p>A <code class="docutils literal notranslate"><span class="pre">list</span></code> indexes its elements with <code class="docutils literal notranslate"><span class="pre">int</span></code>s or slices of integers.  The code below
+creates a variable named <code class="docutils literal notranslate"><span class="pre">l</span></code> which references a list of heterogeneous types, and
+then indexes the first element of the list <code class="docutils literal notranslate"><span class="pre">l</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="s2">&quot;Chico State&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+<span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1
+</pre></div>
+</div>
+</div>
+</div>
+<p>To define the list <code class="docutils literal notranslate"><span class="pre">l</span></code> the expression on the right hand side of <code class="docutils literal notranslate"><span class="pre">=</span></code> surrounds a
+comma separated list of values by square brackets.  Any left square bracket <code class="docutils literal notranslate"><span class="pre">[</span></code>
+must be followed by a right square bracket <code class="docutils literal notranslate"><span class="pre">]</span></code> to complete a list-defining
+expression.</p>
+<p>The syntax <code class="docutils literal notranslate"><span class="pre">l[1]</span></code> indexes the list by requesting the first (not the zero-th)
+element of the list.  Lists in Python are said to be zero indexed, since the
+zero-th element of the list <code class="docutils literal notranslate"><span class="pre">l</span></code> is the value <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>One can also index a list with a slice on integers, e.g. <code class="docutils literal notranslate"><span class="pre">0:2</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">l</span><span class="p">[:</span><span class="mi">1</span><span class="p">],</span> <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1, 2.1], [2.1, &#39;Chico State&#39;, True], [1], [1, &#39;Chico State&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Indexing lists with slices takes a fair bit of practice.  The above code creates
+a new list, which containes as elements sub-lists of the list <code class="docutils literal notranslate"><span class="pre">l</span></code>.  The zero-th
+sub list consists of the zero-th and first elements of <code class="docutils literal notranslate"><span class="pre">l</span></code>.  Notice though,
+despite the slice <code class="docutils literal notranslate"><span class="pre">0:2</span></code>, the second element of <code class="docutils literal notranslate"><span class="pre">l</span></code> is not retreived.  The index
+<code class="docutils literal notranslate"><span class="pre">a:b</span></code> thus indexes from a list all elements at position <code class="docutils literal notranslate"><span class="pre">a</span></code> up to but not
+including <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<p>The slice <code class="docutils literal notranslate"><span class="pre">1:</span></code> indexes the first element up to and including the last element.</p>
+<p>The slice <code class="docutils literal notranslate"><span class="pre">:1</span></code> indexes the zero-th element up to but not includes the first
+element.</p>
+<p>The slice <code class="docutils literal notranslate"><span class="pre">0:3:2</span></code> indexes the zeros-th and the second element, since the
+<code class="docutils literal notranslate"><span class="pre">:2</span></code> indicates steps of size <code class="docutils literal notranslate"><span class="pre">2</span></code> starting from index <code class="docutils literal notranslate"><span class="pre">0</span></code> and going up to
+index <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+<p>One can also index a list in reverse order.  Imagine wrapping the indices around
+the back of the list starting from the zero-th element.  Thus the <code class="docutils literal notranslate"><span class="pre">-1</span></code>-element
+is the last element.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>And for fun, even crazier indexing expressions exist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[True, &#39;Chico State&#39;, 2.1, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The slice <code class="docutils literal notranslate"><span class="pre">::-1</span></code> says to start at index <code class="docutils literal notranslate"><span class="pre">0</span></code>, go up to the last index, and take
+steps of size <code class="docutils literal notranslate"><span class="pre">-1</span></code>.  Hence, one gets a list in reverse order.</p>
+</section>
+<section id="dict">
+<h3>Dict<a class="headerlink" href="#dict" title="Permalink to this heading">#</a></h3>
+<p>A <code class="docutils literal notranslate"><span class="pre">dict</span></code> indexes its elements with keys.  In other computer science worlds, a
+Python <code class="docutils literal notranslate"><span class="pre">dict</span></code> might be called an associative container because it associates to
+each key a value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;MATH 131&quot;</span><span class="p">:</span> <span class="s2">&quot;Introduction to Python&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;MATH 450&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> 
+  <span class="s2">&quot;pi&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
+  <span class="s2">&quot;list&quot;</span><span class="p">:</span> <span class="n">l</span>
+  <span class="c1"># key: value,</span>
+<span class="p">}</span>
+<span class="n">d</span><span class="p">[</span><span class="s2">&quot;pi&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;MATH 131&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">dict</span></code> referenced by the name <code class="docutils literal notranslate"><span class="pre">d</span></code> is created using curcly braces, instead of
+square brackets like for a list.  Between the curly braces the pattern goes
+<code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code>, where the colon <code class="docutils literal notranslate"><span class="pre">:</span></code> distinguishes the key from the value.  There’s
+lost of options for the key types, but it’ll be easiest if we think of they keys
+as specifically type <code class="docutils literal notranslate"><span class="pre">str</span></code> for now.</p>
+<p>The dict <code class="docutils literal notranslate"><span class="pre">d</span></code> associates key <code class="docutils literal notranslate"><span class="pre">&quot;pi&quot;</span></code> the value stored in the variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, that we
+we created earlier.  The key <code class="docutils literal notranslate"><span class="pre">&quot;list&quot;</span></code> associates the list <code class="docutils literal notranslate"><span class="pre">l</span></code>.</p>
+<p>The options for indexing <code class="docutils literal notranslate"><span class="pre">dict</span></code>s are more restrictive than for <code class="docutils literal notranslate"><span class="pre">list</span></code>s.  There’s
+no slices here.  But one can mutate (think edit) a <code class="docutils literal notranslate"><span class="pre">dict</span></code> by indexing into a key
+that doesn’t previously exist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;sometimes too fancy&quot;</span>
+<span class="n">d</span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sometimes too fancy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>These data structures show up all over Python code.  Python <code class="docutils literal notranslate"><span class="pre">list</span></code>s are helpful
+when you want to contain (possibly multiple) data of not necessarily the same
+type, in an order that makes sense to index by sequential integers, and be able
+to reference the one container with one variable name.  Python <code class="docutils literal notranslate"><span class="pre">dict</span></code>s are
+helpful when the order of the contained elements does not necessarily make
+sequential sense and instead it is easier to associate the contained elements by
+key/name.</p>
+</section>
+</section>
+<section id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h2>
+<p>There are many more types built-in to Python and many more types not directly
+built-in.  Communities of programmers, like that of the data science community
+and before them the numerical computing communities, have built types into
+<strong>packages</strong> for very specific use-cases.  Think of packages as additional
+features one can add-on to Python when you need/want.</p>
+<p>TODO more about packages</p>
+<p>In the last sections of Week 01, we’ll introduce the Python packages Numpy and
+Pandas.</p>
+<p>The Python package numpy contains the type <code class="docutils literal notranslate"><span class="pre">array</span></code>, for containing homogenous
+types (different than <code class="docutils literal notranslate"><span class="pre">list</span></code>s and <code class="docutils literal notranslate"><span class="pre">dict</span></code>s which store heterogeneous types), and
+the package Pandas contains the type <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">Series</span></code>.  A <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is
+for tabular data, think spreadsheet data, where each column is a <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+</section>
+<section id="array">
+<h2>Array<a class="headerlink" href="#array" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="dataframes">
+<h2>DataFrames<a class="headerlink" href="#dataframes" title="Permalink to this heading">#</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">Pandas help page: DataFrame</a></p>
+</div>
 </section>
 </section>
 
@@ -454,12 +831,12 @@ See the YAML at the top of this page for example.</p></li>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="syllabus.html"
+       href="week-00.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Syllabus</p>
+        <p class="prev-next-title">Week 00: Start here</p>
       </div>
     </a>
     <a class="right-next"
@@ -486,8 +863,18 @@ See the YAML at the top of this page for example.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable">Variable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-types">Variable types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structures">Data structures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list">List</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dict">Dict</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array">Array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes">DataFrames</a></li>
 </ul>
   </nav></div>
 

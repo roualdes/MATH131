@@ -2,7 +2,7 @@
 
 ### Target Audience
 
- Anyone who wants to do their own data analysis! This is a primer to get the
+Anyone who wants to do their own data analysis! This is a primer to get the
 complete novice up and running with the basic knowledge of how to use the
 computer programming language Python for data analysis. Topics include: Python
 programming basics, importing data, properties of tidy data, visualizing data,
@@ -27,4 +27,4 @@ See the [syllabus](syllabus.md) for details about the current class offerings.
 
 ##### [Week 05: Putting it all together](week-05.md)
 
-##### [Week 06 and beyond][and-beyond.md]
+##### [Week 06 and beyond](and-beyond.md)
