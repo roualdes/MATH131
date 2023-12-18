@@ -5,8 +5,10 @@ format: jb-book
 root: intro
 chapters:
 - file: syllabus
+- file: week-00
 - file: week-01
 - file: week-02
 - file: week-03
 - file: week-04
 - file: week-05
+- file: and-beyond

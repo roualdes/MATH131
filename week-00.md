@@ -14,10 +14,19 @@ kernelspec:
 
 # Week 00: Start here
 
-### Lessons and Assignments
+MATH 131: Introduction to Python is a 1 unit, 5 week course offered at Chico
+State through the Department of Mathematics and Statistics.  The course consists
+Lessons and Assignments.  We will learn to code in the programming language
+Python using Google Colab notebooks.  Lessons, Assignments, and Google Colab
+notebooks are discussed in more detail below, and there is a link to a Google
+Colab notebook that better introduces this programming environment.
+
+### Lessons
 
 Lessons found on this website.  Lessons contain the explanations of what's to
 come in the assignments.  Examples and all.
+
+### Assignments
 
 For assignments, we'll use Google Colab with your username@mail.csuchico.edu
 account (same password as your username@csuchico.edu account).
@@ -36,9 +45,9 @@ We will use Google Colab for free, as part of your campus Google account
 username@mail.csuchico.edu.  The free aspect means we'll have to deal with some
 issues that don't otherwise come about if we were to install Python on our own
 personal machines.  I, Edward, have made the active choice to use Google Colab
-instead of teaching you how to installing Python on your personal machine,
+instead of teaching you how to install Python on your personal machine,
 because I believe we can get started faster this way.  If you want to follow
-along with this course using your different tools, please see the details on the
+along with this course using different tools, please see the details on the
 page [Week 06 and beyond][and-beyond.md].
 
 From here, there's really no better way to learn about Google Colab than to go
