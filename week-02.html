@@ -377,6 +377,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data">Missing data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summarize-data">Summarize data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-editing-new-variables">Creating/Editing new variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">Categorical variables</a></li>
 </ul>
             </nav>
         </div>
@@ -702,6 +703,26 @@ you do care about.</p>
 <img alt="_images/11374f3347613f02e4d06b4c86b9b91a75a9756fd08c3da682b72b709eff47f4.png" src="_images/11374f3347613f02e4d06b4c86b9b91a75a9756fd08c3da682b72b709eff47f4.png" />
 </div>
 </div>
+<p>The code equivalent of the last plot above is as follows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;conservation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>conservation
+lc              27
+domesticated    10
+vu               7
+en               4
+nt               4
+cd               2
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="summarize-data">
 <h2>Summarize data<a class="headerlink" href="#summarize-data" title="Permalink to this heading">#</a></h2>
@@ -846,6 +867,133 @@ about in <a class="reference internal" href="week-01.html#week-01-dataframes"><s
 </div>
 </div>
 </section>
+<section id="categorical-variables">
+<h2>Categorical variables<a class="headerlink" href="#categorical-variables" title="Permalink to this heading">#</a></h2>
+<p>A categorical variable is a variable that has names or labels as
+values.  We basically created a categorical variable above, with only
+two values <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code>, and named it <code class="docutils literal notranslate"><span class="pre">smrt</span></code>.  The only thing we
+haven’t done is convinced Python/Pandas to treat the variable <code class="docutils literal notranslate"><span class="pre">smrt</span></code>
+as if the elements are of type <code class="docutils literal notranslate"><span class="pre">category</span></code>.  Let’s fix this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;smrt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;smrt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+<span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;smrt&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     False
+1      True
+2     False
+3      True
+4     False
+      ...  
+78     True
+79    False
+80    False
+81    False
+82    False
+Name: smrt, Length: 83, dtype: category
+Categories (2, bool): [False, True]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Invariably with categorical variables, the categories you have are
+not what you want.  Let’s change the categories from <code class="docutils literal notranslate"><span class="pre">False</span></code> and <code class="docutils literal notranslate"><span class="pre">True</span></code> to
+something else.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;smrt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;smrt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">rename_categories</span><span class="p">({</span><span class="kc">False</span><span class="p">:</span> <span class="s2">&quot;nope&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">:</span> <span class="s2">&quot;yup&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There’s two things to note here.  First, the property <code class="docutils literal notranslate"><span class="pre">.cat</span></code> can only
+be called on a categorical Series; the elements must be recognized by
+Python/Pandas as type <code class="docutils literal notranslate"><span class="pre">category</span></code>.  Second, the argument to
+<code class="docutils literal notranslate"><span class="pre">.rename_categories</span></code> is a <code class="docutils literal notranslate"><span class="pre">dict</span></code> with keys equal to the categories
+that you have, but don’t want, and values equal to the categories you
+want.  The pattern in pseudo-code might be written as <code class="docutils literal notranslate"><span class="pre">{&quot;old&quot;:</span> <span class="pre">&quot;new&quot;}</span></code>.  The problem with this is that the keys don’t have to be of
+type <code class="docutils literal notranslate"><span class="pre">str</span></code>, as we saw above.</p>
+<p>We now have a variable with categories as names or labels,
+instead of <code class="docutils literal notranslate"><span class="pre">False</span></code> and <code class="docutils literal notranslate"><span class="pre">True</span></code>, we can develop more categories.  Let’s
+break up the <code class="docutils literal notranslate"><span class="pre">&quot;Nope&quot;</span></code>s into two groups: <code class="docutils literal notranslate"><span class="pre">&quot;meh&quot;</span></code> for so-so smart
+animals and <code class="docutils literal notranslate"><span class="pre">&quot;Nope&quot;</span></code>.  The <code class="docutils literal notranslate"><span class="pre">&quot;meh&quot;</span></code> group is in the middle.  In order
+to add this new category, we need to prime the Series <code class="docutils literal notranslate"><span class="pre">smrt</span></code> for the
+fact that we want to add a category that doesn’t yet exist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;smrt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;smrt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">add_categories</span><span class="p">([</span><span class="s2">&quot;meh&quot;</span><span class="p">,</span> <span class="s2">&quot;doh&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, let’s create a boolean Series which indicates the exact rows
+which should be labeled as <code class="docutils literal notranslate"><span class="pre">&quot;meh&quot;</span></code>.  The variable <code class="docutils literal notranslate"><span class="pre">meh_idx</span></code> is one
+boolean Series created with logical and <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> of two boolean Series.  In
+an expression such as <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&amp;</span> <span class="pre">b</span></code>, where <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are both boolean
+Series, each element of <code class="docutils literal notranslate"><span class="pre">a</span></code> is compared to each element of <code class="docutils literal notranslate"><span class="pre">b</span></code>.  When
+both elements are <code class="docutils literal notranslate"><span class="pre">True</span></code>, the corresponding element of <code class="docutils literal notranslate"><span class="pre">meh_idx</span></code> is
+<code class="docutils literal notranslate"><span class="pre">True</span></code>.  If either element is <code class="docutils literal notranslate"><span class="pre">False</span></code>, the corresponding element of
+<code class="docutils literal notranslate"><span class="pre">meh_idx</span></code> id <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meh_idx</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.004</span> <span class="o">&lt;=</span> <span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;brnbdywt&quot;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;brnbdywt&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.015</span><span class="p">)</span>
+<span class="n">msleep</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">meh_idx</span><span class="p">,</span> <span class="s2">&quot;smrt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;meh&quot;</span>
+<span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;smrt&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     nope
+1      yup
+2     nope
+3      yup
+4     nope
+      ... 
+78     yup
+79    nope
+80     meh
+81     meh
+82     meh
+Name: smrt, Length: 83, dtype: category
+Categories (4, object): [&#39;nope&#39;, &#39;yup&#39;, &#39;meh&#39;, &#39;doh&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Did you notice that I added the unused category <code class="docutils literal notranslate"><span class="pre">&quot;doh&quot;</span></code>?  On the
+one hand, this shows that you can add multiple new categories at once,
+just use a list.  On the other hand, you may very well end up with an
+unsed category after renaming various categories.  Here’s how you can
+remove any unused categories.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;smrt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;smrt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">remove_unused_categories</span><span class="p">()</span>
+<span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;smrt&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     nope
+1      yup
+2     nope
+3      yup
+4     nope
+      ... 
+78     yup
+79    nope
+80     meh
+81     meh
+82     meh
+Name: smrt, Length: 83, dtype: category
+Categories (3, object): [&#39;nope&#39;, &#39;yup&#39;, &#39;meh&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -916,6 +1064,7 @@ about in <a class="reference internal" href="week-01.html#week-01-dataframes"><s
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data">Missing data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summarize-data">Summarize data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-editing-new-variables">Creating/Editing new variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">Categorical variables</a></li>
 </ul>
   </nav></div>
 
