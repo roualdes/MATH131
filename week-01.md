@@ -20,13 +20,13 @@ kernelspec:
 
 This lesson is designed to explain the basics of programming in Python.
 
-* learn and practice computer science terms: variable, comment, call, function, arguments, default values, float, int, string, boolean, list, dict, object, packages, array, DataFrame, Series
+* learn and practice computer science terms: variable, comment, call, function, arguments, default values, float, int, string, boolean, list, dict, object, package, array, DataFrame, Series
 * calculate arithmetic operations
 * call functions and change default values
 * indexing
 * logical statements
-* control flow
-* DataFrame, some details
+* array
+* DataFrame, Series, some details
 
 ### Variable
 
@@ -213,7 +213,7 @@ surrounds, with square brackets, a comma separated list of values.
 Any left square bracket `[` must be followed by a right square bracket
 `]` to complete a list-defining expression.
 
-The syntax `l[1]` indexes the list by requesting the first (not the zero-th)
+The syntax `l[1]` indexes the list and retreives the first (not the zero-th)
 element of the list.  Lists in Python are said to be zero indexed, since the
 zero-th element of the list `l` is the value `1`.
 
@@ -226,7 +226,7 @@ One can also index a list with a slice of integers, e.g. `0:2`.
 Indexing lists with slices takes a fair bit of practice.  The above code creates
 a new unreferenced list, which containes as elements sub-lists of the list `l`.  The zero-th
 sub-list consists of the zero-th and first elements of `l`.  Notice though,
-despite the slice `0:2`, the second element of `l` is not retreived.  The index
+despite the slice `0:2`, the second element of `l` is not retreived.  The slice
 `a:b` indexes from a list all elements at position `a` up to but not
 including `b`.
 
@@ -276,18 +276,21 @@ d["pi"]
 
 The `dict` referenced by the name `d` is created using curcly braces,
 instead of square brackets like for a list.  Between the curly braces
-the pattern goes `key: value` pairs separated by commas, where the
-colon `:` distinguishes the key from the value.  There's lots of
-options for the key types, but it'll be easiest if we think of the
+the pattern repeats `key: value` pairs separated by commas, where the
+colon `:` distinguishes the key from the value.  There are lots of
+options for the key types, but it will be easiest if we think of the
 keys as specifically type `str` for now.
 
 The dict `d` associates with key `"pi"` the value stored in the variable
 `x`, that we created earlier.  The key `"list"` associates the list
 `l`.
 
-The options for indexing `dict`s are, in some sense, more restrictive
-than for `list`s.  There's no slices with `dict`s.  However, one can
-mutate (think edit) a `dict` by indexing into a key that doesn't exist.
+The options for indexing `dict`s are, in some sense, more restrictive than for
+`list`s.  There are no slices with `dict`s.  However, one can mutate (think
+edit) a `dict` by indexing into a key that doesn't exist in order to mutate the
+dict `d` and associate the new key with a specified value.  If the key happens
+to exist already, the equals sign below will instead over-write the value
+previously associated with the key.
 
 ```{code-cell}
 d["python"] = "seems fancy"
@@ -310,37 +313,39 @@ and before them the numerical computing community, have built types into
 **packages** for very specific use-cases.  Think of packages as additional
 features one can add-on to Python when you need/want.
 
-In the last sections of Week 01, we'll introduce the type `ndarray` from
-the Python packages NumPy and the types `DataFrame` and `Series` from
-the package Pandas.  Both of these packages are important for any data
-analysis using the programming language Python.
+In the last sections of Week 01, we'll introduce the type `ndarray` from the
+Python packages NumPy and the types `DataFrame` and `Series` from the package
+Pandas.  We'll explore the type `DataFrame` by example, using a dataset that is
+bundled with the plotting package plotnine.  All of these packages are important
+for any data analysis using the programming language Python.
 
-One must install and then import a package in order to use it.  The
-top of each Colab notebook will have code to install the necessary
+One must install and then import a package in order to use it.  At the
+top of each Colab notebook, I will have placed code to install the necessary
 packages into the notebook environment.  Once installed, to import the
-packages NumPy and Pandas, the following code is common.
+packages plotnine, NumPy, and Pandas, the following code is common.
 
 ```{code-cell}
+import plotnine
+
 import numpy as np
 import pandas as pd
 ```
 
-The general code used to import a package is `import package_name`,
-but for some packages it is common to rename the packages.  NumPy is
-often imported as `np`, so that anytime you need to reference any part
-of the NumPy package, you lead with `np`, e.g. `np.array`, `np.mean`,
-or `np.size`.  Similarly, the package Pandas is often renamed as `pd`.
+The general code used to import a package is `import package_name`, like shown
+for plotnine, but for some packages it is common to rename the packages.  NumPy
+is often imported as `np`, so that anytime you need to reference any part of the
+NumPy package, you lead with `np`, e.g. `np.array`, `np.mean`, or `np.size`.
+Similarly, the package Pandas is often renamed as `pd`.
 
 
 ### Array
 
-From the Python package NumPy, the type `ndarray` is used to contain
-multiple elements, all of the same type.  The name of the array type,
-`ndarray` is meant to be read as n-dimensional array.  Most commonly
-the element types of NumPy `ndarray`s are `bool`, `int`, or `float`,
-although it takes some getting used to because NumPy has named their
-own types (for reasons we won't cover).  The table below lists some of
-the Python types we discussed above and the analogous NumPy types that
+From the Python package NumPy, the type `ndarray` is used to contain multiple
+elements, all of the same type.  The name of the array type, `ndarray` is meant
+to stand for n-dimensional array.  The most common element types of NumPy
+`ndarray`s are `bool`, `int`, or `float`.  Although, for reasons we won't cover, NumPy
+uses its own types, analogous to the ones just mentioned.  The table below lists
+some of the Python types we discussed above and the analogous NumPy types that
 are often contained within a NumPy `ndarray`.
 
 | Python | NumPy |
@@ -361,7 +366,7 @@ a
 ```
 
 With a NumPy array, like `a` above, you can calculate the mean or the
-sum or the number of elements in the array with code like the
+sum of the number of elements in the array with code like the
 following.
 
 ```{note}
@@ -376,21 +381,21 @@ np.sum(a)
 np.size(a)
 ```
 
-The array `a` above is only one dimensional.  `np.ndarray`s, read as
-NumPy arrays, can be multidimensional, too, hence the type name
-`ndarray`.  The array `A` below is initialized to hold 2 dimensions of
-ones; two rows and three columns of ones, for a total of 6 ones.  Then
-`A` is multiplied by the mean of `a`.  Notice that the multiplication
-happens element-wise, that is each element of `A` is multiplied by
-`np.mean(a)`, and the output is the same shape that `A` was initialized
-to.
+The array `a` above is only one dimensional.  `np.ndarray`s, read as NumPy
+arrays, can be multidimensional, hence the name `ndarray`.  The array `A` below
+is initialized to hold 2 dimensions of ones; two rows and three columns of ones,
+for a total of 6 ones.  Then `A` is multiplied by the mean of `a`.  Notice that
+the multiplication happens element-wise, that is each element of `A` is
+multiplied by `np.mean(a)`, and the output is a new array with the same shape
+that `A` was initialized to.
 
 ```{code-cell}
 A = np.ones(shape = (2, 3))
 A * np.mean(a)
 ```
 
-Notice that the shape of `A` is effectively 2 rows, each of size 3.
+The shape of `A`, and this newly created, un-referenced array, is effectively 2
+rows, each of size 3.
 
 The function `np.shape` returns the shape of the array, while
 `np.size` returns the total number of elements in the array.
@@ -400,37 +405,36 @@ print(np.shape(A)) # print(...) forces printing
 np.size(A)
 ```
 
-There is lots more to say about NumPy's type `ndarray`.  For now, this
-is enough and we'll move on to Pandas `DataFrame` and `Series` types.
+There is a lot more to say about NumPy's type `ndarray`.  For now, this is
+enough and we'll move on to Pandas `DataFrame` and `Series` types, since we'll
+spend most time in this class using dataframes.
 
 ### DataFrames
 
 ```{note}
 
-To create a Pandas DataFrame, you normally need to execute `import
+To use the package Pandas, you normally need to execute `import
 Pandas as pd`.  Such a line of code only needs to happen once per
 notebook, and it should occur near the top of the notebook.  We will
-instead import a dataframe from the package plotnine.
+instead import a dataframe from the package plotnine for our example.
 
 ```
 
 The Python package Pandas has two important types for data analysis:
-`Series` and `DataFrame`.  The `DataFrame` type is used for tabular or
-rectangular data, think data that would fit well in a spreadsheet.
+`pd.Series` and `pd.DataFrame`.  The `pd.DataFrame` type is used for tabular or
+rectangular data; think data that would fit well in a spreadsheet.
 
-The type `Series` is intended to contain multiple elements, all of the
-same type.  In this aspect, `pd.Series` is similar to `np.ndarray`.
-Pandas created their own homogeneous type container, `pd.Series` to
-more naturally wrap multiple `pd.Series`s into a `pd.DataFrame`.  And
-that's exactly what a `pd.DataFrame` is, one container of multiple
-`pd.Series`, each of which has its own element type and makes up one
-column of the tabular data.  So a `pd.DataFrame` is a heterogeneous
-type container, made up of multiple homogeneous type columns.  A
-further requirement of a `pd.DataFrame` is that each contained
-`pd.Series` must have the same size, hence a `pd.DataFrame` holds
-rectangular data.
+The type `pd.Series` is intended to contain multiple elements, all of the same
+type.  In this aspect, `pd.Series` is similar to `np.ndarray`.  Pandas created
+their own homogeneous type container, `pd.Series` to more naturally wrap
+multiple `pd.Series`s into a DataFrame.  And that's exactly what `pd.DataFrame`
+is, one container of multiple Series, each of which has its own element type and
+makes up one column of the tabular data.  So `pd.DataFrame` is a heterogeneous
+type container, made up of multiple homogeneous type columns.  A further
+requirement of `pd.DataFrame` is that each contained Series must have the same
+size, hence `pd.DataFrame` holds rectangular data.
 
-Let's see an example.  We'll import the dataset `diamonds` from the
+Let's see an example.  We'll import the DataFrame `diamonds` from the
 Python package plotnine.
 
 ```{code-cell}
@@ -445,10 +449,10 @@ Each of the columns
 diamonds.columns
 ```
 
-has a name and each row corresponds to a row index, starting at index
-0, just like a `np.ndarray`.  Further, each column has one specific
-type of the elements contained in that colum.  The non-numeric type
-`category` is for columns which contain names or labels.
+has a name and each row corresponds to a row index, starting at index 0, just
+like a NumPy arrray.  Further, each column has one specific type for all the
+elements contained in that column.  The non-numeric type `category` is for
+columns which contain names or labels.
 
 ```{code-cell}
 diamonds.dtypes
@@ -456,12 +460,12 @@ diamonds.dtypes
 
 Notice that I accessed a property `.columns` of the dataset
 `diamonds`, just like we previously accessed types and functions from
-the packages NumPy or Pandas, e.g. `np.ndarray`, `np.mean`,
+the packages NumPy or Pandas, e.g. `np.array`, `np.mean`,
 `pd.DataFrame`.  We'll cover the details of such `.` access later.
-For now, let's continue to use such properties associated with a
-`pd.DataFrame` to learn about the type `pd.DataFrame`.
+For now, let's continue to use properties associated with a
+DataFrame to learn about the type `pd.DataFrame`.
 
-Each dataframe is two dimensional, so has a shape, a numer of rows,
+Each DataFrame is two dimensional, so has a shape, a numer of rows and
 number of columns, and a size.  There are 53,940 observations and 10
 variables in the `diamonds` dataset.
 
@@ -470,27 +474,25 @@ print(diamonds.shape)
 diamonds.size
 ```
 
-To index one column from a `pd.DataFrame`, use the associated property
-`pd.DataFrame.loc`.  Because the associated property `.loc` is not a
-function, but instead a property for which you index rows and/or
-columns, you should use squre brackets as we did for indexing `list`s
-and `dict`s.  Inside the square brackets goes an index for rows and
-then columns, separated by a comma, e.g. `pd.DataFrame.loc[rows,
+To index one column from a DataFrame, use the associated property `.loc`.
+Because the associated property `.loc` is not a function, but instead a property
+for which you index rows and/or columns, you should use squre brackets as we did
+for indexing `list`s and `dict`s.  Inside the square brackets goes an index for
+rows and then columns, separated by a comma, e.g. `pd.DataFrame.loc[rows,
 cols]`.
 
 ```{code-cell}
 diamonds.loc[:, "depth"]
 ```
 
-The colon `:` acts as a slice of `int`s indexing rows 0 up to and
-including the last row.  Check for yourself that the type of the
-indexed column is `pd.Series`.
+The colon `:` acts as a slice of `int`s indexing rows 0 up to and including the
+last row.  Check for yourself that the type of the retrieved column is
+`pd.Series`.
 
-Since each column is a `pd.Series`, which is analogous to a
-`np.ndarray`, you can calculate the size, mean, standard deviation,
-minimum, percentile/quantiles, or maximum of a `pd.DataFrame` column.
-Or you can use the function `describe` which is associated with both
-`pd.Series` and `pd.DataFrame` types.
+Since each column is a Series, which is analogous to `np.ndarray`, you can
+calculate the size, mean, standard deviation, minimum, percentile/quantiles, or
+maximum of a DataFrame column.  Or you can use the function `describe`
+which is associated with both `pd.Series` and `pd.DataFrame` types.
 
 ```{code-cell}
 depth = diamonds.loc[:, "depth"]
@@ -503,17 +505,18 @@ depth.describe()
 
 Only the columns with numeric types, `float64` or `int64` are
 `describe`d.  The columns of type `category` are automatically removed
-before the numerical summaries are calculated.
+before the numeric summaries are calculated.
 
 ```{code-cell}
 diamonds.describe()
 ```
 
-You can index a subset of rows with slices, but with `pd.DataFrame`s,
-a slice like `start:stop` will include the value `stop`.  The
-following code therefore retreives rows 2 up to **and including** 10,
-and both columns `"depth"` and `"clarity"`.  Check for yourself that
-the type of the object returned is `pd.DataFrame`.
+You can index a subset of rows with slices, but with `pd.DataFrame`s, a slice
+like `start:stop` will include the value `stop`.  The following code therefore
+retreives rows 2 up to **and including** 10, and both columns `"depth"` and
+`"clarity"`.  Notice that to get multiple columns, you must wrap the column
+names in a list.  Check for yourself that the type of the object returned is
+`pd.DataFrame`.
 
 ```{code-cell}
 diamonds.loc[2:10, ["depth", "clarity"]]
@@ -526,12 +529,12 @@ usual python slices, both the start and the stop are included"
 
 ```
 
-The options for indexing `pd.DataFrame`s and `pd.Series`s are, in some
-sense, more powerful than for `list`s.  Let's consider indexing by a
-`pd.Series` of booleans.  The variable `idx` is a boolean `pd.Series`
-that indexes all the rows where the logical statement is true, that is
-when a diamond's cut is deemed "Very Good".  All rows where a diamond's cut
-is deemed not "Very Good" are indexed with False.
+The options for indexing `pd.DataFrame`s and `pd.Series`s are, in some sense,
+more powerful than for `list`s.  Let's consider indexing by a Series of
+booleans.  The variable `idx` is a boolean Series that indexes all the rows
+where the logical statement is true, that is when a diamond's cut is equal to
+"Very Good".  All rows where a diamond's cut is not equal to "Very Good" are
+indexed with False.
 
 ```{code-cell}
 idx = diamonds.loc[:, "cut"] == "Very Good"
