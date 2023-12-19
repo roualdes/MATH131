@@ -14,40 +14,187 @@ kernelspec:
 
 # Week 02: Introduction to working with data
 
-Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See [the Notebooks with MyST Markdown documentation](https://jupyterbook.org/file-types/myst-notebooks.html) for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.
+### Learning objectives
 
-## An example cell
+In this lesson we will learn how to summarize data in a DataFrame, and
+do basic data management tasks such as making new variables, recoding
+data, and dealing with missing data.
 
-With MyST Markdown, you can define code cells with a directive like so:
+After completing this lesson, you should be able to
+
+* identify missing values in a dataset
+* summarize variables contained in a DataFrame
+* make new variables and insert them into a DataFrame
+* edit variables contained in a DataFrame
+
+Throughout we'll use the dataset `msleep` from the packages plotnine.
+
+### Preparation
+
+To follow along with this Lesson, please open the Colab notebook
+[Week-02-Notes](#TODO).  The first code cell of this notebook calls to
+the remote computer, on which the notebook is running, and installs
+the necessary packages.  For practice, you are repsonible for
+importing the necessary packages.
+
+### Missing data
+
+Missing data occurs when the value for a variable is missing.  Think
+of it as a blank cell in an spreadsheet.  Missing values can cause
+some problems during analysis, so let’s see how to detect missing
+values and how to work around them.
+
+Let's use the dataset `msleep` from the package plotnine.
 
 ```{code-cell}
-print(2 + 2)
+from plotnine.data import msleep
+
+import plotnine as pn
+import numpy as np
+
+msleep
 ```
 
-When your book is built, the contents of any `{code-cell}` blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.
+We can see that a few variables contain the value `NaN`, which stands for
+not-a-number.  These are the missing data.  Notice that only the first
+five and last five rows of the DataFrame are printed.  The ellipsis,
+..., in the middle row indicates not all rows are printed by default.
+So we may not be able to see all the variables with `NaN`s.  Each
+column/Series has a property `.hasnans` which returns `True` if the
+Series on which it is called has any `NaN`s.
 
-```{seealso}
-Jupyter Book uses [Jupytext](https://jupytext.readthedocs.io/en/latest/) to convert text-based files to notebooks, and can support [many other text-based notebook files](https://jupyterbook.org/file-types/jupytext.html).
+```{code-cell}
+msleep["conservation"].hasnans
 ```
 
-## Create a notebook with MyST Markdown
+Missing values are tricky to deal with in general.  Much of the time
+in Pandas, it seems like things just work out well for you.  For
+instance, calculating a mean or a standard deviation automatically
+ignores `NaN`s.
 
-MyST Markdown notebooks are defined by two things:
-
-1. YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-   See the YAML at the top of this page for example.
-2. The presence of `{code-cell}` directives, which will be executed with your book.
-
-That's all that is needed to get started!
-
-## Quickly add YAML metadata for MyST Notebooks
-
-If you have a markdown file and you'd like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:
-
+```{code-cell}
+np.mean(msleep["brainwt"])
 ```
-jupyter-book myst init path/to/markdownfile.md
+
+But other times, `NaN`s are not automatically ignored, and nothing
+about the code or its output tells you when `NaN`s are ignored or not.
+
+```{code-cell}
+np.size(msleep["brainwt"])
 ```
+
+The plotting package plotnine, by default, includes `NaN`s as its own
+category, which is undesirable.
+
+```{code-cell}
+p = pn.ggplot(data = msleep) + pn.geom_bar(pn.aes("conservation"))
+p.draw()
+```
+To remove the missing data from a plot, create a new DataFrame by
+dropping the mising data from the column of interest.  You should
+always specify the keyword argument `subset`, lest you drop all
+missing data, which might drop a row where the data is missing in a
+column you care less about and subsequently drops data from the row
+you do care about.
+
+```{code-cell}
+df = msleep.dropna(subset = "conservation")
+p = pn.ggplot(data = df) + pn.geom_bar(pn.aes("conservation"))
+p.draw()
+```
+
+### Summarize data
+
+In the subsection above, Missing data, we learned that accounting for
+missing data can be tricky.  The Pandas property
+`describe` which excludes `NaN` values.  Thus, you have a choice.  Use
+`np.size` if you want a count of the number of elements **including**
+missing data, `NaN`s.  Or use `.describe` if you want a count of the
+number of elements **excluding** missing data.
+
+Here, we call `.describe` on a Series of type `category` elements,
+that is a categorical variable named conservation.
+
+```{code-cell}
+msleep["conservation"].describe()
+```
+
+Here, we call `.describe` on a Series of type `float64` elements, that
+is a numeric variables named brainwt.
+
+```{code-cell}
+msleep["brainwt"].describe()
+```
+
+Since there is not much to be done with missing values other than
+count them, here is a line of code you can use to count the number of
+missing values.
+
+```{code-cell}
+nan_idx = msleep["conservation"].isna() 
+np.sum(nan_idx)
+```
+
+The property/function `.isna` returns a boolean Series where each
+missing value is indexed by `True` and each non-missing value is
+indexed by `False`.  Since `True` is equivalent to the number 1 and
+`False` is equivalent to 0 in Python, we can simply sum up the number
+of `True`s and `False`s to count the number of missing data.
+
+### Creating/Editing new variables
+
+Imagine you want to create a new variable `brnbdywt` in the DataFrame
+`msleep`.  This new variable might tell you something about how smart
+the animal is.  The bigger the brain to body weight ratio, maybe the
+smarter the animal is.
+
+Just like for a `dict`, you can index into a DataFrame with a column
+name that does not yet exist, so long as you first assign to that
+column with some expression.  For instance, let's create a new
+variable `brnbdywt` inside the DataFrame `msleep`, and assign to it
+the ratio of the columns `brainwt` and `bodywt`.
+
+```{code-cell}
+msleep["brnbdywt"] = msleep["brainwt"] / msleep["bodywt"]
+```
+
+The division on the right hand side of `=` is done element-wise.
+Therefore, the Series created by the division of two Series has the
+same size as every column in `msleep`.  We have thus assigned to the
+new column `brnbdywt` a new variable that was created by the ratio of
+`brainwt` to `bodywt`.
+
+```{code-cell}
+msleep["brnbdywt"].describe()
+```
+
+We can take this one step further.  Let's create a new boolean
+variable named `smrt`, which will hold `True` whenever an animal is in
+the top 25% of the brain to body weight ratio and `False` otherwise.
+We start by creating the new column and making every value equal to
+`False`.
+
+```{code-cell}
+msleep["smrt"] = False
+```
+
+Since the right hand side of the equals is scalar, just one
+value, it is recycled as much as necessary to create a new column in
+`msleep` to keep the requirement that every column of a DataFrame has
+the same size.
+
+Next, we'll create a boolean Series that indicates when an animal
+qualifies as `smrt`.  Then, we over-write with the value `True` just
+those rows for which we've identified a `smrt` animal.  Hence, we can
+edit a variable in a DataFrame using the indexing strategy we learned
+about in [Week 01: DataFrames](week-01-dataframes).
+
+```{code-cell}
+smrt_idx = msleep["brnbdywt"] >= 0.015
+msleep.loc[smrt_idx, "smrt"] = True
+```
+
+
+
+
+

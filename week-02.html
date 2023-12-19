@@ -372,9 +372,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation">Preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data">Missing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summarize-data">Summarize data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-editing-new-variables">Creating/Editing new variables</a></li>
 </ul>
             </nav>
         </div>
@@ -388,47 +390,460 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-02-introduction-to-working-with-data">
 <h1>Week 02: Introduction to working with data<a class="headerlink" href="#week-02-introduction-to-working-with-data" title="Permalink to this heading">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Permalink to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
+<section id="learning-objectives">
+<h2>Learning objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p>In this lesson we will learn how to summarize data in a DataFrame, and
+do basic data management tasks such as making new variables, recoding
+data, and dealing with missing data.</p>
+<p>After completing this lesson, you should be able to</p>
+<ul class="simple">
+<li><p>identify missing values in a dataset</p></li>
+<li><p>summarize variables contained in a DataFrame</p></li>
+<li><p>make new variables and insert them into a DataFrame</p></li>
+<li><p>edit variables contained in a DataFrame</p></li>
+</ul>
+<p>Throughout we’ll use the dataset <code class="docutils literal notranslate"><span class="pre">msleep</span></code> from the packages plotnine.</p>
+</section>
+<section id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this heading">#</a></h2>
+<p>To follow along with this Lesson, please open the Colab notebook
+<span class="xref myst">Week-02-Notes</span>.  The first code cell of this notebook calls to
+the remote computer, on which the notebook is running, and installs
+the necessary packages.  For practice, you are repsonible for
+importing the necessary packages.</p>
+</section>
+<section id="missing-data">
+<h2>Missing data<a class="headerlink" href="#missing-data" title="Permalink to this heading">#</a></h2>
+<p>Missing data occurs when the value for a variable is missing.  Think
+of it as a blank cell in an spreadsheet.  Missing values can cause
+some problems during analysis, so let’s see how to detect missing
+values and how to work around them.</p>
+<p>Let’s use the dataset <code class="docutils literal notranslate"><span class="pre">msleep</span></code> from the package plotnine.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plotnine.data</span> <span class="kn">import</span> <span class="n">msleep</span>
+
+<span class="kn">import</span> <span class="nn">plotnine</span> <span class="k">as</span> <span class="nn">pn</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">msleep</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>genus</th>
+      <th>vore</th>
+      <th>order</th>
+      <th>conservation</th>
+      <th>sleep_total</th>
+      <th>sleep_rem</th>
+      <th>sleep_cycle</th>
+      <th>awake</th>
+      <th>brainwt</th>
+      <th>bodywt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Cheetah</td>
+      <td>Acinonyx</td>
+      <td>carni</td>
+      <td>Carnivora</td>
+      <td>lc</td>
+      <td>12.1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11.9</td>
+      <td>NaN</td>
+      <td>50.000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Owl monkey</td>
+      <td>Aotus</td>
+      <td>omni</td>
+      <td>Primates</td>
+      <td>NaN</td>
+      <td>17.0</td>
+      <td>1.8</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>0.01550</td>
+      <td>0.480</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Mountain beaver</td>
+      <td>Aplodontia</td>
+      <td>herbi</td>
+      <td>Rodentia</td>
+      <td>nt</td>
+      <td>14.4</td>
+      <td>2.4</td>
+      <td>NaN</td>
+      <td>9.6</td>
+      <td>NaN</td>
+      <td>1.350</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Greater short-tailed shrew</td>
+      <td>Blarina</td>
+      <td>omni</td>
+      <td>Soricomorpha</td>
+      <td>lc</td>
+      <td>14.9</td>
+      <td>2.3</td>
+      <td>0.133333</td>
+      <td>9.1</td>
+      <td>0.00029</td>
+      <td>0.019</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Cow</td>
+      <td>Bos</td>
+      <td>herbi</td>
+      <td>Artiodactyla</td>
+      <td>domesticated</td>
+      <td>4.0</td>
+      <td>0.7</td>
+      <td>0.666667</td>
+      <td>20.0</td>
+      <td>0.42300</td>
+      <td>600.000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>Tree shrew</td>
+      <td>Tupaia</td>
+      <td>omni</td>
+      <td>Scandentia</td>
+      <td>NaN</td>
+      <td>8.9</td>
+      <td>2.6</td>
+      <td>0.233333</td>
+      <td>15.1</td>
+      <td>0.00250</td>
+      <td>0.104</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>Bottle-nosed dolphin</td>
+      <td>Tursiops</td>
+      <td>carni</td>
+      <td>Cetacea</td>
+      <td>NaN</td>
+      <td>5.2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18.8</td>
+      <td>NaN</td>
+      <td>173.330</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>Genet</td>
+      <td>Genetta</td>
+      <td>carni</td>
+      <td>Carnivora</td>
+      <td>NaN</td>
+      <td>6.3</td>
+      <td>1.3</td>
+      <td>NaN</td>
+      <td>17.7</td>
+      <td>0.01750</td>
+      <td>2.000</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>Arctic fox</td>
+      <td>Vulpes</td>
+      <td>carni</td>
+      <td>Carnivora</td>
+      <td>NaN</td>
+      <td>12.5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11.5</td>
+      <td>0.04450</td>
+      <td>3.380</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>Red fox</td>
+      <td>Vulpes</td>
+      <td>carni</td>
+      <td>Carnivora</td>
+      <td>NaN</td>
+      <td>9.8</td>
+      <td>2.4</td>
+      <td>0.350000</td>
+      <td>14.2</td>
+      <td>0.05040</td>
+      <td>4.230</td>
+    </tr>
+  </tbody>
+</table>
+<p>83 rows × 11 columns</p>
+</div></div></div>
+</div>
+<p>We can see that a few variables contain the value <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, which stands for
+not-a-number.  These are the missing data.  Notice that only the first
+five and last five rows of the DataFrame are printed.  The ellipsis,
+…, in the middle row indicates not all rows are printed by default.
+So we may not be able to see all the variables with <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s.  Each
+column/Series has a property <code class="docutils literal notranslate"><span class="pre">.hasnans</span></code> which returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the
+Series on which it is called has any <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;conservation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">hasnans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
 </div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
+<p>Missing values are tricky to deal with in general.  Much of the time
+in Pandas, it seems like things just work out well for you.  For
+instance, calculating a mean or a standard deviation automatically
+ignores <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;brainwt&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.28158142857142854
+</pre></div>
+</div>
+</div>
+</div>
+<p>But other times, <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s are not automatically ignored, and nothing
+about the code or its output tells you when <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s are ignored or not.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;brainwt&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>83
+</pre></div>
+</div>
+</div>
+</div>
+<p>The plotting package plotnine, by default, includes <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s as its own
+category, which is undesirable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s2">&quot;conservation&quot;</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e9d672cde92539cf60be43528322ba8589560b0743a2d2201840dd5337f76204.png" src="_images/e9d672cde92539cf60be43528322ba8589560b0743a2d2201840dd5337f76204.png" />
+</div>
+</div>
+<p>To remove the missing data from a plot, create a new DataFrame by
+dropping the mising data from the column of interest.  You should
+always specify the keyword argument <code class="docutils literal notranslate"><span class="pre">subset</span></code>, lest you drop all
+missing data, which might drop a row where the data is missing in a
+column you care less about and subsequently drops data from the row
+you do care about.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">msleep</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span> <span class="o">=</span> <span class="s2">&quot;conservation&quot;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s2">&quot;conservation&quot;</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/11374f3347613f02e4d06b4c86b9b91a75a9756fd08c3da682b72b709eff47f4.png" src="_images/11374f3347613f02e4d06b4c86b9b91a75a9756fd08c3da682b72b709eff47f4.png" />
+</div>
 </div>
 </section>
-<section id="create-a-notebook-with-myst-markdown">
-<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Permalink to this heading">#</a></h2>
-<p>MyST Markdown notebooks are defined by two things:</p>
-<ol class="arabic simple">
-<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-See the YAML at the top of this page for example.</p></li>
-<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
-</ol>
-<p>That’s all that is needed to get started!</p>
-</section>
-<section id="quickly-add-yaml-metadata-for-myst-notebooks">
-<h2>Quickly add YAML metadata for MyST Notebooks<a class="headerlink" href="#quickly-add-yaml-metadata-for-myst-notebooks" title="Permalink to this heading">#</a></h2>
-<p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
+<section id="summarize-data">
+<h2>Summarize data<a class="headerlink" href="#summarize-data" title="Permalink to this heading">#</a></h2>
+<p>In the subsection above, Missing data, we learned that accounting for
+missing data can be tricky.  The Pandas property
+<code class="docutils literal notranslate"><span class="pre">describe</span></code> which excludes <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.  Thus, you have a choice.  Use
+<code class="docutils literal notranslate"><span class="pre">np.size</span></code> if you want a count of the number of elements <strong>including</strong>
+missing data, <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s.  Or use <code class="docutils literal notranslate"><span class="pre">.describe</span></code> if you want a count of the
+number of elements <strong>excluding</strong> missing data.</p>
+<p>Here, we call <code class="docutils literal notranslate"><span class="pre">.describe</span></code> on a Series of type <code class="docutils literal notranslate"><span class="pre">category</span></code> elements,
+that is a categorical variable named conservation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;conservation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count     54
+unique     6
+top       lc
+freq      27
+Name: conservation, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we call <code class="docutils literal notranslate"><span class="pre">.describe</span></code> on a Series of type <code class="docutils literal notranslate"><span class="pre">float64</span></code> elements, that
+is a numeric variables named brainwt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;brainwt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    56.000000
+mean      0.281581
+std       0.976414
+min       0.000140
+25%       0.002900
+50%       0.012400
+75%       0.125500
+max       5.712000
+Name: brainwt, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since there is not much to be done with missing values other than
+count them, here is a line of code you can use to count the number of
+missing values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nan_idx</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;conservation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span> 
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">nan_idx</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29
+</pre></div>
+</div>
+</div>
+</div>
+<p>The property/function <code class="docutils literal notranslate"><span class="pre">.isna</span></code> returns a boolean Series where each
+missing value is indexed by <code class="docutils literal notranslate"><span class="pre">True</span></code> and each non-missing value is
+indexed by <code class="docutils literal notranslate"><span class="pre">False</span></code>.  Since <code class="docutils literal notranslate"><span class="pre">True</span></code> is equivalent to the number 1 and
+<code class="docutils literal notranslate"><span class="pre">False</span></code> is equivalent to 0 in Python, we can simply sum up the number
+of <code class="docutils literal notranslate"><span class="pre">True</span></code>s and <code class="docutils literal notranslate"><span class="pre">False</span></code>s to count the number of missing data.</p>
+</section>
+<section id="creating-editing-new-variables">
+<h2>Creating/Editing new variables<a class="headerlink" href="#creating-editing-new-variables" title="Permalink to this heading">#</a></h2>
+<p>Imagine you want to create a new variable <code class="docutils literal notranslate"><span class="pre">brnbdywt</span></code> in the DataFrame
+<code class="docutils literal notranslate"><span class="pre">msleep</span></code>.  This new variable might tell you something about how smart
+the animal is.  The bigger the brain to body weight ratio, maybe the
+smarter the animal is.</p>
+<p>Just like for a <code class="docutils literal notranslate"><span class="pre">dict</span></code>, you can index into a DataFrame with a column
+name that does not yet exist, so long as you first assign to that
+column with some expression.  For instance, let’s create a new
+variable <code class="docutils literal notranslate"><span class="pre">brnbdywt</span></code> inside the DataFrame <code class="docutils literal notranslate"><span class="pre">msleep</span></code>, and assign to it
+the ratio of the columns <code class="docutils literal notranslate"><span class="pre">brainwt</span></code> and <code class="docutils literal notranslate"><span class="pre">bodywt</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;brnbdywt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;brainwt&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;bodywt&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The division on the right hand side of <code class="docutils literal notranslate"><span class="pre">=</span></code> is done element-wise.
+Therefore, the Series created by the division of two Series has the
+same size as every column in <code class="docutils literal notranslate"><span class="pre">msleep</span></code>.  We have thus assigned to the
+new column <code class="docutils literal notranslate"><span class="pre">brnbdywt</span></code> a new variable that was created by the ratio of
+<code class="docutils literal notranslate"><span class="pre">brainwt</span></code> to <code class="docutils literal notranslate"><span class="pre">bodywt</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;brnbdywt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    56.000000
+mean      0.010356
+std       0.009251
+min       0.000705
+25%       0.003794
+50%       0.006956
+75%       0.015244
+max       0.039604
+Name: brnbdywt, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can take this one step further.  Let’s create a new boolean
+variable named <code class="docutils literal notranslate"><span class="pre">smrt</span></code>, which will hold <code class="docutils literal notranslate"><span class="pre">True</span></code> whenever an animal is in
+the top 25% of the brain to body weight ratio and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.
+We start by creating the new column and making every value equal to
+<code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;smrt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the right hand side of the equals is scalar, just one
+value, it is recycled as much as necessary to create a new column in
+<code class="docutils literal notranslate"><span class="pre">msleep</span></code> to keep the requirement that every column of a DataFrame has
+the same size.</p>
+<p>Next, we’ll create a boolean Series that indicates when an animal
+qualifies as <code class="docutils literal notranslate"><span class="pre">smrt</span></code>.  Then, we over-write with the value <code class="docutils literal notranslate"><span class="pre">True</span></code> just
+those rows for which we’ve identified a <code class="docutils literal notranslate"><span class="pre">smrt</span></code> animal.  Hence, we can
+edit a variable in a DataFrame using the indexing strategy we learned
+about in <a class="reference internal" href="week-01.html#week-01-dataframes"><span class="std std-ref">Week 01: DataFrames</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smrt_idx</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;brnbdywt&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.015</span>
+<span class="n">msleep</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">smrt_idx</span><span class="p">,</span> <span class="s2">&quot;smrt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -496,9 +911,11 @@ See the YAML at the top of this page for example.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation">Preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data">Missing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summarize-data">Summarize data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-editing-new-variables">Creating/Editing new variables</a></li>
 </ul>
   </nav></div>
 
