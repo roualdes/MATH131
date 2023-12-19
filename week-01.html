@@ -402,13 +402,13 @@ document.write(`
 <h2>Learning objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
 <p>This lesson is designed to explain the basics of programming in Python.</p>
 <ul class="simple">
-<li><p>learn and practice computer science terms: variable, comment, call, function, arguments, default values, float, int, string, boolean, list, dict, object, packages, array, DataFrame, Series</p></li>
+<li><p>learn and practice computer science terms: variable, comment, call, function, arguments, default values, float, int, string, boolean, list, dict, object, package, array, DataFrame, Series</p></li>
 <li><p>calculate arithmetic operations</p></li>
 <li><p>call functions and change default values</p></li>
 <li><p>indexing</p></li>
 <li><p>logical statements</p></li>
-<li><p>control flow</p></li>
-<li><p>DataFrame, some details</p></li>
+<li><p>array</p></li>
+<li><p>DataFrame, Series, some details</p></li>
 </ul>
 </section>
 <section id="variable">
@@ -661,7 +661,7 @@ then indexes the first element of the list <code class="docutils literal notrans
 surrounds, with square brackets, a comma separated list of values.
 Any left square bracket <code class="docutils literal notranslate"><span class="pre">[</span></code> must be followed by a right square bracket
 <code class="docutils literal notranslate"><span class="pre">]</span></code> to complete a list-defining expression.</p>
-<p>The syntax <code class="docutils literal notranslate"><span class="pre">l[1]</span></code> indexes the list by requesting the first (not the zero-th)
+<p>The syntax <code class="docutils literal notranslate"><span class="pre">l[1]</span></code> indexes the list and retreives the first (not the zero-th)
 element of the list.  Lists in Python are said to be zero indexed, since the
 zero-th element of the list <code class="docutils literal notranslate"><span class="pre">l</span></code> is the value <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
 <p>One can also index a list with a slice of integers, e.g. <code class="docutils literal notranslate"><span class="pre">0:2</span></code>.</p>
@@ -680,7 +680,7 @@ zero-th element of the list <code class="docutils literal notranslate"><span cla
 <p>Indexing lists with slices takes a fair bit of practice.  The above code creates
 a new unreferenced list, which containes as elements sub-lists of the list <code class="docutils literal notranslate"><span class="pre">l</span></code>.  The zero-th
 sub-list consists of the zero-th and first elements of <code class="docutils literal notranslate"><span class="pre">l</span></code>.  Notice though,
-despite the slice <code class="docutils literal notranslate"><span class="pre">0:2</span></code>, the second element of <code class="docutils literal notranslate"><span class="pre">l</span></code> is not retreived.  The index
+despite the slice <code class="docutils literal notranslate"><span class="pre">0:2</span></code>, the second element of <code class="docutils literal notranslate"><span class="pre">l</span></code> is not retreived.  The slice
 <code class="docutils literal notranslate"><span class="pre">a:b</span></code> indexes from a list all elements at position <code class="docutils literal notranslate"><span class="pre">a</span></code> up to but not
 including <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
 <p>The slice <code class="docutils literal notranslate"><span class="pre">1:</span></code> indexes the first element up to and including the last element.</p>
@@ -746,16 +746,19 @@ each key a value.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">dict</span></code> referenced by the name <code class="docutils literal notranslate"><span class="pre">d</span></code> is created using curcly braces,
 instead of square brackets like for a list.  Between the curly braces
-the pattern goes <code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code> pairs separated by commas, where the
-colon <code class="docutils literal notranslate"><span class="pre">:</span></code> distinguishes the key from the value.  There’s lots of
-options for the key types, but it’ll be easiest if we think of the
+the pattern repeats <code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code> pairs separated by commas, where the
+colon <code class="docutils literal notranslate"><span class="pre">:</span></code> distinguishes the key from the value.  There are lots of
+options for the key types, but it will be easiest if we think of the
 keys as specifically type <code class="docutils literal notranslate"><span class="pre">str</span></code> for now.</p>
 <p>The dict <code class="docutils literal notranslate"><span class="pre">d</span></code> associates with key <code class="docutils literal notranslate"><span class="pre">&quot;pi&quot;</span></code> the value stored in the variable
 <code class="docutils literal notranslate"><span class="pre">x</span></code>, that we created earlier.  The key <code class="docutils literal notranslate"><span class="pre">&quot;list&quot;</span></code> associates the list
 <code class="docutils literal notranslate"><span class="pre">l</span></code>.</p>
-<p>The options for indexing <code class="docutils literal notranslate"><span class="pre">dict</span></code>s are, in some sense, more restrictive
-than for <code class="docutils literal notranslate"><span class="pre">list</span></code>s.  There’s no slices with <code class="docutils literal notranslate"><span class="pre">dict</span></code>s.  However, one can
-mutate (think edit) a <code class="docutils literal notranslate"><span class="pre">dict</span></code> by indexing into a key that doesn’t exist.</p>
+<p>The options for indexing <code class="docutils literal notranslate"><span class="pre">dict</span></code>s are, in some sense, more restrictive than for
+<code class="docutils literal notranslate"><span class="pre">list</span></code>s.  There are no slices with <code class="docutils literal notranslate"><span class="pre">dict</span></code>s.  However, one can mutate (think
+edit) a <code class="docutils literal notranslate"><span class="pre">dict</span></code> by indexing into a key that doesn’t exist in order to mutate the
+dict <code class="docutils literal notranslate"><span class="pre">d</span></code> and associate the new key with a specified value.  If the key happens
+to exist already, the equals sign below will instead over-write the value
+previously associated with the key.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;seems fancy&quot;</span>
@@ -785,37 +788,39 @@ built-in.  Communities of programmers, like that of the data science community
 and before them the numerical computing community, have built types into
 <strong>packages</strong> for very specific use-cases.  Think of packages as additional
 features one can add-on to Python when you need/want.</p>
-<p>In the last sections of Week 01, we’ll introduce the type <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> from
-the Python packages NumPy and the types <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">Series</span></code> from
-the package Pandas.  Both of these packages are important for any data
-analysis using the programming language Python.</p>
-<p>One must install and then import a package in order to use it.  The
-top of each Colab notebook will have code to install the necessary
+<p>In the last sections of Week 01, we’ll introduce the type <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> from the
+Python packages NumPy and the types <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">Series</span></code> from the package
+Pandas.  We’ll explore the type <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> by example, using a dataset that is
+bundled with the plotting package plotnine.  All of these packages are important
+for any data analysis using the programming language Python.</p>
+<p>One must install and then import a package in order to use it.  At the
+top of each Colab notebook, I will have placed code to install the necessary
 packages into the notebook environment.  Once installed, to import the
-packages NumPy and Pandas, the following code is common.</p>
+packages plotnine, NumPy, and Pandas, the following code is common.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotnine</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The general code used to import a package is <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">package_name</span></code>,
-but for some packages it is common to rename the packages.  NumPy is
-often imported as <code class="docutils literal notranslate"><span class="pre">np</span></code>, so that anytime you need to reference any part
-of the NumPy package, you lead with <code class="docutils literal notranslate"><span class="pre">np</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">np.array</span></code>, <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>,
-or <code class="docutils literal notranslate"><span class="pre">np.size</span></code>.  Similarly, the package Pandas is often renamed as <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
+<p>The general code used to import a package is <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">package_name</span></code>, like shown
+for plotnine, but for some packages it is common to rename the packages.  NumPy
+is often imported as <code class="docutils literal notranslate"><span class="pre">np</span></code>, so that anytime you need to reference any part of the
+NumPy package, you lead with <code class="docutils literal notranslate"><span class="pre">np</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">np.array</span></code>, <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>, or <code class="docutils literal notranslate"><span class="pre">np.size</span></code>.
+Similarly, the package Pandas is often renamed as <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
 </section>
 <section id="array">
 <h2>Array<a class="headerlink" href="#array" title="Permalink to this heading">#</a></h2>
-<p>From the Python package NumPy, the type <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> is used to contain
-multiple elements, all of the same type.  The name of the array type,
-<code class="docutils literal notranslate"><span class="pre">ndarray</span></code> is meant to be read as n-dimensional array.  Most commonly
-the element types of NumPy <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>s are <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, or <code class="docutils literal notranslate"><span class="pre">float</span></code>,
-although it takes some getting used to because NumPy has named their
-own types (for reasons we won’t cover).  The table below lists some of
-the Python types we discussed above and the analogous NumPy types that
+<p>From the Python package NumPy, the type <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> is used to contain multiple
+elements, all of the same type.  The name of the array type, <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> is meant
+to stand for n-dimensional array.  The most common element types of NumPy
+<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>s are <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, or <code class="docutils literal notranslate"><span class="pre">float</span></code>.  Although, for reasons we won’t cover, NumPy
+uses its own types, analogous to the ones just mentioned.  The table below lists
+some of the Python types we discussed above and the analogous NumPy types that
 are often contained within a NumPy <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p>
 <table class="table">
 <thead>
@@ -854,7 +859,7 @@ one element of our input list contains a <code class="docutils literal notransla
 </div>
 </div>
 <p>With a NumPy array, like <code class="docutils literal notranslate"><span class="pre">a</span></code> above, you can calculate the mean or the
-sum or the number of elements in the array with code like the
+sum of the number of elements in the array with code like the
 following.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -874,14 +879,13 @@ following.</p>
 </div>
 </div>
 </div>
-<p>The array <code class="docutils literal notranslate"><span class="pre">a</span></code> above is only one dimensional.  <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>s, read as
-NumPy arrays, can be multidimensional, too, hence the type name
-<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.  The array <code class="docutils literal notranslate"><span class="pre">A</span></code> below is initialized to hold 2 dimensions of
-ones; two rows and three columns of ones, for a total of 6 ones.  Then
-<code class="docutils literal notranslate"><span class="pre">A</span></code> is multiplied by the mean of <code class="docutils literal notranslate"><span class="pre">a</span></code>.  Notice that the multiplication
-happens element-wise, that is each element of <code class="docutils literal notranslate"><span class="pre">A</span></code> is multiplied by
-<code class="docutils literal notranslate"><span class="pre">np.mean(a)</span></code>, and the output is the same shape that <code class="docutils literal notranslate"><span class="pre">A</span></code> was initialized
-to.</p>
+<p>The array <code class="docutils literal notranslate"><span class="pre">a</span></code> above is only one dimensional.  <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>s, read as NumPy
+arrays, can be multidimensional, hence the name <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.  The array <code class="docutils literal notranslate"><span class="pre">A</span></code> below
+is initialized to hold 2 dimensions of ones; two rows and three columns of ones,
+for a total of 6 ones.  Then <code class="docutils literal notranslate"><span class="pre">A</span></code> is multiplied by the mean of <code class="docutils literal notranslate"><span class="pre">a</span></code>.  Notice that
+the multiplication happens element-wise, that is each element of <code class="docutils literal notranslate"><span class="pre">A</span></code> is
+multiplied by <code class="docutils literal notranslate"><span class="pre">np.mean(a)</span></code>, and the output is a new array with the same shape
+that <code class="docutils literal notranslate"><span class="pre">A</span></code> was initialized to.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
@@ -896,7 +900,8 @@ to.</p>
 </div>
 </div>
 </div>
-<p>Notice that the shape of <code class="docutils literal notranslate"><span class="pre">A</span></code> is effectively 2 rows, each of size 3.</p>
+<p>The shape of <code class="docutils literal notranslate"><span class="pre">A</span></code>, and this newly created, un-referenced array, is effectively 2
+rows, each of size 3.</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">np.shape</span></code> returns the shape of the array, while
 <code class="docutils literal notranslate"><span class="pre">np.size</span></code> returns the total number of elements in the array.</p>
 <div class="cell docutils container">
@@ -915,32 +920,31 @@ to.</p>
 </div>
 </div>
 </div>
-<p>There is lots more to say about NumPy’s type <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.  For now, this
-is enough and we’ll move on to Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">Series</span></code> types.</p>
+<p>There is a lot more to say about NumPy’s type <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.  For now, this is
+enough and we’ll move on to Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">Series</span></code> types, since we’ll
+spend most time in this class using dataframes.</p>
 </section>
 <section id="dataframes">
 <h2>DataFrames<a class="headerlink" href="#dataframes" title="Permalink to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To create a Pandas DataFrame, you normally need to execute <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">Pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code>.  Such a line of code only needs to happen once per
+<p>To use the package Pandas, you normally need to execute <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">Pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code>.  Such a line of code only needs to happen once per
 notebook, and it should occur near the top of the notebook.  We will
-instead import a dataframe from the package plotnine.</p>
+instead import a dataframe from the package plotnine for our example.</p>
 </div>
 <p>The Python package Pandas has two important types for data analysis:
-<code class="docutils literal notranslate"><span class="pre">Series</span></code> and <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.  The <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> type is used for tabular or
-rectangular data, think data that would fit well in a spreadsheet.</p>
-<p>The type <code class="docutils literal notranslate"><span class="pre">Series</span></code> is intended to contain multiple elements, all of the
-same type.  In this aspect, <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>.
-Pandas created their own homogeneous type container, <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> to
-more naturally wrap multiple <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>s into a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>.  And
-that’s exactly what a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> is, one container of multiple
-<code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>, each of which has its own element type and makes up one
-column of the tabular data.  So a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> is a heterogeneous
-type container, made up of multiple homogeneous type columns.  A
-further requirement of a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> is that each contained
-<code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> must have the same size, hence a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> holds
-rectangular data.</p>
-<p>Let’s see an example.  We’ll import the dataset <code class="docutils literal notranslate"><span class="pre">diamonds</span></code> from the
+<code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>.  The <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> type is used for tabular or
+rectangular data; think data that would fit well in a spreadsheet.</p>
+<p>The type <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> is intended to contain multiple elements, all of the same
+type.  In this aspect, <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>.  Pandas created
+their own homogeneous type container, <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> to more naturally wrap
+multiple <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>s into a DataFrame.  And that’s exactly what <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>
+is, one container of multiple Series, each of which has its own element type and
+makes up one column of the tabular data.  So <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> is a heterogeneous
+type container, made up of multiple homogeneous type columns.  A further
+requirement of <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> is that each contained Series must have the same
+size, hence <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> holds rectangular data.</p>
+<p>Let’s see an example.  We’ll import the DataFrame <code class="docutils literal notranslate"><span class="pre">diamonds</span></code> from the
 Python package plotnine.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1145,10 +1149,10 @@ Python package plotnine.</p>
 </div>
 </div>
 </div>
-<p>has a name and each row corresponds to a row index, starting at index
-0, just like a <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>.  Further, each column has one specific
-type of the elements contained in that colum.  The non-numeric type
-<code class="docutils literal notranslate"><span class="pre">category</span></code> is for columns which contain names or labels.</p>
+<p>has a name and each row corresponds to a row index, starting at index 0, just
+like a NumPy arrray.  Further, each column has one specific type for all the
+elements contained in that column.  The non-numeric type <code class="docutils literal notranslate"><span class="pre">category</span></code> is for
+columns which contain names or labels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">dtypes</span>
@@ -1173,11 +1177,11 @@ dtype: object
 </div>
 <p>Notice that I accessed a property <code class="docutils literal notranslate"><span class="pre">.columns</span></code> of the dataset
 <code class="docutils literal notranslate"><span class="pre">diamonds</span></code>, just like we previously accessed types and functions from
-the packages NumPy or Pandas, e.g. <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>, <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>,
+the packages NumPy or Pandas, e.g. <code class="docutils literal notranslate"><span class="pre">np.array</span></code>, <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>,
 <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>.  We’ll cover the details of such <code class="docutils literal notranslate"><span class="pre">.</span></code> access later.
-For now, let’s continue to use such properties associated with a
-<code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> to learn about the type <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>.</p>
-<p>Each dataframe is two dimensional, so has a shape, a numer of rows,
+For now, let’s continue to use properties associated with a
+DataFrame to learn about the type <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>.</p>
+<p>Each DataFrame is two dimensional, so has a shape, a numer of rows and
 number of columns, and a size.  There are 53,940 observations and 10
 variables in the <code class="docutils literal notranslate"><span class="pre">diamonds</span></code> dataset.</p>
 <div class="cell docutils container">
@@ -1196,12 +1200,11 @@ variables in the <code class="docutils literal notranslate"><span class="pre">di
 </div>
 </div>
 </div>
-<p>To index one column from a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>, use the associated property
-<code class="docutils literal notranslate"><span class="pre">pd.DataFrame.loc</span></code>.  Because the associated property <code class="docutils literal notranslate"><span class="pre">.loc</span></code> is not a
-function, but instead a property for which you index rows and/or
-columns, you should use squre brackets as we did for indexing <code class="docutils literal notranslate"><span class="pre">list</span></code>s
-and <code class="docutils literal notranslate"><span class="pre">dict</span></code>s.  Inside the square brackets goes an index for rows and
-then columns, separated by a comma, e.g. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame.loc[rows,</span> <span class="pre">cols]</span></code>.</p>
+<p>To index one column from a DataFrame, use the associated property <code class="docutils literal notranslate"><span class="pre">.loc</span></code>.
+Because the associated property <code class="docutils literal notranslate"><span class="pre">.loc</span></code> is not a function, but instead a property
+for which you index rows and/or columns, you should use squre brackets as we did
+for indexing <code class="docutils literal notranslate"><span class="pre">list</span></code>s and <code class="docutils literal notranslate"><span class="pre">dict</span></code>s.  Inside the square brackets goes an index for
+rows and then columns, separated by a comma, e.g. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame.loc[rows,</span> <span class="pre">cols]</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;depth&quot;</span><span class="p">]</span>
@@ -1225,14 +1228,13 @@ Name: depth, Length: 53940, dtype: float64
 </div>
 </div>
 </div>
-<p>The colon <code class="docutils literal notranslate"><span class="pre">:</span></code> acts as a slice of <code class="docutils literal notranslate"><span class="pre">int</span></code>s indexing rows 0 up to and
-including the last row.  Check for yourself that the type of the
-indexed column is <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>.</p>
-<p>Since each column is a <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>, which is analogous to a
-<code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>, you can calculate the size, mean, standard deviation,
-minimum, percentile/quantiles, or maximum of a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> column.
-Or you can use the function <code class="docutils literal notranslate"><span class="pre">describe</span></code> which is associated with both
-<code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> types.</p>
+<p>The colon <code class="docutils literal notranslate"><span class="pre">:</span></code> acts as a slice of <code class="docutils literal notranslate"><span class="pre">int</span></code>s indexing rows 0 up to and including the
+last row.  Check for yourself that the type of the retrieved column is
+<code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>.</p>
+<p>Since each column is a Series, which is analogous to <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>, you can
+calculate the size, mean, standard deviation, minimum, percentile/quantiles, or
+maximum of a DataFrame column.  Or you can use the function <code class="docutils literal notranslate"><span class="pre">describe</span></code>
+which is associated with both <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> types.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">depth</span> <span class="o">=</span> <span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;depth&quot;</span><span class="p">]</span>
@@ -1247,9 +1249,7 @@ Or you can use the function <code class="docutils literal notranslate"><span cla
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>53940
 61.749404894327036
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.4326080390046028
+1.4326080390046028
 [61.  61.8 62.5]
 </pre></div>
 </div>
@@ -1268,7 +1268,7 @@ Name: depth, dtype: float64
 </div>
 <p>Only the columns with numeric types, <code class="docutils literal notranslate"><span class="pre">float64</span></code> or <code class="docutils literal notranslate"><span class="pre">int64</span></code> are
 <code class="docutils literal notranslate"><span class="pre">describe</span></code>d.  The columns of type <code class="docutils literal notranslate"><span class="pre">category</span></code> are automatically removed
-before the numerical summaries are calculated.</p>
+before the numeric summaries are calculated.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -1388,11 +1388,12 @@ before the numerical summaries are calculated.</p>
 </table>
 </div></div></div>
 </div>
-<p>You can index a subset of rows with slices, but with <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>s,
-a slice like <code class="docutils literal notranslate"><span class="pre">start:stop</span></code> will include the value <code class="docutils literal notranslate"><span class="pre">stop</span></code>.  The
-following code therefore retreives rows 2 up to <strong>and including</strong> 10,
-and both columns <code class="docutils literal notranslate"><span class="pre">&quot;depth&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;clarity&quot;</span></code>.  Check for yourself that
-the type of the object returned is <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>.</p>
+<p>You can index a subset of rows with slices, but with <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>s, a slice
+like <code class="docutils literal notranslate"><span class="pre">start:stop</span></code> will include the value <code class="docutils literal notranslate"><span class="pre">stop</span></code>.  The following code therefore
+retreives rows 2 up to <strong>and including</strong> 10, and both columns <code class="docutils literal notranslate"><span class="pre">&quot;depth&quot;</span></code> and
+<code class="docutils literal notranslate"><span class="pre">&quot;clarity&quot;</span></code>.  Notice that to get multiple columns, you must wrap the column
+names in a list.  Check for yourself that the type of the object returned is
+<code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;depth&quot;</span><span class="p">,</span> <span class="s2">&quot;clarity&quot;</span><span class="p">]]</span>
@@ -1477,12 +1478,12 @@ the type of the object returned is <code class="docutils literal notranslate"><s
 <p>Quoted straight from the Pandas documentation: “Note that contrary to
 usual python slices, both the start and the stop are included”</p>
 </div>
-<p>The options for indexing <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>s and <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>s are, in some
-sense, more powerful than for <code class="docutils literal notranslate"><span class="pre">list</span></code>s.  Let’s consider indexing by a
-<code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> of booleans.  The variable <code class="docutils literal notranslate"><span class="pre">idx</span></code> is a boolean <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>
-that indexes all the rows where the logical statement is true, that is
-when a diamond’s cut is deemed “Very Good”.  All rows where a diamond’s cut
-is deemed not “Very Good” are indexed with False.</p>
+<p>The options for indexing <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>s and <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>s are, in some sense,
+more powerful than for <code class="docutils literal notranslate"><span class="pre">list</span></code>s.  Let’s consider indexing by a Series of
+booleans.  The variable <code class="docutils literal notranslate"><span class="pre">idx</span></code> is a boolean Series that indexes all the rows
+where the logical statement is true, that is when a diamond’s cut is equal to
+“Very Good”.  All rows where a diamond’s cut is not equal to “Very Good” are
+indexed with False.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span> <span class="o">=</span> <span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;cut&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Very Good&quot;</span>
