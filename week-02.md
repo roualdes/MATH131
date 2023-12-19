@@ -103,6 +103,12 @@ p = pn.ggplot(data = df) + pn.geom_bar(pn.aes("conservation"))
 p.draw()
 ```
 
+The code equivalent of the last plot above is as follows.
+
+```{code-cell}
+msleep["conservation"].value_counts(dropna = True)
+```
+
 ### Summarize data
 
 In the subsection above, Missing data, we learned that accounting for
@@ -194,6 +200,72 @@ smrt_idx = msleep["brnbdywt"] >= 0.015
 msleep.loc[smrt_idx, "smrt"] = True
 ```
 
+### Categorical variables
+
+A categorical variable is a variable that has names or labels as
+values.  We basically created a categorical variable above, with only
+two values `True` and `False`, and named it `smrt`.  The only thing we
+haven't done is convinced Python/Pandas to treat the variable `smrt`
+as if the elements are of type `category`.  Let's fix this.
+
+```{code-cell}
+msleep["smrt"] = msleep["smrt"].astype("category")
+msleep["smrt"]
+```
+
+Invariably with categorical variables, the categories you have are
+not what you want.  Let's change the categories from `False` and `True` to
+something else.
+
+```{code-cell}
+msleep["smrt"] = msleep["smrt"].cat.rename_categories({False: "nope", True: "yup"})
+```
+
+There's two things to note here.  First, the property `.cat` can only
+be called on a categorical Series; the elements must be recognized by
+Python/Pandas as type `category`.  Second, the argument to
+`.rename_categories` is a `dict` with keys equal to the categories
+that you have, but don't want, and values equal to the categories you
+want.  The pattern in pseudo-code might be written as `{"old":
+"new"}`.  The problem with this is that the keys don't have to be of
+type `str`, as we saw above.
+
+We now have a variable with categories as names or labels,
+instead of `False` and `True`, we can develop more categories.  Let's
+break up the `"Nope"`s into two groups: `"meh"` for so-so smart
+animals and `"Nope"`.  The `"meh"` group is in the middle.  In order
+to add this new category, we need to prime the Series `smrt` for the
+fact that we want to add a category that doesn't yet exist.
+
+```{code-cell}
+msleep["smrt"] = msleep["smrt"].cat.add_categories(["meh", "doh"])
+```
+
+Next, let's create a boolean Series which indicates the exact rows
+which should be labeled as `"meh"`.  The variable `meh_idx` is one
+boolean Series created with logical and `&` of two boolean Series.  In
+an expression such as `a & b`, where `a` and `b` are both boolean
+Series, each element of `a` is compared to each element of `b`.  When
+both elements are `True`, the corresponding element of `meh_idx` is
+`True`.  If either element is `False`, the corresponding element of
+`meh_idx` id `False`.
+
+```{code-cell}
+meh_idx = (0.004 <= msleep["brnbdywt"]) & (msleep["brnbdywt"] < 0.015)
+msleep.loc[meh_idx, "smrt"] = "meh"
+msleep["smrt"]
+```
+
+Did you notice that I added the unused category `"doh"`?  On the
+one hand, this shows that you can add multiple new categories at once,
+just use a list.  On the other hand, you may very well end up with an
+unsed category after renaming various categories.  Here's how you can
+remove any unused categories.
+
+```{code-cell}
+msleep["smrt"] = msleep["smrt"].cat.remove_unused_categories()
+msleep["smrt"]
+```
 
 
 
