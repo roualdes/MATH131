@@ -372,9 +372,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation">Preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-syntax-of-ggplot">The syntax of <code class="docutils literal notranslate"><span class="pre">ggplot</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#msleep-dataframe"><code class="docutils literal notranslate"><span class="pre">msleep</span></code> DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-one-variable">Univariate (one variable)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variable">categorical variable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-variable">numeric variable</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bivariate-two-variables">Bivariate (two variables)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">categorical variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-variables">numerical variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-and-categorical">numerical and categorical</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -388,48 +400,615 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-03-wrangling-data-and-intro-to-graphing">
 <h1>Week 03: Wrangling data and intro to graphing<a class="headerlink" href="#week-03-wrangling-data-and-intro-to-graphing" title="Permalink to this heading">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Permalink to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
+<section id="learning-outcomes">
+<h2>Learning outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this heading">#</a></h2>
+<p>After completing this lesson students will be able to</p>
+<ul class="simple">
+<li><p>create basic data visualizations</p></li>
+</ul>
+</section>
+<section id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this heading">#</a></h2>
+<p>To follow along with this Lesson, please open the Colab notebook
+<span class="xref myst">Week-03-Notes</span>.  The first code cell of this notebook calls to
+the remote computer, on which the notebook is running, and installs
+the necessary packages.  For practice, you are repsonible for
+importing the necessary packages.</p>
+</section>
+<section id="the-syntax-of-ggplot">
+<h2>The syntax of <code class="docutils literal notranslate"><span class="pre">ggplot</span></code><a class="headerlink" href="#the-syntax-of-ggplot" title="Permalink to this heading">#</a></h2>
+<p>The reason we use the functions in plotnine is for consistency in the structure
+of it’s arguments. Here is the bare bones plotting syntax.  All capital letter
+variables are meanto be filled in, but note that not all variables are required
+for any given plot type.  It will take some time and practice to understand
+which plot types require which variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotnine</span> <span class="k">as</span> <span class="nn">pn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">DF</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_PLOTTYPE</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;X_VAR&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Y_VAR&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;FILL_VAR&quot;</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="s2">&quot;GROUP_VAR&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DF</span></code> is the name of the DataFrame in which the variables for your plot live</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PLOTTYPE</span></code> is the plot type you want to make e.g. histogram, density, boxplot, point</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*_VAR</span></code> are variables from the DataFrame; don’t forget the quotes</p></li>
+</ul>
+</section>
+<section id="msleep-dataframe">
+<h2><code class="docutils literal notranslate"><span class="pre">msleep</span></code> DataFrame<a class="headerlink" href="#msleep-dataframe" title="Permalink to this heading">#</a></h2>
+<p>We’ll use the <code class="docutils literal notranslate"><span class="pre">msleep</span></code> DataFrame from the package plotnine.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plotnine.data</span> <span class="kn">import</span> <span class="n">msleep</span>
+
+<span class="n">msleep</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>genus</th>
+      <th>vore</th>
+      <th>order</th>
+      <th>conservation</th>
+      <th>sleep_total</th>
+      <th>sleep_rem</th>
+      <th>sleep_cycle</th>
+      <th>awake</th>
+      <th>brainwt</th>
+      <th>bodywt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Cheetah</td>
+      <td>Acinonyx</td>
+      <td>carni</td>
+      <td>Carnivora</td>
+      <td>lc</td>
+      <td>12.1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11.9</td>
+      <td>NaN</td>
+      <td>50.000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Owl monkey</td>
+      <td>Aotus</td>
+      <td>omni</td>
+      <td>Primates</td>
+      <td>NaN</td>
+      <td>17.0</td>
+      <td>1.8</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>0.01550</td>
+      <td>0.480</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Mountain beaver</td>
+      <td>Aplodontia</td>
+      <td>herbi</td>
+      <td>Rodentia</td>
+      <td>nt</td>
+      <td>14.4</td>
+      <td>2.4</td>
+      <td>NaN</td>
+      <td>9.6</td>
+      <td>NaN</td>
+      <td>1.350</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Greater short-tailed shrew</td>
+      <td>Blarina</td>
+      <td>omni</td>
+      <td>Soricomorpha</td>
+      <td>lc</td>
+      <td>14.9</td>
+      <td>2.3</td>
+      <td>0.133333</td>
+      <td>9.1</td>
+      <td>0.00029</td>
+      <td>0.019</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Cow</td>
+      <td>Bos</td>
+      <td>herbi</td>
+      <td>Artiodactyla</td>
+      <td>domesticated</td>
+      <td>4.0</td>
+      <td>0.7</td>
+      <td>0.666667</td>
+      <td>20.0</td>
+      <td>0.42300</td>
+      <td>600.000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>Tree shrew</td>
+      <td>Tupaia</td>
+      <td>omni</td>
+      <td>Scandentia</td>
+      <td>NaN</td>
+      <td>8.9</td>
+      <td>2.6</td>
+      <td>0.233333</td>
+      <td>15.1</td>
+      <td>0.00250</td>
+      <td>0.104</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>Bottle-nosed dolphin</td>
+      <td>Tursiops</td>
+      <td>carni</td>
+      <td>Cetacea</td>
+      <td>NaN</td>
+      <td>5.2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18.8</td>
+      <td>NaN</td>
+      <td>173.330</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>Genet</td>
+      <td>Genetta</td>
+      <td>carni</td>
+      <td>Carnivora</td>
+      <td>NaN</td>
+      <td>6.3</td>
+      <td>1.3</td>
+      <td>NaN</td>
+      <td>17.7</td>
+      <td>0.01750</td>
+      <td>2.000</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>Arctic fox</td>
+      <td>Vulpes</td>
+      <td>carni</td>
+      <td>Carnivora</td>
+      <td>NaN</td>
+      <td>12.5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11.5</td>
+      <td>0.04450</td>
+      <td>3.380</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>Red fox</td>
+      <td>Vulpes</td>
+      <td>carni</td>
+      <td>Carnivora</td>
+      <td>NaN</td>
+      <td>9.8</td>
+      <td>2.4</td>
+      <td>0.350000</td>
+      <td>14.2</td>
+      <td>0.05040</td>
+      <td>4.230</td>
+    </tr>
+  </tbody>
+</table>
+<p>83 rows × 11 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="univariate-one-variable">
+<h2>Univariate (one variable)<a class="headerlink" href="#univariate-one-variable" title="Permalink to this heading">#</a></h2>
+<section id="categorical-variable">
+<h3>categorical variable<a class="headerlink" href="#categorical-variable" title="Permalink to this heading">#</a></h3>
+<p>For one categorical variable, possibly the simplest way to present data is in a
+table.  A table for a categorical variables displays the counts of the unique
+categories in the variable of interest.  Consider the variable conservation in
+the DataFrame <code class="docutils literal notranslate"><span class="pre">msleep</span></code>.  The easiest way to get counts of the categories in the
+variables conservation is with <code class="docutils literal notranslate"><span class="pre">.value_counts</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;conservation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>conservation
+lc              27
+domesticated    10
+vu               7
+en               4
+nt               4
+cd               2
+Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
-</div>
-</section>
-<section id="create-a-notebook-with-myst-markdown">
-<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Permalink to this heading">#</a></h2>
-<p>MyST Markdown notebooks are defined by two things:</p>
-<ol class="arabic simple">
-<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-See the YAML at the top of this page for example.</p></li>
-<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
-</ol>
-<p>That’s all that is needed to get started!</p>
-</section>
-<section id="quickly-add-yaml-metadata-for-myst-notebooks">
-<h2>Quickly add YAML metadata for MyST Notebooks<a class="headerlink" href="#quickly-add-yaml-metadata-for-myst-notebooks" title="Permalink to this heading">#</a></h2>
-<p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
+<p>Alternatively, you could make a bar chart.  Remember, if you want to exclude the
+missing data, you have to remove them first from the DataFrame, specifying the
+column of interest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;conservation&quot;</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e9d672cde92539cf60be43528322ba8589560b0743a2d2201840dd5337f76204.png" src="_images/e9d672cde92539cf60be43528322ba8589560b0743a2d2201840dd5337f76204.png" />
+</div>
+</div>
+<p>If you want to order the categories in a certain way, you are in charge of
+creating a new variable that has the specified order of interest.  Here’s some
+code to order the categories in decreasing order of their counts.  Note that
+missing values are always drawn last, even if this seems to mess up the
+ordering.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conservation_cats_ord</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;conservation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;conservation_cat_ord&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;conservation&quot;</span><span class="p">],</span> <span class="n">categories</span> <span class="o">=</span> <span class="n">conservation_cats_ord</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;conservation_cat_ord&quot;</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5fdb3d06bfdabb7234e198f7df35579a7b4637bf8aae7dd610fbab71097bf3b7.png" src="_images/5fdb3d06bfdabb7234e198f7df35579a7b4637bf8aae7dd610fbab71097bf3b7.png" />
+</div>
+</div>
+<p>You could also use list indexing to order the categories in increasing order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;conservation_cat_ord&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;conservation&quot;</span><span class="p">],</span> <span class="n">categories</span> <span class="o">=</span> <span class="n">conservation_cats_ord</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># notice the indexing</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;conservation_cat_ord&quot;</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0f016bb1b445bac5c96724e4ac972f05c85e63b62db5be9b95e9a137c3020bd9.png" src="_images/0f016bb1b445bac5c96724e4ac972f05c85e63b62db5be9b95e9a137c3020bd9.png" />
+</div>
+</div>
+</section>
+<section id="numeric-variable">
+<h3>numeric variable<a class="headerlink" href="#numeric-variable" title="Permalink to this heading">#</a></h3>
+<p>Rather than showing the value of each observation of a numeric variable, it is
+common to display the value as belonging to a bin. The height of each bar in a
+histogram records the frequency of values that fall into each bin.  The x-axis
+for a histogram is different from a bar chart, because a histogram has a numeric
+x-axis, whereas a bar chart has a categorical x-axis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_histogram</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sleep_total&quot;</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/plotnine/stats/stat_bin.py:109: PlotnineWarning: &#39;stat_bin()&#39; using &#39;bins = 7&#39;. Pick better value with &#39;binwidth&#39;.
+</pre></div>
+</div>
+<img alt="_images/6570ea0cbcf361e62e5e9f1c4222e6d46e827c6faf0ddf5f15c383f3e6f7a94f.png" src="_images/6570ea0cbcf361e62e5e9f1c4222e6d46e827c6faf0ddf5f15c383f3e6f7a94f.png" />
+</div>
+</div>
+<p>Notice that plotnine issued a warning about choosing the number of bins.  If you
+don’t specify the number of bins, plotnine will choose for you, and also yell at
+you.</p>
+<p>There is no one right choice for the number of bins.  Generally, between 7 and
+51 are good first guesses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_histogram</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sleep_total&quot;</span><span class="p">),</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6bc1ef7daef0d0d6ec3b2aaef73828dd1bce1c009673d2da2ca8f5907a1f231b.png" src="_images/6bc1ef7daef0d0d6ec3b2aaef73828dd1bce1c009673d2da2ca8f5907a1f231b.png" />
+</div>
+</div>
+<p>A density plot is like a histogram that has been smoothed over.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_density</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sleep_total&quot;</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f909c0f62c58e5051f4af1ee3b707bae63bfc998e2a46691fa442e02b587cfe6.png" src="_images/f909c0f62c58e5051f4af1ee3b707bae63bfc998e2a46691fa442e02b587cfe6.png" />
+</div>
+</div>
+<p>The benefit of adding <code class="docutils literal notranslate"><span class="pre">+</span></code> layers of <code class="docutils literal notranslate"><span class="pre">geom_PLOTTYPE</span></code>s is that we can combine
+plots to help us understand better the data.  The code below layers a histogram
+and a density plot, and specifies two other options.  First, to force the
+histogram onto the samw scale as a density plot, use <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">pn.after_state(&quot;density&quot;)</span></code>.  Second, we make transparent the histogram by
+specifying <code class="docutils literal notranslate"><span class="pre">alpha</span> <span class="pre">=</span> <span class="pre">0.5</span></code>.  The keyword argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code> ranges from <code class="docutils literal notranslate"><span class="pre">1</span></code>, by
+default, to <code class="docutils literal notranslate"><span class="pre">0</span></code> completely transparent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">)</span> 
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_density</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sleep_total&quot;</span><span class="p">))</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_histogram</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sleep_total&quot;</span><span class="p">,</span>  <span class="n">y</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">after_stat</span><span class="p">(</span><span class="s2">&quot;density&quot;</span><span class="p">)),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">9</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/94566033d73a58797ba575c3aee659c5b41766a1474389c2e7b5cf0b8deb7be0.png" src="_images/94566033d73a58797ba575c3aee659c5b41766a1474389c2e7b5cf0b8deb7be0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="bivariate-two-variables">
+<h2>Bivariate (two variables)<a class="headerlink" href="#bivariate-two-variables" title="Permalink to this heading">#</a></h2>
+<section id="categorical-variables">
+<h3>categorical variables<a class="headerlink" href="#categorical-variables" title="Permalink to this heading">#</a></h3>
+<p>More sophisticated tables of categorical variables can be with the Pandas
+function <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code>.  One of the benefits of <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> is that you cross
+tabulate multiple Series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;conservation&quot;</span><span class="p">],</span> <span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>vore</th>
+      <th>carni</th>
+      <th>herbi</th>
+      <th>insecti</th>
+      <th>omni</th>
+    </tr>
+    <tr>
+      <th>conservation</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>cd</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>domesticated</th>
+      <td>2</td>
+      <td>7</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>en</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>lc</th>
+      <td>5</td>
+      <td>10</td>
+      <td>2</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>nt</th>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>vu</th>
+      <td>4</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>You can also request proportions, instead of counts in the cross tabulated
+table.  If you want to get proportions relative to the rows, you specify the
+keyword argument <code class="docutils literal notranslate"><span class="pre">normalize</span></code> equal to <code class="docutils literal notranslate"><span class="pre">&quot;index&quot;</span></code>.  If you want proportions
+relative to the columns, use <code class="docutils literal notranslate"><span class="pre">&quot;columns&quot;</span></code>.  And if you want proportions relative
+to the entire table, use <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;conservation&quot;</span><span class="p">],</span> <span class="n">msleep</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">],</span> <span class="n">normalize</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>vore</th>
+      <th>carni</th>
+      <th>herbi</th>
+      <th>insecti</th>
+      <th>omni</th>
+    </tr>
+    <tr>
+      <th>conservation</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>cd</th>
+      <td>0.019</td>
+      <td>0.019</td>
+      <td>0.000</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>domesticated</th>
+      <td>0.038</td>
+      <td>0.135</td>
+      <td>0.000</td>
+      <td>0.019</td>
+    </tr>
+    <tr>
+      <th>en</th>
+      <td>0.019</td>
+      <td>0.038</td>
+      <td>0.019</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>lc</th>
+      <td>0.096</td>
+      <td>0.192</td>
+      <td>0.038</td>
+      <td>0.154</td>
+    </tr>
+    <tr>
+      <th>nt</th>
+      <td>0.019</td>
+      <td>0.058</td>
+      <td>0.000</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>vu</th>
+      <td>0.077</td>
+      <td>0.058</td>
+      <td>0.000</td>
+      <td>0.000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The plot equivalent of a cross tabulated table might be a grouped bar chart.  As
+of 2023-12-20, the plotting package will yell at you if there are any missing
+data, so let’s remove the missing data from our two variables of interest first.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">msleep</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;conservation_cat_ord&quot;</span><span class="p">,</span> <span class="s2">&quot;vore&quot;</span><span class="p">])</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;conservation_cat_ord&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;vore&quot;</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e868da750a8241f52ace0b773e2add751fe41c30e76c75cb96adf6425c127dd8.png" src="_images/e868da750a8241f52ace0b773e2add751fe41c30e76c75cb96adf6425c127dd8.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">msleep</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;conservation_cat_ord&quot;</span><span class="p">,</span> <span class="s2">&quot;vore&quot;</span><span class="p">])</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;conservation_cat_ord&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;vore&quot;</span><span class="p">),</span> <span class="n">position</span> <span class="o">=</span> <span class="s2">&quot;dodge&quot;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e3ddfbaabfcd6f70a361a6a25d75d05f7bad6d07925b75c43c06a2ae6493b1ae.png" src="_images/e3ddfbaabfcd6f70a361a6a25d75d05f7bad6d07925b75c43c06a2ae6493b1ae.png" />
+</div>
+</div>
+</section>
+<section id="numerical-variables">
+<h3>numerical variables<a class="headerlink" href="#numerical-variables" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="numerical-and-categorical">
+<h3>numerical and categorical<a class="headerlink" href="#numerical-and-categorical" title="Permalink to this heading">#</a></h3>
+</section>
 </section>
 </section>
 
@@ -496,9 +1075,21 @@ See the YAML at the top of this page for example.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation">Preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-syntax-of-ggplot">The syntax of <code class="docutils literal notranslate"><span class="pre">ggplot</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#msleep-dataframe"><code class="docutils literal notranslate"><span class="pre">msleep</span></code> DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-one-variable">Univariate (one variable)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variable">categorical variable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-variable">numeric variable</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bivariate-two-variables">Bivariate (two variables)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">categorical variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-variables">numerical variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-and-categorical">numerical and categorical</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
