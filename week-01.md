@@ -20,7 +20,10 @@ kernelspec:
 
 This lesson is designed to explain the basics of programming in Python.
 
-* learn and practice computer science terms: variable, comment, call, function, arguments, default values, float, int, string, boolean, list, dict, object, package, array, DataFrame, Series
+* learn and practice computer science terms: variable, comment, call,
+  function, arguments, keyword argument, positional argument, default
+  values, float, int, string, boolean, list, dict, object, package,
+  array, DataFrame, Series
 * calculate arithmetic operations
 * call functions and change default values
 * indexing
@@ -90,25 +93,29 @@ argument `x` is `f(x)`.  If there is more than one argument, say `x1`,
 
 The function `round` accepts as the first argument a number and a
 second, named, argument the number of digits to round the first
-argument to.
+argument to.  If a function argument is named, it is called a
+**keyword arguments**.  If a function argument is not named, it is
+called a **positional argument**.
 
 ```{code-cell}
 round(x, ndigits = 1)
 ```
 
-Named arguments have a few benefits.  Named arguments can make code easier to
-read, so that you and/or the reader of your code is (somewhat) reminded what
-the argument `1` is doing.  Named arguments also can have **default values**.
-The argument `ndigits` of the function `round` defaults to `None`, if no other
-value is specified, which in this case instructs `round` to round the first
+Keyword arguments have a few benefits.  Keyword arguments can make
+code easier to read, so that you and/or the reader of your code is
+(somewhat) reminded what the argument `1` is doing.  Keyword arguments
+also can have **default values**.  The argument `ndigits` of the
+function `round` defaults to `None`, if no other value is specified,
+which in this case instructs `round` to round the first positional
 argument to the nearest integer.
 
 ```{code-cell}
 round(x)
 ```
 
-If you put arguments in the correct order, you do not need to specify the
-name of the named arguments, but this isn't always good practice.
+If you put arguments in the correct order, you do not need to specify
+the name of the keyword arguments, but this isn't always good
+practice.
 
 ```{code-cell}
 round(x, 3)
@@ -264,8 +271,8 @@ each key a value.
 
 ```{code-cell}
 d = {
-  "MATH 131": "Introduction to Python", 
-  "MATH 450": True, 
+  "MATH 131": "Introduction to Python",
+  "MATH 450": True,
   "pi": x,
   "list": l
   # key: value,
@@ -358,7 +365,7 @@ The code below creates a NumPy array of `np.float64`s, since at least
 one element of our input list contains a `float`.
 
 ```{code-cell}
-import numpy as np # this line shows up once at the top of each notebook, 
+import numpy as np # this line shows up once at the top of each notebook,
 # not once per code cell
 
 a = np.array([1., 2, 3])
@@ -409,6 +416,7 @@ There is a lot more to say about NumPy's type `ndarray`.  For now, this is
 enough and we'll move on to Pandas `DataFrame` and `Series` types, since we'll
 spend most time in this class using dataframes.
 
+(week-01-dataframes)=
 ### DataFrames
 
 ```{note}
@@ -489,13 +497,30 @@ The colon `:` acts as a slice of `int`s indexing rows 0 up to and including the
 last row.  Check for yourself that the type of the retrieved column is
 `pd.Series`.
 
+Indexing a DataFrame by column is so common, that you can even
+retreive a column by indexing a DataFrame like a `dict`, where the key
+is the name of the column.  Check for yourself that the type of the
+retrived columns is `pd.Series`.
+
+```{code-cell}
+diamonds["depth"]
+```
+
+You can also retreive more than one column at once.  The key in this
+case is a list of column names, and the return value is a subset of
+the DataFrame you are indexing.
+
+```{code-cell}
+diamons[["depth", "cut"]]
+```
+
 Since each column is a Series, which is analogous to `np.ndarray`, you can
 calculate the size, mean, standard deviation, minimum, percentile/quantiles, or
 maximum of a DataFrame column.  Or you can use the function `describe`
 which is associated with both `pd.Series` and `pd.DataFrame` types.
 
 ```{code-cell}
-depth = diamonds.loc[:, "depth"]
+depth = diamonds["depth"]
 print(np.size(depth))
 print(np.mean(depth))
 print(np.std(depth))
@@ -566,6 +591,3 @@ and [Selection by
 position](https://pandas.pydata.org/docs/user_guide/indexing.html#indexing-integer).
 Such tools have a steep learning curve and a huge payoff.
 ```
-
-
-
