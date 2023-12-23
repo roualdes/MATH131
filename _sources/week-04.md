@@ -12,42 +12,44 @@ kernelspec:
   name: python3
 ---
 
-# Week 04: Intermediate grahping & importing external data
-
-Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See [the Notebooks with MyST Markdown documentation](https://jupyterbook.org/file-types/myst-notebooks.html) for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.
-
-## An example cell
-
-With MyST Markdown, you can define code cells with a directive like so:
+# Week 04: Filling in some details
 
 ```{code-cell}
-print(2 + 2)
+import numpy as np
+import pandas as pd
+import plotnine as pn
+
+from plotnine.data import msleep
 ```
 
-When your book is built, the contents of any `{code-cell}` blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.
+## DataFrame details
 
-```{seealso}
-Jupyter Book uses [Jupytext](https://jupytext.readthedocs.io/en/latest/) to convert text-based files to notebooks, and can support [many other text-based notebook files](https://jupyterbook.org/file-types/jupytext.html).
-```
 
-## Create a notebook with MyST Markdown
 
-MyST Markdown notebooks are defined by two things:
 
-1. YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-   See the YAML at the top of this page for example.
-2. The presence of `{code-cell}` directives, which will be executed with your book.
 
-That's all that is needed to get started!
 
-## Quickly add YAML metadata for MyST Notebooks
+## Graphing details
 
-If you have a markdown file and you'd like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:
+```{code-cell}
+df = msleep.dropna(subset = "vore")
 
-```
-jupyter-book myst init path/to/markdownfile.md
+odf = (df
+    .groupby("vore", as_index = False)
+    .aggregate(
+        mean = ("sleep_total", np.mean),
+        sd = ("sleep_total", np.std),
+        count = ("sleep_total", np.size)))
+
+odf["se"] = odf["sd"] / np.sqrt(odf["count"])
+odf["ub"] = odf["mean"] + 1.96 * odf["se"]
+odf["lb"] = odf["mean"] - 1.96 * odf["se"]
+
+p = (pn.ggplot(odf)
+    + pn.geom_point(pn.aes(x = odf["vore"].cat.codes, y = "mean"), color = "blue")
+    + pn.geom_errorbar(pn.aes(x = odf["vore"].cat.codes, ymin = "lb", ymax = "ub"), color = "blue")
+    + pn.geom_jitter(df, pn.aes(x = df["vore"].cat.codes, y = "sleep_total"), width = 0.25)
+    + pn.scale_x_continuous(breaks = df["vore"].cat.codes.to_list(), labels = df["vore"].to_list())
+    + pn.labs(y = "mean sleep total"))
+p.draw()
 ```

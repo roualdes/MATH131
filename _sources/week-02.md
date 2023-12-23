@@ -16,9 +16,9 @@ kernelspec:
 
 ### Learning objectives
 
-In this lesson we will learn how to summarize data in a DataFrame, and
-do basic data management tasks such as making new variables, recoding
-data, and dealing with missing data.
+In this lesson we learn how to summarize data in a DataFrame, and do basic data
+management tasks such as making new variables, recoding data, and dealing with
+missing data.
 
 After completing this lesson, you should be able to
 
@@ -27,7 +27,8 @@ After completing this lesson, you should be able to
 * make new variables and insert them into a DataFrame
 * edit variables contained in a DataFrame
 
-Throughout we'll use the dataset `msleep` from the packages plotnine.
+Throughout this notebook, we'll use the dataset `msleep` from the packages
+plotnine.
 
 ### Preparation
 
@@ -83,8 +84,8 @@ about the code or its output tells you when `NaN`s are ignored or not.
 np.size(msleep["brainwt"])
 ```
 
-The plotting package plotnine, by default, includes `NaN`s as its own
-category, which is undesirable.
+The plotting package plotnine, by default, includes `NaN`s as its own category,
+which can be undesirable.
 
 ```{code-cell}
 p = pn.ggplot(data = msleep) + pn.geom_bar(pn.aes("conservation"))
@@ -137,7 +138,7 @@ count them, here is a line of code you can use to count the number of
 missing values.
 
 ```{code-cell}
-nan_idx = msleep["conservation"].isna() 
+nan_idx = msleep["conservation"].isna()
 np.sum(nan_idx)
 ```
 
@@ -266,7 +267,3 @@ remove any unused categories.
 msleep["smrt"] = msleep["smrt"].cat.remove_unused_categories()
 msleep["smrt"]
 ```
-
-
-
-

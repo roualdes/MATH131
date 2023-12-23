@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Week 04: Intermediate grahping &amp; importing external data &#8212; MATH 131 -- Introduction to Python</title>
+    <title>Week 04: Filling in some details &#8212; MATH 131 -- Introduction to Python</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Week 05: Puting it all together" href="week-05.html" />
-    <link rel="prev" title="Week 03: Wrangling data and intro to graphing" href="week-03.html" />
+    <link rel="prev" title="Week 03: Graphing and aggregating" href="week-03.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -173,8 +173,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="week-00.html">Week 00: Start here</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-01.html">Week 01: Python basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-02.html">Week 02: Introduction to working with data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-03.html">Week 03: Wrangling data and intro to graphing</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 04: Intermediate grahping &amp; importing external data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-03.html">Week 03: Graphing and aggregating</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 04: Filling in some details</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-05.html">Week 05: Puting it all together</a></li>
 <li class="toctree-l1"><a class="reference internal" href="and-beyond.html">Week 06 and beyond</a></li>
 </ul>
@@ -362,7 +362,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 04: Intermediate grahping & importing external data</h1>
+    <h1>Week 04: Filling in some details</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -372,9 +372,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-details">DataFrame details</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphing-details">Graphing details</a></li>
 </ul>
             </nav>
         </div>
@@ -386,49 +385,57 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-04-intermediate-grahping-importing-external-data">
-<h1>Week 04: Intermediate grahping &amp; importing external data<a class="headerlink" href="#week-04-intermediate-grahping-importing-external-data" title="Permalink to this heading">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Permalink to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-04-filling-in-some-details">
+<h1>Week 04: Filling in some details<a class="headerlink" href="#week-04-filling-in-some-details" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotnine</span> <span class="k">as</span> <span class="nn">pn</span>
+
+<span class="kn">from</span> <span class="nn">plotnine.data</span> <span class="kn">import</span> <span class="n">msleep</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="dataframe-details">
+<h2>DataFrame details<a class="headerlink" href="#dataframe-details" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="graphing-details">
+<h2>Graphing details<a class="headerlink" href="#graphing-details" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">msleep</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span> <span class="o">=</span> <span class="s2">&quot;vore&quot;</span><span class="p">)</span>
+
+<span class="n">odf</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;vore&quot;</span><span class="p">,</span> <span class="n">as_index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+        <span class="n">mean</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;sleep_total&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">),</span>
+        <span class="n">sd</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;sleep_total&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">),</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;sleep_total&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">)))</span>
+
+<span class="n">odf</span><span class="p">[</span><span class="s2">&quot;se&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;sd&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">odf</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">])</span>
+<span class="n">odf</span><span class="p">[</span><span class="s2">&quot;ub&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1.96</span> <span class="o">*</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;se&quot;</span><span class="p">]</span>
+<span class="n">odf</span><span class="p">[</span><span class="s2">&quot;lb&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.96</span> <span class="o">*</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;se&quot;</span><span class="p">]</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">odf</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_point</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_errorbar</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">,</span> <span class="n">ymin</span> <span class="o">=</span> <span class="s2">&quot;lb&quot;</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="s2">&quot;ub&quot;</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_jitter</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sleep_total&quot;</span><span class="p">),</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mean sleep total&quot;</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2251/4063313352.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2251/4063313352.py:3: FutureWarning: The provided callable &lt;function mean at 0x7f121849f5e0&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
+/tmp/ipykernel_2251/4063313352.py:3: FutureWarning: The provided callable &lt;function std at 0x7f121849f700&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
 </pre></div>
 </div>
+<img alt="_images/3b0539e8b60583da580cc73b95fbe1cacc78cf8b362a1e692c35c4faaa36beee.png" src="_images/3b0539e8b60583da580cc73b95fbe1cacc78cf8b362a1e692c35c4faaa36beee.png" />
 </div>
-</div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
-</div>
-</section>
-<section id="create-a-notebook-with-myst-markdown">
-<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Permalink to this heading">#</a></h2>
-<p>MyST Markdown notebooks are defined by two things:</p>
-<ol class="arabic simple">
-<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-See the YAML at the top of this page for example.</p></li>
-<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
-</ol>
-<p>That’s all that is needed to get started!</p>
-</section>
-<section id="quickly-add-yaml-metadata-for-myst-notebooks">
-<h2>Quickly add YAML metadata for MyST Notebooks<a class="headerlink" href="#quickly-add-yaml-metadata-for-myst-notebooks" title="Permalink to this heading">#</a></h2>
-<p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
-</pre></div>
 </div>
 </section>
 </section>
@@ -469,7 +476,7 @@ See the YAML at the top of this page for example.</p></li>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Week 03: Wrangling data and intro to graphing</p>
+        <p class="prev-next-title">Week 03: Graphing and aggregating</p>
       </div>
     </a>
     <a class="right-next"
@@ -496,9 +503,8 @@ See the YAML at the top of this page for example.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-details">DataFrame details</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphing-details">Graphing details</a></li>
 </ul>
   </nav></div>
 

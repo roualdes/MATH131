@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Week 03: Wrangling data and intro to graphing &#8212; MATH 131 -- Introduction to Python</title>
+    <title>Week 03: Graphing and aggregating &#8212; MATH 131 -- Introduction to Python</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'week-03';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Week 04: Intermediate grahping &amp; importing external data" href="week-04.html" />
+    <link rel="next" title="Week 04: Filling in some details" href="week-04.html" />
     <link rel="prev" title="Week 02: Introduction to working with data" href="week-02.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -173,8 +173,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="week-00.html">Week 00: Start here</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-01.html">Week 01: Python basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-02.html">Week 02: Introduction to working with data</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 03: Wrangling data and intro to graphing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-04.html">Week 04: Intermediate grahping &amp; importing external data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 03: Graphing and aggregating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-04.html">Week 04: Filling in some details</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-05.html">Week 05: Puting it all together</a></li>
 <li class="toctree-l1"><a class="reference internal" href="and-beyond.html">Week 06 and beyond</a></li>
 </ul>
@@ -362,7 +362,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 03: Wrangling data and intro to graphing</h1>
+    <h1>Week 03: Graphing and aggregating</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -374,19 +374,23 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation">Preparation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-syntax-of-ggplot">The syntax of <code class="docutils literal notranslate"><span class="pre">ggplot</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#msleep-dataframe"><code class="docutils literal notranslate"><span class="pre">msleep</span></code> DataFrame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-one-variable">Univariate (one variable)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variable">categorical variable</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-variable">numeric variable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphing">Graphing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-syntax-of-ggplot">The syntax of <code class="docutils literal notranslate"><span class="pre">ggplot</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#msleep-dataframe"><code class="docutils literal notranslate"><span class="pre">msleep</span></code> DataFrame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-one-variable">Univariate (one variable)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variable">categorical variable</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-variable">numeric variable</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bivariate-two-variables">Bivariate (two variables)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">categorical variables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-variables">numerical variables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-and-categorical">numerical and categorical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bivariate-two-variables">Bivariate (two variables)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">categorical variables</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-variables">numerical variables</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-and-categorical">numerical and categorical</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating">Aggregating</a></li>
 </ul>
             </nav>
         </div>
@@ -398,8 +402,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-03-wrangling-data-and-intro-to-graphing">
-<h1>Week 03: Wrangling data and intro to graphing<a class="headerlink" href="#week-03-wrangling-data-and-intro-to-graphing" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-03-graphing-and-aggregating">
+<h1>Week 03: Graphing and aggregating<a class="headerlink" href="#week-03-graphing-and-aggregating" title="Permalink to this heading">#</a></h1>
 <section id="learning-outcomes">
 <h2>Learning outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this heading">#</a></h2>
 <p>After completing this lesson students will be able to</p>
@@ -415,8 +419,10 @@ the remote computer, on which the notebook is running, and installs
 the necessary packages.  For practice, you are repsonible for
 importing the necessary packages.</p>
 </section>
+<section id="graphing">
+<h2>Graphing<a class="headerlink" href="#graphing" title="Permalink to this heading">#</a></h2>
 <section id="the-syntax-of-ggplot">
-<h2>The syntax of <code class="docutils literal notranslate"><span class="pre">ggplot</span></code><a class="headerlink" href="#the-syntax-of-ggplot" title="Permalink to this heading">#</a></h2>
+<h3>The syntax of <code class="docutils literal notranslate"><span class="pre">ggplot</span></code><a class="headerlink" href="#the-syntax-of-ggplot" title="Permalink to this heading">#</a></h3>
 <p>The reason we use the functions in plotnine is for consistency in the structure
 of it’s arguments. Here is the bare bones plotting syntax.  All capital letter
 variables are meanto be filled in, but note that not all variables are required
@@ -424,7 +430,8 @@ for any given plot type.  It will take some time and practice to understand
 which plot types require which variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">plotnine</span> <span class="k">as</span> <span class="nn">pn</span>
 </pre></div>
 </div>
@@ -444,7 +451,7 @@ which plot types require which variables.</p>
 </ul>
 </section>
 <section id="msleep-dataframe">
-<h2><code class="docutils literal notranslate"><span class="pre">msleep</span></code> DataFrame<a class="headerlink" href="#msleep-dataframe" title="Permalink to this heading">#</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">msleep</span></code> DataFrame<a class="headerlink" href="#msleep-dataframe" title="Permalink to this heading">#</a></h3>
 <p>We’ll use the <code class="docutils literal notranslate"><span class="pre">msleep</span></code> DataFrame from the package plotnine.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -648,9 +655,9 @@ which plot types require which variables.</p>
 </div>
 </section>
 <section id="univariate-one-variable">
-<h2>Univariate (one variable)<a class="headerlink" href="#univariate-one-variable" title="Permalink to this heading">#</a></h2>
+<h3>Univariate (one variable)<a class="headerlink" href="#univariate-one-variable" title="Permalink to this heading">#</a></h3>
 <section id="categorical-variable">
-<h3>categorical variable<a class="headerlink" href="#categorical-variable" title="Permalink to this heading">#</a></h3>
+<h4>categorical variable<a class="headerlink" href="#categorical-variable" title="Permalink to this heading">#</a></h4>
 <p>For one categorical variable, possibly the simplest way to present data is in a
 table.  A table for a categorical variables displays the counts of the unique
 categories in the variable of interest.  Consider the variable conservation in
@@ -724,7 +731,7 @@ ordering.</p>
 </div>
 </section>
 <section id="numeric-variable">
-<h3>numeric variable<a class="headerlink" href="#numeric-variable" title="Permalink to this heading">#</a></h3>
+<h4>numeric variable<a class="headerlink" href="#numeric-variable" title="Permalink to this heading">#</a></h4>
 <p>Rather than showing the value of each observation of a numeric variable, it is
 common to display the value as belonging to a bin. The height of each bar in a
 histogram records the frequency of values that fall into each bin.  The x-axis
@@ -780,7 +787,7 @@ specifying <code class="docutils literal notranslate"><span class="pre">alpha</s
 default, to <code class="docutils literal notranslate"><span class="pre">0</span></code> completely transparent.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">)</span>
     <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_density</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sleep_total&quot;</span><span class="p">))</span>
     <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_histogram</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sleep_total&quot;</span><span class="p">,</span>  <span class="n">y</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">after_stat</span><span class="p">(</span><span class="s2">&quot;density&quot;</span><span class="p">)),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">9</span><span class="p">))</span>
 <span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
@@ -794,9 +801,9 @@ default, to <code class="docutils literal notranslate"><span class="pre">0</span
 </section>
 </section>
 <section id="bivariate-two-variables">
-<h2>Bivariate (two variables)<a class="headerlink" href="#bivariate-two-variables" title="Permalink to this heading">#</a></h2>
+<h3>Bivariate (two variables)<a class="headerlink" href="#bivariate-two-variables" title="Permalink to this heading">#</a></h3>
 <section id="categorical-variables">
-<h3>categorical variables<a class="headerlink" href="#categorical-variables" title="Permalink to this heading">#</a></h3>
+<h4>categorical variables<a class="headerlink" href="#categorical-variables" title="Permalink to this heading">#</a></h4>
 <p>More sophisticated tables of categorical variables can be with the Pandas
 function <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code>.  One of the benefits of <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> is that you cross
 tabulate multiple Series.</p>
@@ -981,7 +988,8 @@ data, so let’s remove the missing data from our two variables of interest firs
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">msleep</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;conservation_cat_ord&quot;</span><span class="p">,</span> <span class="s2">&quot;vore&quot;</span><span class="p">])</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;conservation_cat_ord&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;vore&quot;</span><span class="p">))</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;conservation_cat_ord&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;vore&quot;</span><span class="p">)))</span>
 <span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1004,11 +1012,249 @@ data, so let’s remove the missing data from our two variables of interest firs
 </div>
 </section>
 <section id="numerical-variables">
-<h3>numerical variables<a class="headerlink" href="#numerical-variables" title="Permalink to this heading">#</a></h3>
+<h4>numerical variables<a class="headerlink" href="#numerical-variables" title="Permalink to this heading">#</a></h4>
+<p>The most common method of visualizing the relationship between two numeric
+variables is by using a scatterplot.  With <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> we specify both the x and y
+variables, and the geometry <code class="docutils literal notranslate"><span class="pre">geom_point</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">msleep</span><span class="p">,</span> <span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;brainwt&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;bodywt&quot;</span><span class="p">))</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_point</span><span class="p">())</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/plotnine/layer.py:364: PlotnineWarning: geom_point : Removed 27 rows containing missing values.
+</pre></div>
+</div>
+<img alt="_images/31a2f85539f689bdd66329b7207ab1d23c4771c4e4bcd65d55d85969356cd55d.png" src="_images/31a2f85539f689bdd66329b7207ab1d23c4771c4e4bcd65d55d85969356cd55d.png" />
+</div>
+</div>
+<p>The most common trend line added to a scatterplot is the so called best fit, or
+least squares line. This is done by adding a <code class="docutils literal notranslate"><span class="pre">geom_smooth()</span></code> layer.  A least
+squares line should only be used for linearly related numerical variables, and
+sometimes you can help linearize variables with log transformations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">msleep</span><span class="p">,</span> <span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;brainwt&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;bodywt&quot;</span><span class="p">))</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_point</span><span class="p">()</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_smooth</span><span class="p">(</span><span class="n">se</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">scale_x_log10</span><span class="p">()</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">scale_y_log10</span><span class="p">()</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;log of brain weight&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;log of body weight&quot;</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/plotnine/layer.py:364: PlotnineWarning: geom_point : Removed 27 rows containing missing values.
+</pre></div>
+</div>
+<img alt="_images/da3c7ba4f47dd800dd900542546d69fe265d4da3b3d0f60de2a24f9da2682916.png" src="_images/da3c7ba4f47dd800dd900542546d69fe265d4da3b3d0f60de2a24f9da2682916.png" />
+</div>
+</div>
+<p>Look back at the slightly changed in syntax in the last two plots.  Both the
+dataset and the aesthetic specification showed up as positional arguments,
+instead of the dataset as a keyword argument and the aesthetic specification in
+the geometry layer.  With the syntax as in the last two examples, the aesthetic
+specification is shared across both the <code class="docutils literal notranslate"><span class="pre">geom_point</span></code> and the <code class="docutils literal notranslate"><span class="pre">geom_smooth</span></code>
+layers.  All other examples have provided a syntax where the aesthetic is
+specific to a single layer and not all subsequenty layers.</p>
 </section>
 <section id="numerical-and-categorical">
-<h3>numerical and categorical<a class="headerlink" href="#numerical-and-categorical" title="Permalink to this heading">#</a></h3>
+<h4>numerical and categorical<a class="headerlink" href="#numerical-and-categorical" title="Permalink to this heading">#</a></h4>
+<p>One can combine plots for numeric variables with categorical information by
+repeating each plot type above for each category of a categorical variable,
+where each category is drawn in a unique color.  When coloring across a
+categorical variable like this, a legend becomes necessary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_density</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sleep_total&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;vore&quot;</span><span class="p">)))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5c54508d6a63d454fbd46a36a7e4723a05e8653915dd3e6d56ee619dec30e4dc.png" src="_images/5c54508d6a63d454fbd46a36a7e4723a05e8653915dd3e6d56ee619dec30e4dc.png" />
+</div>
+</div>
+<p>Alternatively, you can put the categorical variable on an axis and summarize the
+numerical variable on the other axis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_boxplot</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;vore&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sleep_total&quot;</span><span class="p">)))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ae5a6915f2793269bbfaff4eac97cf3c4fdc860a43eb64e46086057c44737429.png" src="_images/ae5a6915f2793269bbfaff4eac97cf3c4fdc860a43eb64e46086057c44737429.png" />
+</div>
+</div>
+<p>Sometimes it is helpful to add a violin plot layer, if the box plots are not
+capturing all of the information in the density of the data.  Otherwise, it can
+just be fun.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">msleep</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span> <span class="o">=</span> <span class="s2">&quot;vore&quot;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;vore&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sleep_total&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;vore&quot;</span><span class="p">))</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_boxplot</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_violin</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d21c6348bd08c5c0f575d7368efe15c01571cc39fd6b2e9e5171649e017f1cff.png" src="_images/d21c6348bd08c5c0f575d7368efe15c01571cc39fd6b2e9e5171649e017f1cff.png" />
+</div>
+</div>
+<p>It seems as of 2023-12-23 that <code class="docutils literal notranslate"><span class="pre">fill</span></code>ing by a categorical variable does not work
+appropriately if there is any missing data.  The plot above works, if you first
+drop the NAs.</p>
 </section>
+</section>
+</section>
+<section id="aggregating">
+<h2>Aggregating<a class="headerlink" href="#aggregating" title="Permalink to this heading">#</a></h2>
+<p>In Week 02, we learned how to summarize numerical variables by themselves.  The
+latter plots above provide <strong>graphical</strong> summaries of numerical variables across
+a categorical variable.  Aggregating, or aggregation, is all about
+<strong>calculating</strong> summaries of numerical across a categorical variable.</p>
+<p>The first step in aggregating is to group a DataFrame by the categories, or
+levels, of some categorical variables.  The Pandas function <code class="docutils literal notranslate"><span class="pre">groupby</span></code> carries
+out this task for us.  You can group by a single categorical variable, as we do
+below, or group by a list of categorical variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">msleep</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;vore&quot;</span><span class="p">,</span> <span class="n">as_index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">gdf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2217/151992987.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f9bc8a55f70&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>By itself, <code class="docutils literal notranslate"><span class="pre">groupby</span></code> is pretty boring and doesn’t obviously do much.  The real
+power of <code class="docutils literal notranslate"><span class="pre">group</span></code> by is when you couple it with the function <code class="docutils literal notranslate"><span class="pre">aggregate</span></code>, which
+can be abbreviated to <code class="docutils literal notranslate"><span class="pre">agg</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">odf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;sleep_total&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">),</span>
+    <span class="n">sd</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;sleep_total&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">),</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;sleep_total&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+<span class="n">odf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2217/2079833150.py:1: FutureWarning: The provided callable &lt;function mean at 0x7f9c0cf91430&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
+/tmp/ipykernel_2217/2079833150.py:1: FutureWarning: The provided callable &lt;function std at 0x7f9c0cf91550&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vore</th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>carni</td>
+      <td>10.378947</td>
+      <td>4.669116</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>herbi</td>
+      <td>9.509375</td>
+      <td>4.878746</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>insecti</td>
+      <td>14.940000</td>
+      <td>5.920557</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>omni</td>
+      <td>10.925000</td>
+      <td>2.949019</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The code above can be a lot to take in at first.  And to be honest, it is more
+complex than necessary.  The structure of the <code class="docutils literal notranslate"><span class="pre">aggregate</span></code> code above is the most
+explicit, in the hope that you can see all the necessary pieces of the puzzle
+and understand how they fit together.</p>
+<p>The basic pattern of the keyword arguments to <code class="docutils literal notranslate"><span class="pre">aggregate</span></code> go like this.  You
+specify as a keyword argument the name of the output variable of interest.
+These output variables will show up as columns of the output DataFrame, along
+side the grouping variable(s).  So we actively chose the output variable names
+<code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">sd</span></code>, and <code class="docutils literal notranslate"><span class="pre">count</span></code>.  We could have just as well chosen the output
+variables names to be <code class="docutils literal notranslate"><span class="pre">horse</span></code>, <code class="docutils literal notranslate"><span class="pre">octopus</span></code>, and <code class="docutils literal notranslate"><span class="pre">badger</span></code>, but obviously more
+meaningful variables are better.</p>
+<p>On the right hand side of each equals sign, for each keyword argument, you put
+within a left/open and right/close parenthesis the name of the numerical
+variable you want to act on, and then the function that will act on the
+numerical variable you specified.  The numerical variable must live in the
+DataFrame you are aggregating, and the function to be applied to your numerical
+variable must take only one numerical variable as its first argument, as does
+<code class="docutils literal notranslate"><span class="pre">np.mean</span></code>, <code class="docutils literal notranslate"><span class="pre">np.std</span></code>, and <code class="docutils literal notranslate"><span class="pre">np.size</span></code>.</p>
+<p>The output DataFrame can now be acted on just like anyother DataFrame we’ve
+worked with previously.  For instance, we can create a Series based on variables
+from <code class="docutils literal notranslate"><span class="pre">odf</span></code> and insert this new Series into the DataFrame <code class="docutils literal notranslate"><span class="pre">odf</span></code> or we can make
+plots from <code class="docutils literal notranslate"><span class="pre">odf</span></code>.  We’ll spend some more time on the details of the plot below
+in <a class="reference internal" href="week-04.html"><span class="doc std std-doc">Week 04</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">odf</span><span class="p">[</span><span class="s2">&quot;se&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;sd&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">odf</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">])</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">odf</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_point</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/94507a6502511da3df3d2451e39e86c47cfa232e24c42f16e1e53602166883dd.png" src="_images/94507a6502511da3df3d2451e39e86c47cfa232e24c42f16e1e53602166883dd.png" />
+</div>
+</div>
 </section>
 </section>
 
@@ -1056,7 +1302,7 @@ data, so let’s remove the missing data from our two variables of interest firs
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 04: Intermediate grahping &amp; importing external data</p>
+        <p class="prev-next-title">Week 04: Filling in some details</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1077,19 +1323,23 @@ data, so let’s remove the missing data from our two variables of interest firs
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation">Preparation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-syntax-of-ggplot">The syntax of <code class="docutils literal notranslate"><span class="pre">ggplot</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#msleep-dataframe"><code class="docutils literal notranslate"><span class="pre">msleep</span></code> DataFrame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-one-variable">Univariate (one variable)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variable">categorical variable</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-variable">numeric variable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphing">Graphing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-syntax-of-ggplot">The syntax of <code class="docutils literal notranslate"><span class="pre">ggplot</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#msleep-dataframe"><code class="docutils literal notranslate"><span class="pre">msleep</span></code> DataFrame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-one-variable">Univariate (one variable)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variable">categorical variable</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-variable">numeric variable</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bivariate-two-variables">Bivariate (two variables)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">categorical variables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-variables">numerical variables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-and-categorical">numerical and categorical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bivariate-two-variables">Bivariate (two variables)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">categorical variables</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-variables">numerical variables</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-and-categorical">numerical and categorical</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating">Aggregating</a></li>
 </ul>
   </nav></div>
 
