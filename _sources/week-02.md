@@ -201,6 +201,7 @@ smrt_idx = msleep["brnbdywt"] >= 0.015
 msleep.loc[smrt_idx, "smrt"] = True
 ```
 
+(categorical-variables)=
 ### Categorical variables
 
 A categorical variable is a variable that has names or labels as
