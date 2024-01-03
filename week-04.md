@@ -14,17 +14,17 @@ kernelspec:
 
 # Week 04: Filling in some details
 
-### Learning outcomes
+## Learning outcomes
 
 After completing this lesson, you will be able to
 
 * customize many aspects of plotnine plots
 * make 2d plots displaying 3 variables
-* prepare your own dataset for an analysis
 * understand the basics of file paths
+* prepare your own dataset for an analysis
 * read your own dataset into Python
 
-### Preparation
+## Preparation
 
 To follow along with this Lesson, please open the Colab notebook
 [Week-04-Notes](#TODO).  The first code cell of this notebook calls to
@@ -140,7 +140,7 @@ more) groups may appear different.
 p += pn.geom_jitter(df,              # notice the change in dataset
     pn.aes(x = df["vore"].cat.codes, # unique numeric codes of the labels in vore
     y = "sleep_total",
-    color = "vore"), 
+    color = "vore"),
     width = 0.25,                    # the maximal width of horizontal noise/jitter
     alpha = 0.5
     )
@@ -175,14 +175,12 @@ p += pn.scale_x_continuous(                  # continuous x-axis scale based on 
 )
 ```
 
-
-
 Next, let's change the axis labels and title.
 
 ```{code-cell}
 p += pn.labs(
     x = "Vore status",
-    y = "Sleep (hours)", 
+    y = "Sleep (hours)",
     title = "Hours of sleep by vore status"
 )
 ```
@@ -234,31 +232,34 @@ p.draw()
 
 ## Your own data
 
-In this section, we'll learn about **file paths**.  File paths are not Python
-specific.  A file path is like the URL of a specific file on your computer.
-Each file on your computer has an address and that address is called a file
-path.
+In this section, we'll learn about where/how files, such as a dataset,
+are stored on your computer and how to properly enter data into a
+spreadsheet for later data analyses.  We begin with understanding
+**file paths**.  File paths are not Python specific.  A file path is
+like the URL of a specific file on your computer.  Each file on your
+computer has an address and that address is called a file path.
 
-So far we've relied on a dataset that already exists on your machine.  The main
-reason behind this is that file paths can be confusing at first.  And so
-we've delayed this topic until near the end.  Invariably, though, you will need
-to load your own dataset.
+So far we've relied on a dataset that already exists on your machine.
+The main reason behind this is that file paths can be confusing at
+first.  And so we've delayed this topic until near the end.
+Invariably, though, you will need to load your own dataset.
 
-To help you learn about file paths, we have set up a Colab notebook specific for
-practicing file paths.  Please follow along in the Colab notebook
+To help you learn about file paths, we have set up a Colab notebook
+specific for practicing file paths.  Please follow along in the Colab
+notebook
 [file-paths](https://colab.research.google.com/drive/12q0ostmi7b7LUFOv6srC2xBuN7y7Gz9g?usp=sharing).
 
-#### directories
+### directories
 
 All computers organize their files in **directories**, which are sometimes
-called **folders**.  Think of directories as a specific drawer in which
+called **folders**.  Think of a directory as a specific drawer in which
 logically grouped files go.
 
 Whenever you login to a computer, you should imagine that you are immediately
 (as if standing) within one of the many directories of that machine.  Whichever
 directory you are currently in is called the **current working directory**.
 Sometimes the current working directory is abbreviated **cwd** or even just
-**wd**.  Symbolically, the current working directory is written `.`.
+**wd**.  The current working directory is written `.`.
 
 From the current working directory, you can move up or down the directory
 hierachry.  Which is to say directories can contain other directories, and
@@ -272,9 +273,13 @@ of a computer, is called their **home directory**.
 Every file and every folder on a computer has exactly one parent directory.  The
 parent directory is spelled `..`.
 
-#### visualizing directory structure
+### visualizing directory structure
 
-There are many different ways to visualize directory structure.  On a Mac, the application Finder, and on Windows machines File Explorer, both help users navigate files and directory structure.  A more ~~basic~~ traditional way to visualize directory structure is with the command `tree`.
+There are many different ways to visualize directory structure.  On a
+Mac, the application Finder, and on Windows machines File Explorer,
+both help users navigate files and directory structure.  A more
+~~basic~~ traditional way to visualize directory structure is with the
+command `tree`.
 
 From a Colab notebook, one can access the remote computer, on which the notebook
 is running, by prepending an appropriate command with `!`, read as bang.  The
@@ -283,29 +288,32 @@ the directory structure below its one argument, a file path.
 
 For instance, the command `tree .`, where `.` represents the current working
 directory, will print the contents of the current working directory all the way
-down to the children files contained within any and all sub-directories.  
+down to the children files contained within any and all sub-directories.
 
 `tree` indents sub-directories and contained files relative to their parent
-directory.  In addition to indentations, `tree` makes use of vertical and
+directory.  In addition to indents, `tree` makes use of vertical and
 horizontal lines to help your eye better visualize where the directory
 boundaries are.
 
-#### file paths
+### file paths
 
-Every directory on a computer is referenced by a file path (an address).
-Directories are separated by a forward slash `/`, as is each file name.  Imagine
-a dataset named `bike.csv` contained in a series of directories `math131` and
-`data`.  Such a file would have file path `./math131/data/bike.csv`.  This file
-path tells us that we are in a directory, which contains a directory named
-`math131`.  The directory `math131` itself contains a directory named `data`,
-and the directory `data` contains a file named `bike.csv`.
+Every directory on a computer is referenced by a file path (an
+address).  Directories are separated by a forward slash `/`, as is
+each file name.  Imagine a dataset named `bike.csv` contained in a
+series of directories `math131` and `data`.  Such a file would have
+file path `./math131/data/bike.csv`.  This file path tells us that we
+are in a directory `.`, which contains a directory named `math131`.
+The directory `math131` itself contains a directory named `data`, and
+the directory `data` contains a file named `bike.csv`.  We will learn
+about the file extension `.csv` in the next sub-section.
 
-File paths that begin with `.` or `..` are called **relative file paths**.  Such
-file paths are relative to the current working directory.  File paths that begin
-with the root directory are called **absolute file paths**.  For the most part,
-we will encourage use of relative file paths.
+File paths that begin with `.` or `..` are called **relative file
+paths**.  Such file paths are relative to the current working
+directory.  File paths that begin with the root directory are called
+**absolute file paths**.  For the most part, we will encourage use of
+relative file paths.
 
-#### delimited files
+### delimited files
 
 We next look at the ways in which most small to medium sized datasets are
 organized.  Any larger datasets should use a database and databases are beyond
@@ -325,17 +333,32 @@ rows and columns.  Each row is an observation, or separate unit of analysis, and
 each column is a variable.  Variable names show up in the first, or zero-th row,
 and the data are in all subsequent rows.
 
-Such a dataset is often stored in a **delimited file**.  Within a row, a
-delimited file separates, or delimits, each variable's value with a special
-character.  The most common delimiters are comma `,` or some amount of white
-space, a single space ` `, or a tab spelled `\t` and often written as visually
-equivalent to four or eight spaces.  Both have their own faults, and
-unfortunately the world has mostly settled on comma separated values, hence
-`.csv` file extensions.
+Such a dataset is often stored in a **delimited file**.  Within a row,
+a delimited file separates, or delimits, each variable's value with a
+special character.  The most common delimiters are comma `,` or some
+amount of white space, a single space ` `, or a tab spelled `\t` and
+often written as visually equivalent to four or eight spaces.  Each
+has its own faults.  The world has mostly settled on comma separated
+values, hence `.csv` file extensions.
 
-Comma separated values would list in a text file the row for trouser as
-`trouser,6,black`.  A file of tabular data such as this would have file
-extention `.csv`, which helps quickly identify the type of file.
+Comma separated values would list in a text file the row for trouser
+as `trouser,6,black`.  A file of tabular data such as this would have
+file extention `.csv`, which helps quickly identify the type of file.
+In a .csv file, the entire table of data above would look as follows.
+
+```{code-cell}
+---
+tags: [raises-exception]
+---
+
+type,size,color
+trouser,6,black
+dress,8,blue
+sneaker,7,silver
+ankle boot,8,brown
+coat,44,green
+sandal,9,black
+```
 
 There are some simple problems with csv files.  Imagine a dataset that contains
 as values sentences, specifically sentences which possibly contain commas.
@@ -348,9 +371,11 @@ Now imagine a dataset that contains as values strings with double quotes in
 them.  There's solutions to this problem, too: escape characters.  The most
 common espace character is a back slash `\`.
 
-As you can see, in extreme cases csv files are challenging to get right.  So are
-tab delimited files, `.tsv`, for similar reasons.  We should rely on the Python
-package Pandas to simplify our lives.
+As you can see, in extreme cases csv files are challenging to get
+right.  So are tab delimited files, `.tsv`, for similar reasons.  We
+generally rely spreadsheet software and mature programming packages,
+like the Python package Pandas, to simplify our lives for writing and
+reading delimited files..
 
 The Python package Pandas function named `read_csv` should be used to read in
 your own data.  The function `read_csv` defaults to a comma as delimiter, double
@@ -359,18 +384,18 @@ thus your job to get your data into a csv file appropriately.  The easiest
 solution is to type your data into a spreadsheet and then export your
 spreadsheet data into csv format.
 
-#### entering data
+### entering data
 
 Entering data into a spreadsheet is easy.  And that's good.  But there are some
 gotchas that we'd like you to avoid.  This section will list the dos and then
 explain them, and list the don'ts and then explain them.
 
-**DOs**.
+#### DOs
 
 * be consistent
 * use simple variable names
   * prefer all lower case letters
-  * minimize numbers
+  * minimize numbers and special characters
   * use underscore `_` instead of space ` `
 * organize files within directories
 
@@ -380,35 +405,111 @@ annoying because it interrupts your programming.  Programming is hard enough,
 try to minimize inconsistencies that can otherwise be settled by being
 consistent.
 
-**Use simple variable names**.  Consider two variables you want to name with
-multiple words, like miles per gallon and brain to body weight ratio. It is easy
-to name one variable using camel case, e.g. `MilesPerGallon`, and another
-capitalized, e.g. `Brain(g)bodyweight(kg)`.  Both names are inconsistent, and
-the second name is not simple.  Also see, don't put units in variabl names
-below.
+**Use simple variable names**.  Consider two variables you might want
+to name with multiple words, like miles per gallon and brain to body
+weight ratio. It is easy to name one variable using camel case,
+e.g. `MilesPerGallon`, and another capitalized,
+e.g. `Brain(g)bodyWeight(KG)`.  The first name is fine, so long as you
+are consistent and choose camel case for all of your variable names.
+The second variable name is both not simple and inconsistent.  Camel
+case would have you capitalize each new work, as in `BrainBodyWight`.
+In this case, even the units are not capitalized the same.  This is a
+recipe for frustration.  Also see below, *don't put units in variabl
+names*.
 
-It is simples to make yourself a rule, like *prefer all lower case letters*.
-Maybe that's not the rule for you, but don't get caught up in the rule.  The
-rule itself doesn't matter.  Just be consistent and consistently simple.
+It is recommended to make yourself a simple rule, like *prefer all
+lowercase letters*.  Maybe that's not the rule for you, but don't get
+caught up on the rule.  The rule itself doesn't matter.  Just be
+simple and consistently so.
 
-When you need to separate words, use `_` not ` `. Your simple rules should also
-tell you when to separate words and when not to.  A simple rule for simple
-variable names should say to separate words when there are contiguous repeated
-letters, `ee` or `ss`, and other don't.
+My go to rule is all lowercase letters, no numbers or special
+characters other than `_`, and to separate words when there are
+contiguous repeated letters, `ee` or `ss`, and otherwise don't
+separate words.  The separator I prefer is underscore `_` instead of
+space ` `, which is mostly a carry over rule from programming in R.
+Remember, the rule matters less than consistency with the rule.
 
-**Organize files within directories**.
+**Organize files within directories**.  When editing files, it is
+tempting to write metadata into the file name.  For instance, it is
+unfortunately common for people to write file names such as
+`draft_manuscript.docx`, `draft2_manuscript.docx`,
+`draft3_manuscript.docx`, `final_manuscript.docx`,
+`final_final_manuscript.docx`.  File names are not intended to carry
+the metadata associated with draft versions.
 
-**DON'Ts**.
+If you really need to maintain copies of drafts, and I guess you most
+often do not need such copies, then you should create directories such as
+`draft` and `final`.  Each directory should contain a (singular) copy
+of the files you absolutely need with each and every copy of the file.
+Any files, such as data, that are the same for all copies of the file
+should have their own directory.  It might help future you to put a
+separate notes file in each directory that reminds you of exact
+purpose of the directory.
 
-* use abbreviations
-* put units in variable names
-* start a variable name with a number
-* use special character in variable names
-* put dates in your file names
-* have multiple copies of your data
-* organize through file names
+#### DON'Ts
+
+* don't start a variable name with a number
+* don't use special character in variable names
+* don't put units in variable names
+* don't use abbreviations
+* don't organize through file names
+* don't put dates in your file names
+* don't have multiple copies of your data
+
+**Don't start a variable name with a number**.  In most programming
+languages, you can't start a variable name with a number.  So it's
+easiest to just avoid putting numbers in variable names altogether.
+Occassionaly, it makes sense to use a number in a variable name.  Just
+don't start your variable name with a number.
+
+**Don't use special characters in variable names**.  This rule is much
+like the rule above.  In my experience, special characters,
+e.g. `~!@#$%^&*()+=,<>/|\`, only make remembering a variable name more
+difficult.  The only special character that you should allow, when
+necessary, in your variable names is underscore `_`.  See **Use simple
+variable names** above.
+
+**Don't put units in variable names**.  Units in variable names just
+open the door for inconsistent variable names.  It is easiest to just
+avoid putting units or other metadata into variable names.  Your data
+should instead have a separate file of all the associated metadata.
+
+**Don't use abbreviations**.  Abbreviated variable names are
+attractive, because they save typing.  For instance, one could imagine
+abbreviating micrograms as `ug`, `mg`, or `μg`.  This creates
+opportunity for misremembering and inconsistency.  Such abbreviations
+in variable names also breaks the rule **Don't put units in variable
+names**.  Further, see **Use simple variable names above** above.
+Instead, put such metadata in a separate file.
+
+**Don't organize through file names**.  The only metadata a file name
+should contain is the name of the file.  Instead, use directories to
+organize your files.  See **Organize files within directories** above.
+
+**Don't put dates in your file names**.  Dates are metadata, see
+**Don't organize through file names** above.
+
+**Don't have multiple copies of your data**.  Generally, you should
+only have one copy of your dataset.  See **Don't put dates in your
+file names** above.  If there are necessary edits to your data for a
+specific analysis, then you should program those edits in Python code
+and save that code for future re-use.  This way you can re-create data
+changes as necessary, and you minimize introducing permanent errors
+into your dataset.
 
 
-#### read in your own data
+### read in your own data
 
+This whole section is prep-work.  Once you understand file paths and
+have entered your data into a delimeted file structure (.csv, .tsv, or
+otherwise), the Python package Pandas makes reading in the data
+relatively simple.  The code below is an example of reading in a .csv
+file into a DataFrame, just as we worked with beginning in Week 01.
 
+```{code-cell}
+---
+tags: [raises-exception]
+---
+
+df = pd.read_csv("/path/to/your/data.csv")
+```

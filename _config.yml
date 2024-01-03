@@ -32,7 +32,9 @@ html:
   use_repository_button: true
   extra_footer: |
     <br>
-    <p>This work is licensed under a <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero license</a></p>
+    <p>The vast majority of this content was developed based on, or directly copied from, Drs. Robin Donatello and Nicholas Lytal's <a href="https://norcalbiostat.github.io/MATH130/index.html">MATH 130: Introduciton to R</a> course.</p>
+    <br>
+    <p>This work is licensed under a <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero license</a>.</p>
 
 sphinx:
   config:

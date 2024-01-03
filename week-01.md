@@ -16,7 +16,7 @@ kernelspec:
 
 [Homework 01 (Colab notebook)](https://colab.research.google.com/drive/1hh49hQRkhxcE1ldXCB7QKNkr3RkCiA4J?usp=sharing)
 
-### Learning objectives
+## Learning objectives
 
 This lesson is designed to explain the basics of programming in Python.
 
@@ -31,7 +31,7 @@ This lesson is designed to explain the basics of programming in Python.
 * array
 * DataFrame, Series, some details
 
-### Variable
+## Variable
 
 A **variable** consists of a name and value, where the name references the
 value.  The equals sign `=` assigns to a name a specific value.  The code below
@@ -68,7 +68,7 @@ should focus less and less on how to read Python code and should instead focus
 more and more on the details surrounding why the code is written as it is.
 This is a fine line.
 
-### Functions
+## Functions
 
 This section will focus on using Python functions.  We will look at
 writing functions later.  A Python **function** is a named and bundled
@@ -121,7 +121,7 @@ practice.
 round(x, 3)
 ```
 
-### Variable types
+## Variable types
 
 Each variable in Python is of a specific **type**.  Although we may think of the
 numbers `3` and `3.0` as mathematically equivalent, these numbers are of
@@ -194,7 +194,7 @@ used to dealing with types appropriately.
 There are in fact many more variable types in Python and in programming more
 generally.  For now, we'll skip to variable types that store (plural) data.
 
-### Data structures
+## Data structures
 
 Variable types that contain more than one datum, data, are generally referred to
 as data structures.  Two important Python types for storing data are `list` and `dict`.
@@ -204,7 +204,7 @@ types, the contained elements themselves do not need to be of the same type.
 What differentiates a `list` from a `dict` is how the contained elements are
 indexed (and also how the data structures are stored in memory).
 
-##### List
+### List
 
 A `list` indexes its elements with `int`s or slices of integers.  The code below
 creates a variable named `l` which references a list of heterogeneous types, and
@@ -263,7 +263,7 @@ l[::-1]
 The slice `::-1` says to start at index `0`, go up to the last index, and take
 steps of size `-1`.  Hence, one gets a list in reverse order.
 
-##### Dict
+### Dict
 
 A `dict` indexes its elements with keys.  In other computer science worlds, a
 Python `dict` might be called an associative container because it associates to
@@ -312,7 +312,7 @@ order of the contained elements does not necessarily make sequential
 sense and instead it is easier to associate the contained elements by
 key/name.
 
-### Packages
+## Packages
 
 There are many more types built-in to Python and many more types not directly
 built-in.  Communities of programmers, like that of the data science community
@@ -345,7 +345,7 @@ NumPy package, you lead with `np`, e.g. `np.array`, `np.mean`, or `np.size`.
 Similarly, the package Pandas is often renamed as `pd`.
 
 
-### Array
+## Array
 
 From the Python package NumPy, the type `ndarray` is used to contain multiple
 elements, all of the same type.  The name of the array type, `ndarray` is meant
@@ -417,7 +417,7 @@ enough and we'll move on to Pandas `DataFrame` and `Series` types, since we'll
 spend most time in this class using dataframes.
 
 (week-01-dataframes)=
-### DataFrames
+## DataFrames
 
 ```{note}
 
@@ -511,7 +511,7 @@ case is a list of column names, and the return value is a subset of
 the DataFrame you are indexing.
 
 ```{code-cell}
-diamons[["depth", "cut"]]
+diamonds[["depth", "cut"]]
 ```
 
 Since each column is a Series, which is analogous to `np.ndarray`, you can
@@ -581,7 +581,6 @@ diamonds.  Notice the `~`, read tilde, in front of `idx`.
 ```{code-cell}
 np.mean(diamonds.loc[~idx, "price"])
 ```
-
 
 
 ```{seealso}
