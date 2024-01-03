@@ -379,6 +379,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directories">directories</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-directory-structure">visualizing directory structure</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-paths">file paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delimited-files">delimited files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entering-data">entering data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-your-own-data">read in your own data</a></li>
 </ul>
 </li>
 </ul>
@@ -458,9 +461,9 @@ Since <code class="docutils literal notranslate"><span class="pre">vore</span></
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2053/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
-/tmp/ipykernel_2053/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7ff1b411d670&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
-/tmp/ipykernel_2053/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7ff1b411d790&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2047/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2047/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7fad8051f700&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
+/tmp/ipykernel_2047/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7fad8051f820&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
 </pre></div>
 </div>
 </div>
@@ -603,7 +606,7 @@ the plot theme.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c8996b09db692332ff431a65957f0d473fb1de8578a84e65110b31c48f190927.png" src="_images/c8996b09db692332ff431a65957f0d473fb1de8578a84e65110b31c48f190927.png" />
+<img alt="_images/3fafe1b43a011a38e01fb9690250814ce13696cc7b0dd55372ce371a6ab8cfb5.png" src="_images/3fafe1b43a011a38e01fb9690250814ce13696cc7b0dd55372ce371a6ab8cfb5.png" />
 </div>
 </div>
 <p>Some final thoughts on the plot above.  I’d prefer the confidence intervals not
@@ -639,7 +642,7 @@ show off your plotting skills, use both.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/616a8f9d7e2edac4a9a7f08029d69525370c92f1626b90beb300dbf35a2ea169.png" src="_images/616a8f9d7e2edac4a9a7f08029d69525370c92f1626b90beb300dbf35a2ea169.png" />
+<img alt="_images/e72998ccee99dcd44eefca3003610e3d80e61d78890c520cccd65eff681d1225.png" src="_images/e72998ccee99dcd44eefca3003610e3d80e61d78890c520cccd65eff681d1225.png" />
 </div>
 </div>
 </section>
@@ -647,10 +650,10 @@ show off your plotting skills, use both.</p>
 <h2>Your own data<a class="headerlink" href="#your-own-data" title="Permalink to this heading">#</a></h2>
 <p>In this section, we’ll learn about <strong>file paths</strong>.  File paths are not Python
 specific.  A file path is like the URL of a specific file on your computer.
-Each file on your computer has an address
-and that address is called a file path.</p>
+Each file on your computer has an address and that address is called a file
+path.</p>
 <p>So far we’ve relied on a dataset that already exists on your machine.  The main
-reason behind this is because file paths can be confusing at first.  And so
+reason behind this is that file paths can be confusing at first.  And so
 we’ve delayed this topic until near the end.  Invariably, though, you will need
 to load your own dataset.</p>
 <p>To help you learn about file paths, we have set up a Colab notebook specific for
@@ -665,42 +668,167 @@ logically grouped files go.</p>
 (as if standing) within one of the many directories of that machine.  Whichever
 directory you are currently in is called the <strong>current working directory</strong>.
 Sometimes the current working directory is abbreviated <strong>cwd</strong> or even just
-<strong>wd</strong>.</p>
+<strong>wd</strong>.  Symbolically, the current working directory is written <code class="docutils literal notranslate"><span class="pre">.</span></code>.</p>
 <p>From the current working directory, you can move up or down the directory
 hierachry.  Which is to say directories can contain other directories, and
 chances are good the current working directory is located within another
 directory.  The root of the directory tree is called the <strong>root directory</strong>.</p>
 <p>Each user on a computer has their own directory, which is a (not necessarily
 immediate) child of the root directory.  Such a directory, unique to each user
-of a computer, is called the <strong>home directory</strong>.</p>
+of a computer, is called their <strong>home directory</strong>.</p>
+<p>Every file and every folder on a computer has exactly one parent directory.  The
+parent directory is spelled <code class="docutils literal notranslate"><span class="pre">..</span></code>.</p>
 </section>
 <section id="visualizing-directory-structure">
 <h3>visualizing directory structure<a class="headerlink" href="#visualizing-directory-structure" title="Permalink to this heading">#</a></h3>
-<p>From the Colab notebook <a class="reference external" href="https://colab.research.google.com/drive/12q0ostmi7b7LUFOv6srC2xBuN7y7Gz9g?usp=sharing">file-paths</a>, run the cell with the command</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pwd
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/MATH131/MATH131
-</pre></div>
-</div>
-</div>
-</div>
-<p>The band <code class="docutils literal notranslate"><span class="pre">!</span></code> calls to the underlying machine on which the <code class="docutils literal notranslate"><span class="pre">pwd</span></code></p>
+<p>There are many different ways to visualize directory structure.  On a Mac, the application Finder, and on Windows machines File Explorer, both help users navigate files and directory structure.  A more ~~basic~~ traditional way to visualize directory structure is with the command <code class="docutils literal notranslate"><span class="pre">tree</span></code>.</p>
+<p>From a Colab notebook, one can access the remote computer, on which the notebook
+is running, by prepending an appropriate command with <code class="docutils literal notranslate"><span class="pre">!</span></code>, read as bang.  The
+command <code class="docutils literal notranslate"><span class="pre">pwd</span></code> prints the current working directory.  The command <code class="docutils literal notranslate"><span class="pre">tree</span></code> prints
+the directory structure below its one argument, a file path.</p>
+<p>For instance, the command <code class="docutils literal notranslate"><span class="pre">tree</span> <span class="pre">.</span></code>, where <code class="docutils literal notranslate"><span class="pre">.</span></code> represents the current working
+directory, will print the contents of the current working directory all the way
+down to the children files contained within any and all sub-directories.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tree</span></code> indents sub-directories and contained files relative to their parent
+directory.  In addition to indentations, <code class="docutils literal notranslate"><span class="pre">tree</span></code> makes use of vertical and
+horizontal lines to help your eye better visualize where the directory
+boundaries are.</p>
 </section>
 <section id="file-paths">
 <h3>file paths<a class="headerlink" href="#file-paths" title="Permalink to this heading">#</a></h3>
-<p>The current working directory is written <code class="docutils literal notranslate"><span class="pre">.</span></code>.  From the current working
-directory, you can move up, to a parent directory, or down to a child directory.
-The file path written as <code class="docutils literal notranslate"><span class="pre">..</span></code> references the parent directory from the current
-working directory.  Since there is only one parent directory, <code class="docutils literal notranslate"><span class="pre">..</span></code> is uniquely
-the parent directory of the current working
-directory.</p>
-<p>To move up or down more than one directory at a time, you need to specify a file
-path.  From the current working directory, imagine</p>
+<p>Every directory on a computer is referenced by a file path (an address).
+Directories are separated by a forward slash <code class="docutils literal notranslate"><span class="pre">/</span></code>, as is each file name.  Imagine
+a dataset named <code class="docutils literal notranslate"><span class="pre">bike.csv</span></code> contained in a series of directories <code class="docutils literal notranslate"><span class="pre">math131</span></code> and
+<code class="docutils literal notranslate"><span class="pre">data</span></code>.  Such a file would have file path <code class="docutils literal notranslate"><span class="pre">./math131/data/bike.csv</span></code>.  This file
+path tells us that we are in a directory, which contains a directory named
+<code class="docutils literal notranslate"><span class="pre">math131</span></code>.  The directory <code class="docutils literal notranslate"><span class="pre">math131</span></code> itself contains a directory named <code class="docutils literal notranslate"><span class="pre">data</span></code>,
+and the directory <code class="docutils literal notranslate"><span class="pre">data</span></code> contains a file named <code class="docutils literal notranslate"><span class="pre">bike.csv</span></code>.</p>
+<p>File paths that begin with <code class="docutils literal notranslate"><span class="pre">.</span></code> or <code class="docutils literal notranslate"><span class="pre">..</span></code> are called <strong>relative file paths</strong>.  Such
+file paths are relative to the current working directory.  File paths that begin
+with the root directory are called <strong>absolute file paths</strong>.  For the most part,
+we will encourage use of relative file paths.</p>
+</section>
+<section id="delimited-files">
+<h3>delimited files<a class="headerlink" href="#delimited-files" title="Permalink to this heading">#</a></h3>
+<p>We next look at the ways in which most small to medium sized datasets are
+organized.  Any larger datasets should use a database and databases are beyond
+this course.  Consider the following table of data.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>type</p></th>
+<th class="head"><p>size</p></th>
+<th class="head"><p>color</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>trouser</p></td>
+<td><p>6</p></td>
+<td><p>black</p></td>
+</tr>
+<tr class="row-odd"><td><p>dress</p></td>
+<td><p>8</p></td>
+<td><p>blue</p></td>
+</tr>
+<tr class="row-even"><td><p>sneaker</p></td>
+<td><p>7</p></td>
+<td><p>silver</p></td>
+</tr>
+<tr class="row-odd"><td><p>ankle boot</p></td>
+<td><p>8</p></td>
+<td><p>brown</p></td>
+</tr>
+<tr class="row-even"><td><p>coat</p></td>
+<td><p>44</p></td>
+<td><p>green</p></td>
+</tr>
+<tr class="row-odd"><td><p>sandal</p></td>
+<td><p>9</p></td>
+<td><p>black</p></td>
+</tr>
+</tbody>
+</table>
+<p>A table of data is often called <strong>tabular data</strong>.  Tabular data are organized in
+rows and columns.  Each row is an observation, or separate unit of analysis, and
+each column is a variable.  Variable names show up in the first, or zero-th row,
+and the data are in all subsequent rows.</p>
+<p>Such a dataset is often stored in a <strong>delimited file</strong>.  Within a row, a
+delimited file separates, or delimits, each variable’s value with a special
+character.  The most common delimiters are comma <code class="docutils literal notranslate"><span class="pre">,</span></code> or some amount of white
+space, a single space <code class="docutils literal notranslate"> </code>, or a tab spelled <code class="docutils literal notranslate"><span class="pre">\t</span></code> and often written as visually
+equivalent to four or eight spaces.  Both have their own faults, and
+unfortunately the world has mostly settled on comma separated values, hence
+<code class="docutils literal notranslate"><span class="pre">.csv</span></code> file extensions.</p>
+<p>Comma separated values would list in a text file the row for trouser as
+<code class="docutils literal notranslate"><span class="pre">trouser,6,black</span></code>.  A file of tabular data such as this would have file
+extention <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, which helps quickly identify the type of file.</p>
+<p>There are some simple problems with csv files.  Imagine a dataset that contains
+as values sentences, specifically sentences which possibly contain commas.
+Here’s an example: <code class="docutils literal notranslate"><span class="pre">For</span> <span class="pre">instance,</span> <span class="pre">this</span> <span class="pre">sentence.</span></code>.  To avoid the comma within a
+variable’s value being conflated with a delimiting comma, people have started
+surrounding individual variable values with double quotes.  Double quotes is not
+the only choice, but it is the common choice for a quote character.</p>
+<p>Now imagine a dataset that contains as values strings with double quotes in
+them.  There’s solutions to this problem, too: escape characters.  The most
+common espace character is a back slash <code class="docutils literal notranslate"><span class="pre">\</span></code>.</p>
+<p>As you can see, in extreme cases csv files are challenging to get right.  So are
+tab delimited files, <code class="docutils literal notranslate"><span class="pre">.tsv</span></code>, for similar reasons.  We should rely on the Python
+package Pandas to simplify our lives.</p>
+<p>The Python package Pandas function named <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> should be used to read in
+your own data.  The function <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> defaults to a comma as delimiter, double
+quotes as quote character, and back slash <code class="docutils literal notranslate"><span class="pre">\</span></code> as an escape character.  It is
+thus your job to get your data into a csv file appropriately.  The easiest
+solution is to type your data into a spreadsheet and then export your
+spreadsheet data into csv format.</p>
+</section>
+<section id="entering-data">
+<h3>entering data<a class="headerlink" href="#entering-data" title="Permalink to this heading">#</a></h3>
+<p>Entering data into a spreadsheet is easy.  And that’s good.  But there are some
+gotchas that we’d like you to avoid.  This section will list the dos and then
+explain them, and list the don’ts and then explain them.</p>
+<p><strong>DOs</strong>.</p>
+<ul class="simple">
+<li><p>be consistent</p></li>
+<li><p>use simple variable names</p>
+<ul>
+<li><p>prefer all lower case letters</p></li>
+<li><p>minimize numbers</p></li>
+<li><p>use underscore <code class="docutils literal notranslate"><span class="pre">_</span></code> instead of space <code class="docutils literal notranslate"> </code></p></li>
+</ul>
+</li>
+<li><p>organize files within directories</p></li>
+</ul>
+<p><strong>Be consistent</strong>. When programming, having to repeated look back at your
+spreadsheet to figure out your variable names is beyond annoying.  It is beyond
+annoying because it interrupts your programming.  Programming is hard enough,
+try to minimize inconsistencies that can otherwise be settled by being
+consistent.</p>
+<p><strong>Use simple variable names</strong>.  Consider two variables you want to name with
+multiple words, like miles per gallon and brain to body weight ratio. It is easy
+to name one variable using camel case, e.g. <code class="docutils literal notranslate"><span class="pre">MilesPerGallon</span></code>, and another
+capitalized, e.g. <code class="docutils literal notranslate"><span class="pre">Brain(g)bodyweight(kg)</span></code>.  Both names are inconsistent, and
+the second name is not simple.  Also see, don’t put units in variabl names
+below.</p>
+<p>It is simples to make yourself a rule, like <em>prefer all lower case letters</em>.
+Maybe that’s not the rule for you, but don’t get caught up in the rule.  The
+rule itself doesn’t matter.  Just be consistent and consistently simple.</p>
+<p>When you need to separate words, use <code class="docutils literal notranslate"><span class="pre">_</span></code> not <code class="docutils literal notranslate"> </code>. Your simple rules should also
+tell you when to separate words and when not to.  A simple rule for simple
+variable names should say to separate words when there are contiguous repeated
+letters, <code class="docutils literal notranslate"><span class="pre">ee</span></code> or <code class="docutils literal notranslate"><span class="pre">ss</span></code>, and other don’t.</p>
+<p><strong>Organize files within directories</strong>.</p>
+<p><strong>DON’Ts</strong>.</p>
+<ul class="simple">
+<li><p>use abbreviations</p></li>
+<li><p>put units in variable names</p></li>
+<li><p>start a variable name with a number</p></li>
+<li><p>use special character in variable names</p></li>
+<li><p>put dates in your file names</p></li>
+<li><p>have multiple copies of your data</p></li>
+<li><p>organize through file names</p></li>
+</ul>
+</section>
+<section id="read-in-your-own-data">
+<h3>read in your own data<a class="headerlink" href="#read-in-your-own-data" title="Permalink to this heading">#</a></h3>
 </section>
 </section>
 </section>
@@ -775,6 +903,9 @@ path.  From the current working directory, imagine</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directories">directories</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-directory-structure">visualizing directory structure</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-paths">file paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delimited-files">delimited files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entering-data">entering data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-your-own-data">read in your own data</a></li>
 </ul>
 </li>
 </ul>

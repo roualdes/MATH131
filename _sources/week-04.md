@@ -236,11 +236,11 @@ p.draw()
 
 In this section, we'll learn about **file paths**.  File paths are not Python
 specific.  A file path is like the URL of a specific file on your computer.
-Each file on your computer has an address
-and that address is called a file path.  
+Each file on your computer has an address and that address is called a file
+path.
 
 So far we've relied on a dataset that already exists on your machine.  The main
-reason behind this is because file paths can be confusing at first.  And so
+reason behind this is that file paths can be confusing at first.  And so
 we've delayed this topic until near the end.  Invariably, though, you will need
 to load your own dataset.
 
@@ -258,7 +258,7 @@ Whenever you login to a computer, you should imagine that you are immediately
 (as if standing) within one of the many directories of that machine.  Whichever
 directory you are currently in is called the **current working directory**.
 Sometimes the current working directory is abbreviated **cwd** or even just
-**wd**.
+**wd**.  Symbolically, the current working directory is written `.`.
 
 From the current working directory, you can move up or down the directory
 hierachry.  Which is to say directories can contain other directories, and
@@ -267,30 +267,148 @@ directory.  The root of the directory tree is called the **root directory**.
 
 Each user on a computer has their own directory, which is a (not necessarily
 immediate) child of the root directory.  Such a directory, unique to each user
-of a computer, is called the **home directory**.
+of a computer, is called their **home directory**.
+
+Every file and every folder on a computer has exactly one parent directory.  The
+parent directory is spelled `..`.
 
 #### visualizing directory structure
 
-From the Colab notebook [file-paths](https://colab.research.google.com/drive/12q0ostmi7b7LUFOv6srC2xBuN7y7Gz9g?usp=sharing), run the cell with the command 
+There are many different ways to visualize directory structure.  On a Mac, the application Finder, and on Windows machines File Explorer, both help users navigate files and directory structure.  A more ~~basic~~ traditional way to visualize directory structure is with the command `tree`.
 
-```{code-cell}
-!pwd
-```
+From a Colab notebook, one can access the remote computer, on which the notebook
+is running, by prepending an appropriate command with `!`, read as bang.  The
+command `pwd` prints the current working directory.  The command `tree` prints
+the directory structure below its one argument, a file path.
 
-The band `!` calls to the underlying machine on which the `pwd`
+For instance, the command `tree .`, where `.` represents the current working
+directory, will print the contents of the current working directory all the way
+down to the children files contained within any and all sub-directories.  
 
+`tree` indents sub-directories and contained files relative to their parent
+directory.  In addition to indentations, `tree` makes use of vertical and
+horizontal lines to help your eye better visualize where the directory
+boundaries are.
 
 #### file paths
 
-The current working directory is written `.`.  From the current working
-directory, you can move up, to a parent directory, or down to a child directory.
-The file path written as `..` references the parent directory from the current
-working directory.  Since there is only one parent directory, `..` is uniquely
-the parent directory of the current working
-directory.
+Every directory on a computer is referenced by a file path (an address).
+Directories are separated by a forward slash `/`, as is each file name.  Imagine
+a dataset named `bike.csv` contained in a series of directories `math131` and
+`data`.  Such a file would have file path `./math131/data/bike.csv`.  This file
+path tells us that we are in a directory, which contains a directory named
+`math131`.  The directory `math131` itself contains a directory named `data`,
+and the directory `data` contains a file named `bike.csv`.
+
+File paths that begin with `.` or `..` are called **relative file paths**.  Such
+file paths are relative to the current working directory.  File paths that begin
+with the root directory are called **absolute file paths**.  For the most part,
+we will encourage use of relative file paths.
+
+#### delimited files
+
+We next look at the ways in which most small to medium sized datasets are
+organized.  Any larger datasets should use a database and databases are beyond
+this course.  Consider the following table of data.
+
+| type | size | color |
+|------|------|-------|
+| trouser | 6 | black |
+| dress | 8 | blue |
+| sneaker | 7 | silver |
+| ankle boot | 8 | brown |
+| coat | 44 | green |
+| sandal | 9 | black |
+
+A table of data is often called **tabular data**.  Tabular data are organized in
+rows and columns.  Each row is an observation, or separate unit of analysis, and
+each column is a variable.  Variable names show up in the first, or zero-th row,
+and the data are in all subsequent rows.
+
+Such a dataset is often stored in a **delimited file**.  Within a row, a
+delimited file separates, or delimits, each variable's value with a special
+character.  The most common delimiters are comma `,` or some amount of white
+space, a single space ` `, or a tab spelled `\t` and often written as visually
+equivalent to four or eight spaces.  Both have their own faults, and
+unfortunately the world has mostly settled on comma separated values, hence
+`.csv` file extensions.
+
+Comma separated values would list in a text file the row for trouser as
+`trouser,6,black`.  A file of tabular data such as this would have file
+extention `.csv`, which helps quickly identify the type of file.
+
+There are some simple problems with csv files.  Imagine a dataset that contains
+as values sentences, specifically sentences which possibly contain commas.
+Here's an example: `For instance, this sentence.`.  To avoid the comma within a
+variable's value being conflated with a delimiting comma, people have started
+surrounding individual variable values with double quotes.  Double quotes is not
+the only choice, but it is the common choice for a quote character.
+
+Now imagine a dataset that contains as values strings with double quotes in
+them.  There's solutions to this problem, too: escape characters.  The most
+common espace character is a back slash `\`.
+
+As you can see, in extreme cases csv files are challenging to get right.  So are
+tab delimited files, `.tsv`, for similar reasons.  We should rely on the Python
+package Pandas to simplify our lives.
+
+The Python package Pandas function named `read_csv` should be used to read in
+your own data.  The function `read_csv` defaults to a comma as delimiter, double
+quotes as quote character, and back slash `\` as an escape character.  It is
+thus your job to get your data into a csv file appropriately.  The easiest
+solution is to type your data into a spreadsheet and then export your
+spreadsheet data into csv format.
+
+#### entering data
+
+Entering data into a spreadsheet is easy.  And that's good.  But there are some
+gotchas that we'd like you to avoid.  This section will list the dos and then
+explain them, and list the don'ts and then explain them.
+
+**DOs**.
+
+* be consistent
+* use simple variable names
+  * prefer all lower case letters
+  * minimize numbers
+  * use underscore `_` instead of space ` `
+* organize files within directories
+
+**Be consistent**. When programming, having to repeated look back at your
+spreadsheet to figure out your variable names is beyond annoying.  It is beyond
+annoying because it interrupts your programming.  Programming is hard enough,
+try to minimize inconsistencies that can otherwise be settled by being
+consistent.
+
+**Use simple variable names**.  Consider two variables you want to name with
+multiple words, like miles per gallon and brain to body weight ratio. It is easy
+to name one variable using camel case, e.g. `MilesPerGallon`, and another
+capitalized, e.g. `Brain(g)bodyweight(kg)`.  Both names are inconsistent, and
+the second name is not simple.  Also see, don't put units in variabl names
+below.
+
+It is simples to make yourself a rule, like *prefer all lower case letters*.
+Maybe that's not the rule for you, but don't get caught up in the rule.  The
+rule itself doesn't matter.  Just be consistent and consistently simple.
+
+When you need to separate words, use `_` not ` `. Your simple rules should also
+tell you when to separate words and when not to.  A simple rule for simple
+variable names should say to separate words when there are contiguous repeated
+letters, `ee` or `ss`, and other don't.
+
+**Organize files within directories**.
+
+**DON'Ts**.
+
+* use abbreviations
+* put units in variable names
+* start a variable name with a number
+* use special character in variable names
+* put dates in your file names
+* have multiple copies of your data
+* organize through file names
 
 
-To move up or down more than one directory at a time, you need to specify a file
-path.  From the current working directory, imagine
+#### read in your own data
 
 
