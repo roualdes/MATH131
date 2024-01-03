@@ -177,6 +177,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="week-04.html">Week 04: Filling in some details</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 05: Puting it all together</a></li>
 <li class="toctree-l1"><a class="reference internal" href="and-beyond.html">Week 06 and beyond</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Help</a></li>
 </ul>
 
     </div>
@@ -372,9 +374,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit">How to submit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deadline">Deadline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guidelines">Guidelines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-rubric">Grading rubric</a></li>
 </ul>
             </nav>
         </div>
@@ -388,48 +393,180 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-05-puting-it-all-together">
 <h1>Week 05: Puting it all together<a class="headerlink" href="#week-05-puting-it-all-together" title="Permalink to this heading">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Permalink to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
-</pre></div>
-</div>
-</div>
-</div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
-</div>
-</section>
-<section id="create-a-notebook-with-myst-markdown">
-<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Permalink to this heading">#</a></h2>
-<p>MyST Markdown notebooks are defined by two things:</p>
+<p>Time to put everything you learned in this class into action.  You
+will prepare an Exploratory Data Analysis Project.  In an exploratory
+data analysis project, you are just looking at (hence exploring) the
+data and learning about the data and the possible relationships
+between variables.</p>
+<p>This is not meant to be a formal statistical analysis.  You cannot
+make any claims about groups being statistically different or causally
+related.  This is just an excuse to practice what you learned by
+describing a dataset of your choice.  You are allowed and encouraged
+to hypothesize why you observe certain relationships between variables
+in your chosen dataset.  Just try to resist making causal claims from
+what is most likely an observational dataset.</p>
+<section id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">#</a></h2>
+<p>Using your data set of choice, pose a brief research question that
+explores the relationship between 2 - 3 variables. Use Markdown
+headers to make the following sections.</p>
 <ol class="arabic simple">
-<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-See the YAML at the top of this page for example.</p></li>
-<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
+<li><p>Introduction: A short introduction/description of the data.</p>
+<ul class="simple">
+<li><p>Specifically mention the 2-3 variables you are going to explore.</p></li>
+<li><p>What is your research question? What are you interested in
+finding out more about?</p></li>
+</ul>
+</li>
+<li><p>Univariate Exploration: Describe each of the variables under consideration.</p>
+<ul class="simple">
+<li><p>This means calculate some summary statistics (N(%) or mean(sd))
+and make a graphic</p></li>
+</ul>
+</li>
+<li><p>Bivariate Exploration: Comparison between two variables of interest.</p>
+<ul class="simple">
+<li><p>Calculate grouped summary statistics as appropriate. This is
+often the most often forgotten part</p></li>
+<li><p>You can go further and explore more than two variables at a time
+using paneling, but be sure to explain what you learn from each
+graph.</p></li>
+</ul>
+</li>
+<li><p>Conclusion: What did you find? If you had a prior hypothesis, does
+the data seem to support it? Remember this is NOT a statistical
+analysis.</p></li>
 </ol>
-<p>That’s all that is needed to get started!</p>
+<p>All descriptions (univariate and bivariate) must be done using
+graphics, summary statistics, and sentences.</p>
+<p>This is a very vague set of instructions for a reason. You are to
+choose variables and explore anything that you find interesting.
+Create tables, graphics, grouped summary statistics (mean of the
+continuous variable across levels of the categorical variable).
+Whatever you need to do to understand the relationship between these
+two measures.</p>
+<p>Use the grading rubric at the bottom of this page for guidance as to
+what you should present, in what order, and the level of detail you
+need to present.</p>
 </section>
-<section id="quickly-add-yaml-metadata-for-myst-notebooks">
-<h2>Quickly add YAML metadata for MyST Notebooks<a class="headerlink" href="#quickly-add-yaml-metadata-for-myst-notebooks" title="Permalink to this heading">#</a></h2>
-<p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
-</pre></div>
-</div>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
+<p>You have a choice here. If you are currently working on some data that
+you would like to explore, talk with your instructor to get your data
+set approved. As long as it has more than a few variables in it, and
+at least 30 observations it should be fine.</p>
+<p>If you do not have your own data, you can choose from one of the
+following data sets, all of which can be downloaded from the Data page
+of Dr. D’s teaching course website. Here are some viable choices:</p>
+<ul class="simple">
+<li><p>Email Spam: Characteristics of emails used to predict if the email
+is spam or not.</p></li>
+<li><p>HIV: Data on adolescent children living with HIV positive parents.</p></li>
+<li><p>Depression: Level of depression (cesd), health care, and demographic
+characteristics.  High School and Beyond: Educational, vocational,
+and personal development of elementary and high school students.</p></li>
+<li><p>Police Shootings: Characteristics of individuals killed by police in
+2015.</p></li>
+</ul>
+<p>Any other data sets require instructor approval. Data sets such as the
+plants or arm strength data sets are insufficiently complex for this
+project. Also you can’t use the dsmall, diamonds, or NCbirths data
+sets because we’ve used them too much already.</p>
+</section>
+<section id="how-to-submit">
+<h2>How to submit<a class="headerlink" href="#how-to-submit" title="Permalink to this heading">#</a></h2>
+<p>Each student is to create a Google Colab notebook and set the Share
+permissions to General access Anyone with the link.</p>
+<p>A Google spreadsheet will be created and shared with everyone.  Each
+student will have their own row.  You are to paste the URL to your
+Colab notebook in your row.</p>
+</section>
+<section id="deadline">
+<h2>Deadline<a class="headerlink" href="#deadline" title="Permalink to this heading">#</a></h2>
+<p>To allow for adequate time for peer grading the submission deadline is
+a strict cutoff.  Late assignments won’t be accepted.  It is better to
+submit something, than nothing.</p>
+</section>
+<section id="guidelines">
+<h2>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Run all, early and often. To ensure all of the code you develop in
+your Colab notebook works as expected, it is highly recommended to
+click Runtime &gt; Run all, essentially after you finish code for each
+next code cell.</p></li>
+<li><p>Proof read your report prior to submission.  Please read and re-read
+your report, editing for clarity and removing any duplicate content
+(sentences and/or code).</p></li>
+<li><p>Hide output of any code that is not necessary for your reader.  Put
+a semi-colon <code class="docutils literal notranslate"><span class="pre">;</span></code> on the last line of code within a code cell to
+reduce excessive printing.  Nobody needs to read through raw data
+afterall.</p></li>
+<li><p>This is to be independent work. Papers that are too similar will
+receive no credit.  Look at the grading rubric to help you decide
+the level of detail required.</p></li>
+</ul>
+</section>
+<section id="grading-rubric">
+<h2>Grading rubric<a class="headerlink" href="#grading-rubric" title="Permalink to this heading">#</a></h2>
+<p>The criteria below is what you will be graded on.</p>
+<ul class="simple">
+<li><p><strong>Data Description</strong>. Provide a description of the data set and the
+variables of interest.</p>
+<ul>
+<li><p><em>Does not meet expectations</em>. There is no description or the
+description is a copy of the data metadata.</p></li>
+<li><p><em>Meets expectations</em>. There is a minor description of the data but not
+enough to understand what is being measured or compared.</p></li>
+<li><p><em>Exceeds expectations</em>. The data description is clear and
+concise and it is clear to me what data is being analyzed and
+where it was obtained.</p></li>
+</ul>
+</li>
+<li><p><strong>Univariate Description</strong>. Fully describe the distribution of each variable by itself.</p>
+<ul>
+<li><p><em>Does not meet expectations</em>. There are no numerical or graphical
+summaries provided.</p></li>
+<li><p><em>Meets expectations</em>. Only numeric or only graphical summaries were
+created, but no textual description.</p></li>
+<li><p><em>Exceeds expectations</em>. The variable was compared using
+appropriate numerical and/or graphical methods and short textual
+explanations immediately followed.</p></li>
+</ul>
+</li>
+<li><p><strong>Bivariate Comparison</strong>. Describe the relationship between the two
+chosen variables.</p>
+<ul>
+<li><p><em>Does not meet expectations</em>. No comparisons were made, or the
+comparisons were inappropriate/incorrect.</p></li>
+<li><p><em>Meets expectations</em>. The variables were compared using appropriate
+graphical methods and grouped summary statistics were created,
+but nothing was discussed.</p></li>
+<li><p><em>Exceeds expectations</em>. The variables were compared using
+appropriate numerical and/or graphical methods and short textual
+explanations immediately followed.</p></li>
+</ul>
+</li>
+<li><p><strong>Organization / Grammar</strong>. How well does the report read? How well
+organized was the report? Was it checked for grammar and spelling
+mistakes?</p>
+<ul>
+<li><p><em>Does not meet expectations</em>. Only Python code and output are
+present.  There is no discussion of results.  Lots of extraneous
+code that is not relevant to the discussion is present. Markdown
+was used inappropriately.</p></li>
+<li><p><em>Meets expectations</em>. An attempt was made to discuss the
+results, but the explanations are not in a report format or
+there are some large grammar and/or spelling problems. Some
+Python code that is not relevant to the analysis question at
+hand is being displayed. Markdown headers were used to create
+sections.</p></li>
+<li><p><em>Exceeds expectations</em>. The report was spell checked and written
+well, with full English sentences. The report flowed well and
+followed the required order of discussion topics with Markdown
+headers used successfully.</p></li>
+</ul>
+</li>
+</ul>
 </section>
 </section>
 
@@ -496,9 +633,12 @@ See the YAML at the top of this page for example.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-submit">How to submit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deadline">Deadline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guidelines">Guidelines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-rubric">Grading rubric</a></li>
 </ul>
   </nav></div>
 
@@ -531,7 +671,9 @@ By Edward A. Roualdes
     
 <div class="extra_footer">
   <br>
-<p>This work is licensed under a <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero license</a></p>
+<p>The vast majority of this content was developed based on, or directly copied from, Drs. Robin Donatello and Nicholas Lytal's <a href="https://norcalbiostat.github.io/MATH130/index.html">MATH 130: Introduciton to R</a> course.</p>
+<br>
+<p>This work is licensed under a <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero license</a>.</p>
 
 </div>
   </div>

@@ -177,6 +177,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 04: Filling in some details</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-05.html">Week 05: Puting it all together</a></li>
 <li class="toctree-l1"><a class="reference internal" href="and-beyond.html">Week 06 and beyond</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Help</a></li>
 </ul>
 
     </div>
@@ -380,7 +382,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-directory-structure">visualizing directory structure</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-paths">file paths</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delimited-files">delimited files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entering-data">entering data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entering-data">entering data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dos">DOs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#don-ts">DON’Ts</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-your-own-data">read in your own data</a></li>
 </ul>
 </li>
@@ -403,8 +409,8 @@ document.write(`
 <ul class="simple">
 <li><p>customize many aspects of plotnine plots</p></li>
 <li><p>make 2d plots displaying 3 variables</p></li>
-<li><p>prepare your own dataset for an analysis</p></li>
 <li><p>understand the basics of file paths</p></li>
+<li><p>prepare your own dataset for an analysis</p></li>
 <li><p>read your own dataset into Python</p></li>
 </ul>
 </section>
@@ -461,9 +467,9 @@ Since <code class="docutils literal notranslate"><span class="pre">vore</span></
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2047/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
-/tmp/ipykernel_2047/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7fad8051f700&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
-/tmp/ipykernel_2047/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7fad8051f820&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2082/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2082/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7fd190113700&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
+/tmp/ipykernel_2082/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7fd190113820&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
 </pre></div>
 </div>
 </div>
@@ -543,7 +549,7 @@ more) groups may appear different.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+=</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_jitter</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>              <span class="c1"># notice the change in dataset</span>
     <span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">,</span> <span class="c1"># unique numeric codes of the labels in vore</span>
     <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sleep_total&quot;</span><span class="p">,</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;vore&quot;</span><span class="p">),</span> 
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;vore&quot;</span><span class="p">),</span>
     <span class="n">width</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>                    <span class="c1"># the maximal width of horizontal noise/jitter</span>
     <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
     <span class="p">)</span>
@@ -588,7 +594,7 @@ actually contain.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+=</span> <span class="n">pn</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span>
     <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Vore status&quot;</span><span class="p">,</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Sleep (hours)&quot;</span><span class="p">,</span> 
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Sleep (hours)&quot;</span><span class="p">,</span>
     <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Hours of sleep by vore status&quot;</span>
 <span class="p">)</span>
 </pre></div>
@@ -606,7 +612,7 @@ the plot theme.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3fafe1b43a011a38e01fb9690250814ce13696cc7b0dd55372ce371a6ab8cfb5.png" src="_images/3fafe1b43a011a38e01fb9690250814ce13696cc7b0dd55372ce371a6ab8cfb5.png" />
+<img alt="_images/505bd437054fea3528fab8c017979df97799f974db4685a6ffd9c505ca20398c.png" src="_images/505bd437054fea3528fab8c017979df97799f974db4685a6ffd9c505ca20398c.png" />
 </div>
 </div>
 <p>Some final thoughts on the plot above.  I’d prefer the confidence intervals not
@@ -642,33 +648,36 @@ show off your plotting skills, use both.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e72998ccee99dcd44eefca3003610e3d80e61d78890c520cccd65eff681d1225.png" src="_images/e72998ccee99dcd44eefca3003610e3d80e61d78890c520cccd65eff681d1225.png" />
+<img alt="_images/c36a6214dbfd974846acdf77add6921e8d3cff65cafae45b310c7fcda8b9466c.png" src="_images/c36a6214dbfd974846acdf77add6921e8d3cff65cafae45b310c7fcda8b9466c.png" />
 </div>
 </div>
 </section>
 <section id="your-own-data">
 <h2>Your own data<a class="headerlink" href="#your-own-data" title="Permalink to this heading">#</a></h2>
-<p>In this section, we’ll learn about <strong>file paths</strong>.  File paths are not Python
-specific.  A file path is like the URL of a specific file on your computer.
-Each file on your computer has an address and that address is called a file
-path.</p>
-<p>So far we’ve relied on a dataset that already exists on your machine.  The main
-reason behind this is that file paths can be confusing at first.  And so
-we’ve delayed this topic until near the end.  Invariably, though, you will need
-to load your own dataset.</p>
-<p>To help you learn about file paths, we have set up a Colab notebook specific for
-practicing file paths.  Please follow along in the Colab notebook
+<p>In this section, we’ll learn about where/how files, such as a dataset,
+are stored on your computer and how to properly enter data into a
+spreadsheet for later data analyses.  We begin with understanding
+<strong>file paths</strong>.  File paths are not Python specific.  A file path is
+like the URL of a specific file on your computer.  Each file on your
+computer has an address and that address is called a file path.</p>
+<p>So far we’ve relied on a dataset that already exists on your machine.
+The main reason behind this is that file paths can be confusing at
+first.  And so we’ve delayed this topic until near the end.
+Invariably, though, you will need to load your own dataset.</p>
+<p>To help you learn about file paths, we have set up a Colab notebook
+specific for practicing file paths.  Please follow along in the Colab
+notebook
 <a class="reference external" href="https://colab.research.google.com/drive/12q0ostmi7b7LUFOv6srC2xBuN7y7Gz9g?usp=sharing">file-paths</a>.</p>
 <section id="directories">
 <h3>directories<a class="headerlink" href="#directories" title="Permalink to this heading">#</a></h3>
 <p>All computers organize their files in <strong>directories</strong>, which are sometimes
-called <strong>folders</strong>.  Think of directories as a specific drawer in which
+called <strong>folders</strong>.  Think of a directory as a specific drawer in which
 logically grouped files go.</p>
 <p>Whenever you login to a computer, you should imagine that you are immediately
 (as if standing) within one of the many directories of that machine.  Whichever
 directory you are currently in is called the <strong>current working directory</strong>.
 Sometimes the current working directory is abbreviated <strong>cwd</strong> or even just
-<strong>wd</strong>.  Symbolically, the current working directory is written <code class="docutils literal notranslate"><span class="pre">.</span></code>.</p>
+<strong>wd</strong>.  The current working directory is written <code class="docutils literal notranslate"><span class="pre">.</span></code>.</p>
 <p>From the current working directory, you can move up or down the directory
 hierachry.  Which is to say directories can contain other directories, and
 chances are good the current working directory is located within another
@@ -681,7 +690,11 @@ parent directory is spelled <code class="docutils literal notranslate"><span cla
 </section>
 <section id="visualizing-directory-structure">
 <h3>visualizing directory structure<a class="headerlink" href="#visualizing-directory-structure" title="Permalink to this heading">#</a></h3>
-<p>There are many different ways to visualize directory structure.  On a Mac, the application Finder, and on Windows machines File Explorer, both help users navigate files and directory structure.  A more ~~basic~~ traditional way to visualize directory structure is with the command <code class="docutils literal notranslate"><span class="pre">tree</span></code>.</p>
+<p>There are many different ways to visualize directory structure.  On a
+Mac, the application Finder, and on Windows machines File Explorer,
+both help users navigate files and directory structure.  A more
+~~basic~~ traditional way to visualize directory structure is with the
+command <code class="docutils literal notranslate"><span class="pre">tree</span></code>.</p>
 <p>From a Colab notebook, one can access the remote computer, on which the notebook
 is running, by prepending an appropriate command with <code class="docutils literal notranslate"><span class="pre">!</span></code>, read as bang.  The
 command <code class="docutils literal notranslate"><span class="pre">pwd</span></code> prints the current working directory.  The command <code class="docutils literal notranslate"><span class="pre">tree</span></code> prints
@@ -690,23 +703,26 @@ the directory structure below its one argument, a file path.</p>
 directory, will print the contents of the current working directory all the way
 down to the children files contained within any and all sub-directories.</p>
 <p><code class="docutils literal notranslate"><span class="pre">tree</span></code> indents sub-directories and contained files relative to their parent
-directory.  In addition to indentations, <code class="docutils literal notranslate"><span class="pre">tree</span></code> makes use of vertical and
+directory.  In addition to indents, <code class="docutils literal notranslate"><span class="pre">tree</span></code> makes use of vertical and
 horizontal lines to help your eye better visualize where the directory
 boundaries are.</p>
 </section>
 <section id="file-paths">
 <h3>file paths<a class="headerlink" href="#file-paths" title="Permalink to this heading">#</a></h3>
-<p>Every directory on a computer is referenced by a file path (an address).
-Directories are separated by a forward slash <code class="docutils literal notranslate"><span class="pre">/</span></code>, as is each file name.  Imagine
-a dataset named <code class="docutils literal notranslate"><span class="pre">bike.csv</span></code> contained in a series of directories <code class="docutils literal notranslate"><span class="pre">math131</span></code> and
-<code class="docutils literal notranslate"><span class="pre">data</span></code>.  Such a file would have file path <code class="docutils literal notranslate"><span class="pre">./math131/data/bike.csv</span></code>.  This file
-path tells us that we are in a directory, which contains a directory named
-<code class="docutils literal notranslate"><span class="pre">math131</span></code>.  The directory <code class="docutils literal notranslate"><span class="pre">math131</span></code> itself contains a directory named <code class="docutils literal notranslate"><span class="pre">data</span></code>,
-and the directory <code class="docutils literal notranslate"><span class="pre">data</span></code> contains a file named <code class="docutils literal notranslate"><span class="pre">bike.csv</span></code>.</p>
-<p>File paths that begin with <code class="docutils literal notranslate"><span class="pre">.</span></code> or <code class="docutils literal notranslate"><span class="pre">..</span></code> are called <strong>relative file paths</strong>.  Such
-file paths are relative to the current working directory.  File paths that begin
-with the root directory are called <strong>absolute file paths</strong>.  For the most part,
-we will encourage use of relative file paths.</p>
+<p>Every directory on a computer is referenced by a file path (an
+address).  Directories are separated by a forward slash <code class="docutils literal notranslate"><span class="pre">/</span></code>, as is
+each file name.  Imagine a dataset named <code class="docutils literal notranslate"><span class="pre">bike.csv</span></code> contained in a
+series of directories <code class="docutils literal notranslate"><span class="pre">math131</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code>.  Such a file would have
+file path <code class="docutils literal notranslate"><span class="pre">./math131/data/bike.csv</span></code>.  This file path tells us that we
+are in a directory <code class="docutils literal notranslate"><span class="pre">.</span></code>, which contains a directory named <code class="docutils literal notranslate"><span class="pre">math131</span></code>.
+The directory <code class="docutils literal notranslate"><span class="pre">math131</span></code> itself contains a directory named <code class="docutils literal notranslate"><span class="pre">data</span></code>, and
+the directory <code class="docutils literal notranslate"><span class="pre">data</span></code> contains a file named <code class="docutils literal notranslate"><span class="pre">bike.csv</span></code>.  We will learn
+about the file extension <code class="docutils literal notranslate"><span class="pre">.csv</span></code> in the next sub-section.</p>
+<p>File paths that begin with <code class="docutils literal notranslate"><span class="pre">.</span></code> or <code class="docutils literal notranslate"><span class="pre">..</span></code> are called <strong>relative file
+paths</strong>.  Such file paths are relative to the current working
+directory.  File paths that begin with the root directory are called
+<strong>absolute file paths</strong>.  For the most part, we will encourage use of
+relative file paths.</p>
 </section>
 <section id="delimited-files">
 <h3>delimited files<a class="headerlink" href="#delimited-files" title="Permalink to this heading">#</a></h3>
@@ -751,16 +767,38 @@ this course.  Consider the following table of data.</p>
 rows and columns.  Each row is an observation, or separate unit of analysis, and
 each column is a variable.  Variable names show up in the first, or zero-th row,
 and the data are in all subsequent rows.</p>
-<p>Such a dataset is often stored in a <strong>delimited file</strong>.  Within a row, a
-delimited file separates, or delimits, each variable’s value with a special
-character.  The most common delimiters are comma <code class="docutils literal notranslate"><span class="pre">,</span></code> or some amount of white
-space, a single space <code class="docutils literal notranslate"> </code>, or a tab spelled <code class="docutils literal notranslate"><span class="pre">\t</span></code> and often written as visually
-equivalent to four or eight spaces.  Both have their own faults, and
-unfortunately the world has mostly settled on comma separated values, hence
-<code class="docutils literal notranslate"><span class="pre">.csv</span></code> file extensions.</p>
-<p>Comma separated values would list in a text file the row for trouser as
-<code class="docutils literal notranslate"><span class="pre">trouser,6,black</span></code>.  A file of tabular data such as this would have file
-extention <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, which helps quickly identify the type of file.</p>
+<p>Such a dataset is often stored in a <strong>delimited file</strong>.  Within a row,
+a delimited file separates, or delimits, each variable’s value with a
+special character.  The most common delimiters are comma <code class="docutils literal notranslate"><span class="pre">,</span></code> or some
+amount of white space, a single space <code class="docutils literal notranslate"> </code>, or a tab spelled <code class="docutils literal notranslate"><span class="pre">\t</span></code> and
+often written as visually equivalent to four or eight spaces.  Each
+has its own faults.  The world has mostly settled on comma separated
+values, hence <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file extensions.</p>
+<p>Comma separated values would list in a text file the row for trouser
+as <code class="docutils literal notranslate"><span class="pre">trouser,6,black</span></code>.  A file of tabular data such as this would have
+file extention <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, which helps quickly identify the type of file.
+In a .csv file, the entire table of data above would look as follows.</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">,</span><span class="n">size</span><span class="p">,</span><span class="n">color</span>
+<span class="n">trouser</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="n">black</span>
+<span class="n">dress</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="n">blue</span>
+<span class="n">sneaker</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="n">silver</span>
+<span class="n">ankle</span> <span class="n">boot</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="n">brown</span>
+<span class="n">coat</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="n">green</span>
+<span class="n">sandal</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="n">black</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+    <span class="n">ankle</span> <span class="n">boot</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="n">brown</span>
+          <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
 <p>There are some simple problems with csv files.  Imagine a dataset that contains
 as values sentences, specifically sentences which possibly contain commas.
 Here’s an example: <code class="docutils literal notranslate"><span class="pre">For</span> <span class="pre">instance,</span> <span class="pre">this</span> <span class="pre">sentence.</span></code>.  To avoid the comma within a
@@ -770,9 +808,11 @@ the only choice, but it is the common choice for a quote character.</p>
 <p>Now imagine a dataset that contains as values strings with double quotes in
 them.  There’s solutions to this problem, too: escape characters.  The most
 common espace character is a back slash <code class="docutils literal notranslate"><span class="pre">\</span></code>.</p>
-<p>As you can see, in extreme cases csv files are challenging to get right.  So are
-tab delimited files, <code class="docutils literal notranslate"><span class="pre">.tsv</span></code>, for similar reasons.  We should rely on the Python
-package Pandas to simplify our lives.</p>
+<p>As you can see, in extreme cases csv files are challenging to get
+right.  So are tab delimited files, <code class="docutils literal notranslate"><span class="pre">.tsv</span></code>, for similar reasons.  We
+generally rely spreadsheet software and mature programming packages,
+like the Python package Pandas, to simplify our lives for writing and
+reading delimited files..</p>
 <p>The Python package Pandas function named <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> should be used to read in
 your own data.  The function <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> defaults to a comma as delimiter, double
 quotes as quote character, and back slash <code class="docutils literal notranslate"><span class="pre">\</span></code> as an escape character.  It is
@@ -785,13 +825,14 @@ spreadsheet data into csv format.</p>
 <p>Entering data into a spreadsheet is easy.  And that’s good.  But there are some
 gotchas that we’d like you to avoid.  This section will list the dos and then
 explain them, and list the don’ts and then explain them.</p>
-<p><strong>DOs</strong>.</p>
+<section id="dos">
+<h4>DOs<a class="headerlink" href="#dos" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>be consistent</p></li>
 <li><p>use simple variable names</p>
 <ul>
 <li><p>prefer all lower case letters</p></li>
-<li><p>minimize numbers</p></li>
+<li><p>minimize numbers and special characters</p></li>
 <li><p>use underscore <code class="docutils literal notranslate"><span class="pre">_</span></code> instead of space <code class="docutils literal notranslate"> </code></p></li>
 </ul>
 </li>
@@ -802,33 +843,169 @@ spreadsheet to figure out your variable names is beyond annoying.  It is beyond
 annoying because it interrupts your programming.  Programming is hard enough,
 try to minimize inconsistencies that can otherwise be settled by being
 consistent.</p>
-<p><strong>Use simple variable names</strong>.  Consider two variables you want to name with
-multiple words, like miles per gallon and brain to body weight ratio. It is easy
-to name one variable using camel case, e.g. <code class="docutils literal notranslate"><span class="pre">MilesPerGallon</span></code>, and another
-capitalized, e.g. <code class="docutils literal notranslate"><span class="pre">Brain(g)bodyweight(kg)</span></code>.  Both names are inconsistent, and
-the second name is not simple.  Also see, don’t put units in variabl names
-below.</p>
-<p>It is simples to make yourself a rule, like <em>prefer all lower case letters</em>.
-Maybe that’s not the rule for you, but don’t get caught up in the rule.  The
-rule itself doesn’t matter.  Just be consistent and consistently simple.</p>
-<p>When you need to separate words, use <code class="docutils literal notranslate"><span class="pre">_</span></code> not <code class="docutils literal notranslate"> </code>. Your simple rules should also
-tell you when to separate words and when not to.  A simple rule for simple
-variable names should say to separate words when there are contiguous repeated
-letters, <code class="docutils literal notranslate"><span class="pre">ee</span></code> or <code class="docutils literal notranslate"><span class="pre">ss</span></code>, and other don’t.</p>
-<p><strong>Organize files within directories</strong>.</p>
-<p><strong>DON’Ts</strong>.</p>
+<p><strong>Use simple variable names</strong>.  Consider two variables you might want
+to name with multiple words, like miles per gallon and brain to body
+weight ratio. It is easy to name one variable using camel case,
+e.g. <code class="docutils literal notranslate"><span class="pre">MilesPerGallon</span></code>, and another capitalized,
+e.g. <code class="docutils literal notranslate"><span class="pre">Brain(g)bodyWeight(KG)</span></code>.  The first name is fine, so long as you
+are consistent and choose camel case for all of your variable names.
+The second variable name is both not simple and inconsistent.  Camel
+case would have you capitalize each new work, as in <code class="docutils literal notranslate"><span class="pre">BrainBodyWight</span></code>.
+In this case, even the units are not capitalized the same.  This is a
+recipe for frustration.  Also see below, <em>don’t put units in variabl
+names</em>.</p>
+<p>It is recommended to make yourself a simple rule, like <em>prefer all
+lowercase letters</em>.  Maybe that’s not the rule for you, but don’t get
+caught up on the rule.  The rule itself doesn’t matter.  Just be
+simple and consistently so.</p>
+<p>My go to rule is all lowercase letters, no numbers or special
+characters other than <code class="docutils literal notranslate"><span class="pre">_</span></code>, and to separate words when there are
+contiguous repeated letters, <code class="docutils literal notranslate"><span class="pre">ee</span></code> or <code class="docutils literal notranslate"><span class="pre">ss</span></code>, and otherwise don’t
+separate words.  The separator I prefer is underscore <code class="docutils literal notranslate"><span class="pre">_</span></code> instead of
+space <code class="docutils literal notranslate"> </code>, which is mostly a carry over rule from programming in R.
+Remember, the rule matters less than consistency with the rule.</p>
+<p><strong>Organize files within directories</strong>.  When editing files, it is
+tempting to write metadata into the file name.  For instance, it is
+unfortunately common for people to write file names such as
+<code class="docutils literal notranslate"><span class="pre">draft_manuscript.docx</span></code>, <code class="docutils literal notranslate"><span class="pre">draft2_manuscript.docx</span></code>,
+<code class="docutils literal notranslate"><span class="pre">draft3_manuscript.docx</span></code>, <code class="docutils literal notranslate"><span class="pre">final_manuscript.docx</span></code>,
+<code class="docutils literal notranslate"><span class="pre">final_final_manuscript.docx</span></code>.  File names are not intended to carry
+the metadata associated with draft versions.</p>
+<p>If you really need to maintain copies of drafts, and I guess you most
+often do not need such copies, then you should create directories such as
+<code class="docutils literal notranslate"><span class="pre">draft</span></code> and <code class="docutils literal notranslate"><span class="pre">final</span></code>.  Each directory should contain a (singular) copy
+of the files you absolutely need with each and every copy of the file.
+Any files, such as data, that are the same for all copies of the file
+should have their own directory.  It might help future you to put a
+separate notes file in each directory that reminds you of exact
+purpose of the directory.</p>
+</section>
+<section id="don-ts">
+<h4>DON’Ts<a class="headerlink" href="#don-ts" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
-<li><p>use abbreviations</p></li>
-<li><p>put units in variable names</p></li>
-<li><p>start a variable name with a number</p></li>
-<li><p>use special character in variable names</p></li>
-<li><p>put dates in your file names</p></li>
-<li><p>have multiple copies of your data</p></li>
-<li><p>organize through file names</p></li>
+<li><p>don’t start a variable name with a number</p></li>
+<li><p>don’t use special character in variable names</p></li>
+<li><p>don’t put units in variable names</p></li>
+<li><p>don’t use abbreviations</p></li>
+<li><p>don’t organize through file names</p></li>
+<li><p>don’t put dates in your file names</p></li>
+<li><p>don’t have multiple copies of your data</p></li>
 </ul>
+<p><strong>Don’t start a variable name with a number</strong>.  In most programming
+languages, you can’t start a variable name with a number.  So it’s
+easiest to just avoid putting numbers in variable names altogether.
+Occassionaly, it makes sense to use a number in a variable name.  Just
+don’t start your variable name with a number.</p>
+<p><strong>Don’t use special characters in variable names</strong>.  This rule is much
+like the rule above.  In my experience, special characters,
+e.g. <code class="docutils literal notranslate"><span class="pre">~!&#64;#$%^&amp;*()+=,&lt;&gt;/|\</span></code>, only make remembering a variable name more
+difficult.  The only special character that you should allow, when
+necessary, in your variable names is underscore <code class="docutils literal notranslate"><span class="pre">_</span></code>.  See <strong>Use simple
+variable names</strong> above.</p>
+<p><strong>Don’t put units in variable names</strong>.  Units in variable names just
+open the door for inconsistent variable names.  It is easiest to just
+avoid putting units or other metadata into variable names.  Your data
+should instead have a separate file of all the associated metadata.</p>
+<p><strong>Don’t use abbreviations</strong>.  Abbreviated variable names are
+attractive, because they save typing.  For instance, one could imagine
+abbreviating micrograms as <code class="docutils literal notranslate"><span class="pre">ug</span></code>, <code class="docutils literal notranslate"><span class="pre">mg</span></code>, or <code class="docutils literal notranslate"><span class="pre">μg</span></code>.  This creates
+opportunity for misremembering and inconsistency.  Such abbreviations
+in variable names also breaks the rule <strong>Don’t put units in variable
+names</strong>.  Further, see <strong>Use simple variable names above</strong> above.
+Instead, put such metadata in a separate file.</p>
+<p><strong>Don’t organize through file names</strong>.  The only metadata a file name
+should contain is the name of the file.  Instead, use directories to
+organize your files.  See <strong>Organize files within directories</strong> above.</p>
+<p><strong>Don’t put dates in your file names</strong>.  Dates are metadata, see
+<strong>Don’t organize through file names</strong> above.</p>
+<p><strong>Don’t have multiple copies of your data</strong>.  Generally, you should
+only have one copy of your dataset.  See <strong>Don’t put dates in your
+file names</strong> above.  If there are necessary edits to your data for a
+specific analysis, then you should program those edits in Python code
+and save that code for future re-use.  This way you can re-create data
+changes as necessary, and you minimize introducing permanent errors
+into your dataset.</p>
+</section>
 </section>
 <section id="read-in-your-own-data">
 <h3>read in your own data<a class="headerlink" href="#read-in-your-own-data" title="Permalink to this heading">#</a></h3>
+<p>This whole section is prep-work.  Once you understand file paths and
+have entered your data into a delimeted file structure (.csv, .tsv, or
+otherwise), the Python package Pandas makes reading in the data
+relatively simple.  The code below is an example of reading in a .csv
+file into a DataFrame, just as we worked with beginning in Week 01.</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/path/to/your/data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/path/to/your/data.csv&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py:948,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">    </span><span class="mi">935</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">936</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">937</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">944</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">945</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">946</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">948</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py:611,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">610</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">611</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">613</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">614</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1448,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1445</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1447</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1448</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1705,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1703</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1704</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1705</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1706</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1707</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1708</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1709</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1710</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1711</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1712</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1713</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1714</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1715</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1716</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/pandas/io/common.py:863,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">858</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">859</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">861</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">862</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">863</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">864</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">865</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">866</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">867</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">869</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/path/to/your/data.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -904,7 +1081,11 @@ letters, <code class="docutils literal notranslate"><span class="pre">ee</span><
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-directory-structure">visualizing directory structure</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-paths">file paths</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delimited-files">delimited files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entering-data">entering data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entering-data">entering data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dos">DOs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#don-ts">DON’Ts</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-your-own-data">read in your own data</a></li>
 </ul>
 </li>
@@ -940,7 +1121,9 @@ By Edward A. Roualdes
     
 <div class="extra_footer">
   <br>
-<p>This work is licensed under a <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero license</a></p>
+<p>The vast majority of this content was developed based on, or directly copied from, Drs. Robin Donatello and Nicholas Lytal's <a href="https://norcalbiostat.github.io/MATH130/index.html">MATH 130: Introduciton to R</a> course.</p>
+<br>
+<p>This work is licensed under a <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero license</a>.</p>
 
 </div>
   </div>

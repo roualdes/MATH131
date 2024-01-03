@@ -14,8 +14,8 @@ kernelspec:
 
 # Week 06 and beyond
 
-### Python w/out Google Colab
+## Python w/out Google Colab
 
 * [JupyterLab Desktop](https://github.com/jupyterlab/jupyterlab-desktop)
 * [JupyterLab](https://jupyterlab.readthedocs.io/en/latest/)
-* Virtual environment -> Emacs/Vim/VS Code/other
+* [Virtual environment](https://docs.python.org/3/library/venv.html) -> Emacs/Vim/VS Code/other

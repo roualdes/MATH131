@@ -177,6 +177,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="week-04.html">Week 04: Filling in some details</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-05.html">Week 05: Puting it all together</a></li>
 <li class="toctree-l1"><a class="reference internal" href="and-beyond.html">Week 06 and beyond</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Help</a></li>
 </ul>
 
     </div>
@@ -383,9 +385,11 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bivariate-two-variables">Bivariate (two variables)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">categorical variables</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-variables">numerical variables</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-and-categorical">numerical and categorical</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">categorical variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-variables">numerical variables</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-and-categorical">numerical and categorical</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1010,9 +1014,8 @@ data, so let’s remove the missing data from our two variables of interest firs
 <img alt="_images/e3ddfbaabfcd6f70a361a6a25d75d05f7bad6d07925b75c43c06a2ae6493b1ae.png" src="_images/e3ddfbaabfcd6f70a361a6a25d75d05f7bad6d07925b75c43c06a2ae6493b1ae.png" />
 </div>
 </div>
-</section>
 <section id="numerical-variables">
-<h4>numerical variables<a class="headerlink" href="#numerical-variables" title="Permalink to this heading">#</a></h4>
+<h5>numerical variables<a class="headerlink" href="#numerical-variables" title="Permalink to this heading">#</a></h5>
 <p>The most common method of visualizing the relationship between two numeric
 variables is by using a scatterplot.  With <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> we specify both the x and y
 variables, and the geometry <code class="docutils literal notranslate"><span class="pre">geom_point</span></code>.</p>
@@ -1063,7 +1066,7 @@ layers.  All other examples have provided a syntax where the aesthetic is
 specific to a single layer and not all subsequenty layers.</p>
 </section>
 <section id="numerical-and-categorical">
-<h4>numerical and categorical<a class="headerlink" href="#numerical-and-categorical" title="Permalink to this heading">#</a></h4>
+<h5>numerical and categorical<a class="headerlink" href="#numerical-and-categorical" title="Permalink to this heading">#</a></h5>
 <p>One can combine plots for numeric variables with categorical information by
 repeating each plot type above for each category of a categorical variable,
 where each category is drawn in a unique color.  When coloring across a
@@ -1117,6 +1120,7 @@ drop the NAs.</p>
 </section>
 </section>
 </section>
+</section>
 <section id="aggregating">
 <h2>Aggregating<a class="headerlink" href="#aggregating" title="Permalink to this heading">#</a></h2>
 <p>In Week 02, we learned how to summarize numerical variables by themselves.  The
@@ -1135,10 +1139,10 @@ below, or group by a list of categorical variables.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2012/151992987.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2049/151992987.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fbcf6a980d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f620496b100&gt;
 </pre></div>
 </div>
 </div>
@@ -1157,8 +1161,8 @@ can be abbreviated to <code class="docutils literal notranslate"><span class="pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2012/2079833150.py:1: FutureWarning: The provided callable &lt;function mean at 0x7fbd48112550&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
-/tmp/ipykernel_2012/2079833150.py:1: FutureWarning: The provided callable &lt;function std at 0x7fbd48112670&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2049/2079833150.py:1: FutureWarning: The provided callable &lt;function mean at 0x7f625021c550&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
+/tmp/ipykernel_2049/2079833150.py:1: FutureWarning: The provided callable &lt;function std at 0x7f625021c670&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1332,9 +1336,11 @@ in <a class="reference internal" href="week-04.html"><span class="doc std std-do
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bivariate-two-variables">Bivariate (two variables)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">categorical variables</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-variables">numerical variables</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-and-categorical">numerical and categorical</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">categorical variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-variables">numerical variables</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-and-categorical">numerical and categorical</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1372,7 +1378,9 @@ By Edward A. Roualdes
     
 <div class="extra_footer">
   <br>
-<p>This work is licensed under a <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero license</a></p>
+<p>The vast majority of this content was developed based on, or directly copied from, Drs. Robin Donatello and Nicholas Lytal's <a href="https://norcalbiostat.github.io/MATH130/index.html">MATH 130: Introduciton to R</a> course.</p>
+<br>
+<p>This work is licensed under a <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero license</a>.</p>
 
 </div>
   </div>

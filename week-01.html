@@ -177,6 +177,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="week-04.html">Week 04: Filling in some details</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-05.html">Week 05: Puting it all together</a></li>
 <li class="toctree-l1"><a class="reference internal" href="and-beyond.html">Week 06 and beyond</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Help</a></li>
 </ul>
 
     </div>
@@ -1270,20 +1272,93 @@ case is a list of column names, and the return value is a subset of
 the DataFrame you are indexing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamons</span><span class="p">[[</span><span class="s2">&quot;depth&quot;</span><span class="p">,</span> <span class="s2">&quot;cut&quot;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="p">[[</span><span class="s2">&quot;depth&quot;</span><span class="p">,</span> <span class="s2">&quot;cut&quot;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">diamons</span><span class="p">[[</span><span class="s2">&quot;depth&quot;</span><span class="p">,</span> <span class="s2">&quot;cut&quot;</span><span class="p">]]</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;diamons&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>depth</th>
+      <th>cut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>61.5</td>
+      <td>Ideal</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>59.8</td>
+      <td>Premium</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>56.9</td>
+      <td>Good</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>62.4</td>
+      <td>Premium</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>63.3</td>
+      <td>Good</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>53935</th>
+      <td>60.8</td>
+      <td>Ideal</td>
+    </tr>
+    <tr>
+      <th>53936</th>
+      <td>63.1</td>
+      <td>Good</td>
+    </tr>
+    <tr>
+      <th>53937</th>
+      <td>62.8</td>
+      <td>Very Good</td>
+    </tr>
+    <tr>
+      <th>53938</th>
+      <td>61.0</td>
+      <td>Premium</td>
+    </tr>
+    <tr>
+      <th>53939</th>
+      <td>62.2</td>
+      <td>Ideal</td>
+    </tr>
+  </tbody>
+</table>
+<p>53940 rows × 2 columns</p>
+</div></div></div>
 </div>
 <p>Since each column is a Series, which is analogous to <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>, you can
 calculate the size, mean, standard deviation, minimum, percentile/quantiles, or
@@ -1300,6 +1375,25 @@ which is associated with both <code class="docutils literal notranslate"><span c
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>53940
+61.749404894327036
+1.4326080390046028
+[61.  61.8 62.5]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    53940.000000
+mean        61.749405
+std          1.432621
+min         43.000000
+25%         61.000000
+50%         61.800000
+75%         62.500000
+max         79.000000
+Name: depth, dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <p>Only the columns with numeric types, <code class="docutils literal notranslate"><span class="pre">float64</span></code> or <code class="docutils literal notranslate"><span class="pre">int64</span></code> are
 <code class="docutils literal notranslate"><span class="pre">describe</span></code>d.  The columns of type <code class="docutils literal notranslate"><span class="pre">category</span></code> are automatically removed
@@ -1310,6 +1404,118 @@ before the numeric summaries are calculated.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>carat</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+      <td>53940.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.797940</td>
+      <td>61.749405</td>
+      <td>57.457184</td>
+      <td>3932.799722</td>
+      <td>5.731157</td>
+      <td>5.734526</td>
+      <td>3.538734</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.474011</td>
+      <td>1.432621</td>
+      <td>2.234491</td>
+      <td>3989.439738</td>
+      <td>1.121761</td>
+      <td>1.142135</td>
+      <td>0.705699</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.200000</td>
+      <td>43.000000</td>
+      <td>43.000000</td>
+      <td>326.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.400000</td>
+      <td>61.000000</td>
+      <td>56.000000</td>
+      <td>950.000000</td>
+      <td>4.710000</td>
+      <td>4.720000</td>
+      <td>2.910000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.700000</td>
+      <td>61.800000</td>
+      <td>57.000000</td>
+      <td>2401.000000</td>
+      <td>5.700000</td>
+      <td>5.710000</td>
+      <td>3.530000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1.040000</td>
+      <td>62.500000</td>
+      <td>59.000000</td>
+      <td>5324.250000</td>
+      <td>6.540000</td>
+      <td>6.540000</td>
+      <td>4.040000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>5.010000</td>
+      <td>79.000000</td>
+      <td>95.000000</td>
+      <td>18823.000000</td>
+      <td>10.740000</td>
+      <td>58.900000</td>
+      <td>31.800000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>You can index a subset of rows with slices, but with <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>s, a slice
 like <code class="docutils literal notranslate"><span class="pre">start:stop</span></code> will include the value <code class="docutils literal notranslate"><span class="pre">stop</span></code>.  The following code therefore
@@ -1323,6 +1529,78 @@ names in a list.  Check for yourself that the type of the object returned is
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>depth</th>
+      <th>clarity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>56.9</td>
+      <td>VS1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>62.4</td>
+      <td>VS2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>63.3</td>
+      <td>SI2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>62.8</td>
+      <td>VVS2</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>62.3</td>
+      <td>VVS1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>61.9</td>
+      <td>SI1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>65.1</td>
+      <td>VS2</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>59.4</td>
+      <td>VS1</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>64.0</td>
+      <td>SI1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1342,6 +1620,22 @@ indexed with False.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        False
+1        False
+2        False
+3        False
+4        False
+         ...  
+53935    False
+53936    False
+53937     True
+53938    False
+53939    False
+Name: cut, Length: 53940, dtype: bool
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can then use the variable <code class="docutils literal notranslate"><span class="pre">idx</span></code> to index another column of
 <code class="docutils literal notranslate"><span class="pre">diamonds</span></code>.  Say we want to calculate the mean of the column price,
@@ -1352,6 +1646,11 @@ for only the “Very Good” cut diamonds.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3981.7598907465654
+</pre></div>
+</div>
+</div>
 </div>
 <p>One can also quickly flip all of <code class="docutils literal notranslate"><span class="pre">idx</span></code>’s <code class="docutils literal notranslate"><span class="pre">True</span></code>s to <code class="docutils literal notranslate"><span class="pre">False</span></code>s and all
 <code class="docutils literal notranslate"><span class="pre">False</span></code>s to <code class="docutils literal notranslate"><span class="pre">True</span></code>, so as to compare the mean price of not “Very Good” cut
@@ -1359,6 +1658,11 @@ diamonds.  Notice the <code class="docutils literal notranslate"><span class="pr
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">idx</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3918.667733766544
 </pre></div>
 </div>
 </div>
@@ -1481,7 +1785,9 @@ By Edward A. Roualdes
     
 <div class="extra_footer">
   <br>
-<p>This work is licensed under a <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero license</a></p>
+<p>The vast majority of this content was developed based on, or directly copied from, Drs. Robin Donatello and Nicholas Lytal's <a href="https://norcalbiostat.github.io/MATH130/index.html">MATH 130: Introduciton to R</a> course.</p>
+<br>
+<p>This work is licensed under a <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero license</a>.</p>
 
 </div>
   </div>

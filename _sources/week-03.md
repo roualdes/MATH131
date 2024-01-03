@@ -14,13 +14,13 @@ kernelspec:
 
 # Week 03: Graphing and aggregating
 
-### Learning outcomes
+## Learning outcomes
 
 After completing this lesson students will be able to
 
 * create basic data visualizations
 
-### Preparation
+## Preparation
 
 To follow along with this Lesson, please open the Colab notebook
 [Week-03-Notes](#TODO).  The first code cell of this notebook calls to
@@ -68,7 +68,7 @@ msleep
 
 ### Univariate (one variable)
 
-##### categorical variable
+#### categorical variable
 
 For one categorical variable, possibly the simplest way to present data is in a
 table.  A table for a categorical variables displays the counts of the unique
@@ -113,7 +113,7 @@ p = pn.ggplot(data = msleep) + pn.geom_bar(pn.aes(x = "conservation_cat_ord"))
 p.draw()
 ```
 
-##### numeric variable
+#### numeric variable
 
 Rather than showing the value of each observation of a numeric variable, it is
 common to display the value as belonging to a bin. The height of each bar in a
@@ -162,7 +162,7 @@ p.draw()
 
 ### Bivariate (two variables)
 
-##### categorical variables
+#### categorical variables
 
 More sophisticated tables of categorical variables can be with the Pandas
 function `pd.crosstab`.  One of the benefits of `pd.crosstab` is that you cross

@@ -14,7 +14,7 @@ kernelspec:
 
 # Week 02: Introduction to working with data
 
-### Learning objectives
+## Learning objectives
 
 In this lesson we learn how to summarize data in a DataFrame, and do basic data
 management tasks such as making new variables, recoding data, and dealing with
@@ -30,7 +30,7 @@ After completing this lesson, you should be able to
 Throughout this notebook, we'll use the dataset `msleep` from the packages
 plotnine.
 
-### Preparation
+## Preparation
 
 To follow along with this Lesson, please open the Colab notebook
 [Week-02-Notes](#TODO).  The first code cell of this notebook calls to
@@ -38,7 +38,7 @@ the remote computer, on which the notebook is running, and installs
 the necessary packages.  For practice, you are repsonible for
 importing the necessary packages.
 
-### Missing data
+## Missing data
 
 Missing data occurs when the value for a variable is missing.  Think
 of it as a blank cell in an spreadsheet.  Missing values can cause
@@ -110,7 +110,7 @@ The code equivalent of the last plot above is as follows.
 msleep["conservation"].value_counts(dropna = True)
 ```
 
-### Summarize data
+## Summarize data
 
 In the subsection above, Missing data, we learned that accounting for
 missing data can be tricky.  The Pandas property
@@ -148,7 +148,7 @@ indexed by `False`.  Since `True` is equivalent to the number 1 and
 `False` is equivalent to 0 in Python, we can simply sum up the number
 of `True`s and `False`s to count the number of missing data.
 
-### Creating/Editing new variables
+## Creating/Editing new variables
 
 Imagine you want to create a new variable `brnbdywt` in the DataFrame
 `msleep`.  This new variable might tell you something about how smart
@@ -202,7 +202,7 @@ msleep.loc[smrt_idx, "smrt"] = True
 ```
 
 (categorical-variables)=
-### Categorical variables
+## Categorical variables
 
 A categorical variable is a variable that has names or labels as
 values.  We basically created a categorical variable above, with only
