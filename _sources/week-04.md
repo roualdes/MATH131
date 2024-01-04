@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 # Week 04: Filling in some details
 
 ## Learning outcomes
@@ -27,7 +29,7 @@ After completing this lesson, you will be able to
 ## Preparation
 
 To follow along with this Lesson, please open the Colab notebook
-[Week-04-Notes](#TODO).  The first code cell of this notebook calls to
+[Week-04-Notes](https://colab.research.google.com/drive/1FvGDi4MQxNzVOJRk6w07RWy3nnGNNF2K?usp=sharing).  The first code cell of this notebook calls to
 the remote computer, on which the notebook is running, and installs
 the necessary packages.  For practice, you are repsonible for
 importing the necessary packages.
@@ -38,17 +40,18 @@ In this section, we cover some details about customizing a plotnine plot.  This
 lesson will not explore all available options, nor are you expected to memorize
 all the details we cover.  This lesson is intended to be an introduction to the
 types of things you can easily change on a plotnine plot.  For details and/or
-reference material on computer software, you should consult the plotnine
-documentation.
+reference material on computer software, you should consult the [plotnine
+documentation](https://plotnine.readthedocs.io/en/stable/api.html).
 
 Let's continue developing the plot we started at the end of [Week
-03](../week-03.md).  Our goal is to display information about the mean total
-amount of sleep mamals (in our dataset) get, where the data are grouped by their
-`vore` status.  This is a task for aggregating: group by `vore` and summarize
-with the function `np.mean`.  Since the mean of any dataset is random, as part
-of the random sampling of the data, we should also calculate and display the
-error in our estimate associated with the mean.  That is, we should display a
-confidence interval for the mean.
+03](aggregating).  Our goal is to display information about the mean
+total amount of sleep mamals (in our dataset) get, where the data are
+grouped by their `vore` status.  This is a task for aggregating: group
+by `vore` and summarize `sleep_total` with the function `np.mean`.
+Since the mean of any dataset is random, as part of the random
+sampling of the data, we should also calculate and display the error
+in our estimate associated with the mean.  That is, we should display
+a confidence interval for the mean.
 
 ```{code-cell}
 import numpy as np
@@ -91,7 +94,7 @@ odf["lb"] = odf["mean"] - 1.96 * odf["se"]
 
 Since plotnine plots are created by adding layers of information, let's get
 started by creating the variable `p` to hold our plot as we build it up piece by
-piece.  Below is the code we used from [Week 03](../week-03.md).
+piece.  Below is the code we used from [Week 03](aggregating).
 
 
 ```{code-cell}
@@ -155,7 +158,7 @@ information in the data are contained.
 By specifying a categorical variable for the keyword argument `color` within
 `aes`, the jittered points will show up in unique colors for each category of
 the variable specified, `vore` in this case.  Further, a legend will
-automatically be displayed.  Change the category names of the variable `vore` is
+automatically be displayed.  Changing the category names of the variable `vore` is
 best done by renaming the categories, as in [Week 02: Categorical
 variables](categorical-variables), but we can easily change the
 legend title from plotnine.
@@ -243,11 +246,6 @@ So far we've relied on a dataset that already exists on your machine.
 The main reason behind this is that file paths can be confusing at
 first.  And so we've delayed this topic until near the end.
 Invariably, though, you will need to load your own dataset.
-
-To help you learn about file paths, we have set up a Colab notebook
-specific for practicing file paths.  Please follow along in the Colab
-notebook
-[file-paths](https://colab.research.google.com/drive/12q0ostmi7b7LUFOv6srC2xBuN7y7Gz9g?usp=sharing).
 
 ### directories
 
@@ -348,7 +346,7 @@ In a .csv file, the entire table of data above would look as follows.
 
 ```{code-cell}
 ---
-tags: [raises-exception]
+tags: [raises-exception, remove-output]
 ---
 
 type,size,color
@@ -508,8 +506,50 @@ file into a DataFrame, just as we worked with beginning in Week 01.
 
 ```{code-cell}
 ---
-tags: [raises-exception]
+tags: [raises-exception, remove-output]
 ---
 
-df = pd.read_csv("/path/to/your/data.csv")
+df = pd.read_csv("./path/to/your/data.csv")
+```
+
+#### your data in a Google Colab notebook
+
+When dealing with your own data while working in a Google Colab
+notebook, you have to remember that the computer on which your
+notebook runs is not the computer in front of you.  This means, to
+read data into Python, you need to *upload* any dataset onto the Colab
+notebook computer.
+
+To upload a dataset to the notebook computer, click on the folder
+looking icon, <span class="material-symbols-outlined">folder</span>,
+near the top left of the Colab notebook within your browser.
+Confusingly, the tooltip you get when hovering over the folder icon
+reads Files. Then click the upload file icon, <span
+class="material-symbols-outlined">upload_file</span>, to upload the
+dataset you want.
+
+Let's say the file you uploaded is named `research_data.csv`. If
+upload your dataset into the current working directory on the notebook
+computer, then the file path will be `./research_data.csv`, and the
+code to read this file into Python, using Pandas, is
+
+```{code-cell}
+---
+tags: [raises-exception, remove-output]
+---
+
+df = pd.read_csv("./research_data.csv")
+```
+
+If, before uploading your dataset, you created a new directory named
+`data`, and then you uploaded `research_data.csv` into the directory
+`data`, the file path will be `./data/research_data.csv`, and the code
+to read this file into Python, using Pandas, is
+
+```{code-cell}
+---
+tags: [raises-exception, remove-output]
+---
+
+df = pd.read_csv("./data/research_data.csv")
 ```

@@ -272,7 +272,7 @@ It seems as of 2023-12-23 that `fill`ing by a categorical variable does not work
 appropriately if there is any missing data.  The plot above works, if you first
 drop the NAs.
 
-
+(aggregating)=
 ## Aggregating
 
 In Week 02, we learned how to summarize numerical variables by themselves.  The

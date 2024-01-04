@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -76,7 +76,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
 
@@ -119,12 +119,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <header>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
   
+  </header>
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -387,7 +395,10 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#don-ts">DON’Ts</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-your-own-data">read in your own data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-your-own-data">read in your own data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#your-data-in-a-google-colab-notebook">your data in a Google Colab notebook</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -399,9 +410,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-04-filling-in-some-details">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<section class="tex2jax_ignore mathjax_ignore" id="week-04-filling-in-some-details">
 <h1>Week 04: Filling in some details<a class="headerlink" href="#week-04-filling-in-some-details" title="Permalink to this heading">#</a></h1>
 <section id="learning-outcomes">
 <h2>Learning outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this heading">#</a></h2>
@@ -417,7 +429,7 @@ document.write(`
 <section id="preparation">
 <h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this heading">#</a></h2>
 <p>To follow along with this Lesson, please open the Colab notebook
-<span class="xref myst">Week-04-Notes</span>.  The first code cell of this notebook calls to
+<a class="reference external" href="https://colab.research.google.com/drive/1FvGDi4MQxNzVOJRk6w07RWy3nnGNNF2K?usp=sharing">Week-04-Notes</a>.  The first code cell of this notebook calls to
 the remote computer, on which the notebook is running, and installs
 the necessary packages.  For practice, you are repsonible for
 importing the necessary packages.</p>
@@ -428,16 +440,17 @@ importing the necessary packages.</p>
 lesson will not explore all available options, nor are you expected to memorize
 all the details we cover.  This lesson is intended to be an introduction to the
 types of things you can easily change on a plotnine plot.  For details and/or
-reference material on computer software, you should consult the plotnine
-documentation.</p>
-<p>Let’s continue developing the plot we started at the end of <a class="reference internal" href="week-03.html"><span class="doc std std-doc">Week
-03</span></a>.  Our goal is to display information about the mean total
-amount of sleep mamals (in our dataset) get, where the data are grouped by their
-<code class="docutils literal notranslate"><span class="pre">vore</span></code> status.  This is a task for aggregating: group by <code class="docutils literal notranslate"><span class="pre">vore</span></code> and summarize
-with the function <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>.  Since the mean of any dataset is random, as part
-of the random sampling of the data, we should also calculate and display the
-error in our estimate associated with the mean.  That is, we should display a
-confidence interval for the mean.</p>
+reference material on computer software, you should consult the <a class="reference external" href="https://plotnine.readthedocs.io/en/stable/api.html">plotnine
+documentation</a>.</p>
+<p>Let’s continue developing the plot we started at the end of <a class="reference internal" href="week-03.html#aggregating"><span class="std std-ref">Week
+03</span></a>.  Our goal is to display information about the mean
+total amount of sleep mamals (in our dataset) get, where the data are
+grouped by their <code class="docutils literal notranslate"><span class="pre">vore</span></code> status.  This is a task for aggregating: group
+by <code class="docutils literal notranslate"><span class="pre">vore</span></code> and summarize <code class="docutils literal notranslate"><span class="pre">sleep_total</span></code> with the function <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>.
+Since the mean of any dataset is random, as part of the random
+sampling of the data, we should also calculate and display the error
+in our estimate associated with the mean.  That is, we should display
+a confidence interval for the mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -467,9 +480,9 @@ Since <code class="docutils literal notranslate"><span class="pre">vore</span></
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2082/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
-/tmp/ipykernel_2082/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7fd190113700&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
-/tmp/ipykernel_2082/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7fd190113820&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2007/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2007/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7f52806dd700&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
+/tmp/ipykernel_2007/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7f52806dd820&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
 </pre></div>
 </div>
 </div>
@@ -494,7 +507,7 @@ Since <code class="docutils literal notranslate"><span class="pre">vore</span></
 </ul>
 <p>Since plotnine plots are created by adding layers of information, let’s get
 started by creating the variable <code class="docutils literal notranslate"><span class="pre">p</span></code> to hold our plot as we build it up piece by
-piece.  Below is the code we used from <a class="reference internal" href="week-03.html"><span class="doc std std-doc">Week 03</span></a>.</p>
+piece.  Below is the code we used from <a class="reference internal" href="week-03.html#aggregating"><span class="std std-ref">Week 03</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">odf</span><span class="p">)</span>
@@ -565,7 +578,7 @@ information in the data are contained.</p>
 <p>By specifying a categorical variable for the keyword argument <code class="docutils literal notranslate"><span class="pre">color</span></code> within
 <code class="docutils literal notranslate"><span class="pre">aes</span></code>, the jittered points will show up in unique colors for each category of
 the variable specified, <code class="docutils literal notranslate"><span class="pre">vore</span></code> in this case.  Further, a legend will
-automatically be displayed.  Change the category names of the variable <code class="docutils literal notranslate"><span class="pre">vore</span></code> is
+automatically be displayed.  Changing the category names of the variable <code class="docutils literal notranslate"><span class="pre">vore</span></code> is
 best done by renaming the categories, as in <a class="reference internal" href="week-02.html#categorical-variables"><span class="std std-ref">Week 02: Categorical
 variables</span></a>, but we can easily change the
 legend title from plotnine.</p>
@@ -612,7 +625,7 @@ the plot theme.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/505bd437054fea3528fab8c017979df97799f974db4685a6ffd9c505ca20398c.png" src="_images/505bd437054fea3528fab8c017979df97799f974db4685a6ffd9c505ca20398c.png" />
+<img alt="_images/5796daf81770581140056f92b0ab38cc6a59891d26a1403ee0e9a1162a70cc01.png" src="_images/5796daf81770581140056f92b0ab38cc6a59891d26a1403ee0e9a1162a70cc01.png" />
 </div>
 </div>
 <p>Some final thoughts on the plot above.  I’d prefer the confidence intervals not
@@ -648,7 +661,7 @@ show off your plotting skills, use both.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c36a6214dbfd974846acdf77add6921e8d3cff65cafae45b310c7fcda8b9466c.png" src="_images/c36a6214dbfd974846acdf77add6921e8d3cff65cafae45b310c7fcda8b9466c.png" />
+<img alt="_images/bdd25214bdabcd4676c1fbd021219600d0fcc107ec949c1cd1a82b0b4a6e245f.png" src="_images/bdd25214bdabcd4676c1fbd021219600d0fcc107ec949c1cd1a82b0b4a6e245f.png" />
 </div>
 </div>
 </section>
@@ -664,10 +677,6 @@ computer has an address and that address is called a file path.</p>
 The main reason behind this is that file paths can be confusing at
 first.  And so we’ve delayed this topic until near the end.
 Invariably, though, you will need to load your own dataset.</p>
-<p>To help you learn about file paths, we have set up a Colab notebook
-specific for practicing file paths.  Please follow along in the Colab
-notebook
-<a class="reference external" href="https://colab.research.google.com/drive/12q0ostmi7b7LUFOv6srC2xBuN7y7Gz9g?usp=sharing">file-paths</a>.</p>
 <section id="directories">
 <h3>directories<a class="headerlink" href="#directories" title="Permalink to this heading">#</a></h3>
 <p>All computers organize their files in <strong>directories</strong>, which are sometimes
@@ -778,7 +787,7 @@ values, hence <code class="docutils literal notranslate"><span class="pre">.csv<
 as <code class="docutils literal notranslate"><span class="pre">trouser,6,black</span></code>.  A file of tabular data such as this would have
 file extention <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, which helps quickly identify the type of file.
 In a .csv file, the entire table of data above would look as follows.</p>
-<div class="cell tag_raises-exception docutils container">
+<div class="cell tag_raises-exception tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">,</span><span class="n">size</span><span class="p">,</span><span class="n">color</span>
 <span class="n">trouser</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="n">black</span>
@@ -787,14 +796,6 @@ In a .csv file, the entire table of data above would look as follows.</p>
 <span class="n">ankle</span> <span class="n">boot</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="n">brown</span>
 <span class="n">coat</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="n">green</span>
 <span class="n">sandal</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="n">black</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-    <span class="n">ankle</span> <span class="n">boot</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="n">brown</span>
-          <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
@@ -934,78 +935,50 @@ have entered your data into a delimeted file structure (.csv, .tsv, or
 otherwise), the Python package Pandas makes reading in the data
 relatively simple.  The code below is an example of reading in a .csv
 file into a DataFrame, just as we worked with beginning in Week 01.</p>
-<div class="cell tag_raises-exception docutils container">
+<div class="cell tag_raises-exception tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/path/to/your/data.csv&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/path/to/your/data.csv&quot;</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py:948,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
-<span class="g g-Whitespace">    </span><span class="mi">935</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">936</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">937</span>     <span class="n">delimiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">944</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">945</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">946</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">948</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py:611,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">608</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">610</span> <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">611</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">613</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">614</span>     <span class="k">return</span> <span class="n">parser</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1448,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1445</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1447</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">1448</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1705,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1703</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1704</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1705</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1706</span>     <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1707</span>     <span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1708</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1709</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1710</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1711</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1712</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1713</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1714</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1715</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1716</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/pandas/io/common.py:863,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">858</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">859</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">860</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">861</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">862</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">863</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">864</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">865</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">866</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">867</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">868</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">869</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">871</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/path/to/your/data.csv&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./path/to/your/data.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="your-data-in-a-google-colab-notebook">
+<h4>your data in a Google Colab notebook<a class="headerlink" href="#your-data-in-a-google-colab-notebook" title="Permalink to this heading">#</a></h4>
+<p>When dealing with your own data while working in a Google Colab
+notebook, you have to remember that the computer on which your
+notebook runs is not the computer in front of you.  This means, to
+read data into Python, you need to <em>upload</em> any dataset onto the Colab
+notebook computer.</p>
+<p>To upload a dataset to the notebook computer, click on the folder
+looking icon, <span class="material-symbols-outlined">folder</span>,
+near the top left of the Colab notebook within your browser.
+Confusingly, the tooltip you get when hovering over the folder icon
+reads Files. Then click the upload file icon, <span
+class="material-symbols-outlined">upload_file</span>, to upload the
+dataset you want.</p>
+<p>Let’s say the file you uploaded is named <code class="docutils literal notranslate"><span class="pre">research_data.csv</span></code>. If
+upload your dataset into the current working directory on the notebook
+computer, then the file path will be <code class="docutils literal notranslate"><span class="pre">./research_data.csv</span></code>, and the
+code to read this file into Python, using Pandas, is</p>
+<div class="cell tag_raises-exception tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./research_data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If, before uploading your dataset, you created a new directory named
+<code class="docutils literal notranslate"><span class="pre">data</span></code>, and then you uploaded <code class="docutils literal notranslate"><span class="pre">research_data.csv</span></code> into the directory
+<code class="docutils literal notranslate"><span class="pre">data</span></code>, the file path will be <code class="docutils literal notranslate"><span class="pre">./data/research_data.csv</span></code>, and the code
+to read this file into Python, using Pandas, is</p>
+<div class="cell tag_raises-exception tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./data/research_data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 </section>
@@ -1067,6 +1040,7 @@ file into a DataFrame, just as we worked with beginning in Week 01.</p>
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -1086,7 +1060,10 @@ file into a DataFrame, just as we worked with beginning in Week 01.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#don-ts">DON’Ts</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-your-own-data">read in your own data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-your-own-data">read in your own data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#your-data-in-a-google-colab-notebook">your data in a Google Colab notebook</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1137,8 +1114,8 @@ By Edward A. Roualdes
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
 
   <footer class="bd-footer">
   </footer>
