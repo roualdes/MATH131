@@ -14,6 +14,9 @@ kernelspec:
 
 # Week 02: Introduction to working with data
 
+* [Week 02 Notes](https://colab.research.google.com/drive/1qHzeZ_1RdfNe1l3KQsZi7xsSjLMVHbel?usp=sharing)
+* [Week 02 Assignment](https://colab.research.google.com/drive/1os3hSTKNFblsA1MUTe25pvCjtaKfId30?usp=sharing)
+
 ## Learning objectives
 
 In this lesson we learn how to summarize data in a DataFrame, and do basic data
@@ -33,7 +36,7 @@ plotnine.
 ## Preparation
 
 To follow along with this Lesson, please open the Colab notebook
-[Week-02-Notes](#TODO).  The first code cell of this notebook calls to
+[Week 02 Notes](https://colab.research.google.com/drive/1qHzeZ_1RdfNe1l3KQsZi7xsSjLMVHbel?usp=sharing).  The first code cell of this notebook calls to
 the remote computer, on which the notebook is running, and installs
 the necessary packages.  For practice, you are repsonible for
 importing the necessary packages.
@@ -91,6 +94,7 @@ which can be undesirable.
 p = pn.ggplot(data = msleep) + pn.geom_bar(pn.aes("conservation"))
 p.draw()
 ```
+
 To remove the missing data from a plot, create a new DataFrame by
 dropping the mising data from the column of interest.  You should
 always specify the keyword argument `subset`, lest you drop all
@@ -190,7 +194,7 @@ value, it is recycled as much as necessary to create a new column in
 `msleep` to keep the requirement that every column of a DataFrame has
 the same size.
 
-Next, we'll create a boolean Series that indicates when an animal
+Next, we create a boolean Series that indicates when an animal
 qualifies as `smrt`.  Then, we over-write with the value `True` just
 those rows for which we've identified a `smrt` animal.  Hence, we can
 edit a variable in a DataFrame using the indexing strategy we learned
@@ -258,6 +262,13 @@ msleep.loc[meh_idx, "smrt"] = "meh"
 msleep["smrt"]
 ```
 
+The character `&`, read as ampersand, above is the logical equivalent
+of the word and.  The character `|`, read as pipe, is the logical
+equivalent of the word or.  To type an ampersand hold `shift` and
+press the number 7 above the letters Y and U on your keyboard.  To
+type a pipe hold `shift` and press the backslash key, which is in
+between `enter/return` and `backspace/delete`.
+
 Did you notice that I added the unused category `"doh"`?  On the
 one hand, this shows that you can add multiple new categories at once,
 just use a list.  On the other hand, you may very well end up with an
@@ -267,4 +278,8 @@ remove any unused categories.
 ```{code-cell}
 msleep["smrt"] = msleep["smrt"].cat.remove_unused_categories()
 msleep["smrt"]
+```
+
+```{seealso}
+[Week 02 Assignment](https://colab.research.google.com/drive/1os3hSTKNFblsA1MUTe25pvCjtaKfId30?usp=sharing)
 ```
