@@ -401,6 +401,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-02-introduction-to-working-with-data">
 <h1>Week 02: Introduction to working with data<a class="headerlink" href="#week-02-introduction-to-working-with-data" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://colab.research.google.com/drive/1qHzeZ_1RdfNe1l3KQsZi7xsSjLMVHbel?usp=sharing">Week 02 Notes</a></p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/drive/1os3hSTKNFblsA1MUTe25pvCjtaKfId30?usp=sharing">Week 02 Assignment</a></p></li>
+</ul>
 <section id="learning-objectives">
 <h2>Learning objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
 <p>In this lesson we learn how to summarize data in a DataFrame, and do basic data
@@ -419,7 +423,7 @@ plotnine.</p>
 <section id="preparation">
 <h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this heading">#</a></h2>
 <p>To follow along with this Lesson, please open the Colab notebook
-<span class="xref myst">Week-02-Notes</span>.  The first code cell of this notebook calls to
+<a class="reference external" href="https://colab.research.google.com/drive/1qHzeZ_1RdfNe1l3KQsZi7xsSjLMVHbel?usp=sharing">Week 02 Notes</a>.  The first code cell of this notebook calls to
 the remote computer, on which the notebook is running, and installs
 the necessary packages.  For practice, you are repsonible for
 importing the necessary packages.</p>
@@ -864,7 +868,7 @@ We start by creating the new column and making every value equal to
 value, it is recycled as much as necessary to create a new column in
 <code class="docutils literal notranslate"><span class="pre">msleep</span></code> to keep the requirement that every column of a DataFrame has
 the same size.</p>
-<p>Next, we’ll create a boolean Series that indicates when an animal
+<p>Next, we create a boolean Series that indicates when an animal
 qualifies as <code class="docutils literal notranslate"><span class="pre">smrt</span></code>.  Then, we over-write with the value <code class="docutils literal notranslate"><span class="pre">True</span></code> just
 those rows for which we’ve identified a <code class="docutils literal notranslate"><span class="pre">smrt</span></code> animal.  Hence, we can
 edit a variable in a DataFrame using the indexing strategy we learned
@@ -974,6 +978,12 @@ Categories (4, object): [&#39;nope&#39;, &#39;yup&#39;, &#39;meh&#39;, &#39;doh&
 </div>
 </div>
 </div>
+<p>The character <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, read as ampersand, above is the logical equivalent
+of the word and.  The character <code class="docutils literal notranslate"><span class="pre">|</span></code>, read as pipe, is the logical
+equivalent of the word or.  To type an ampersand hold <code class="docutils literal notranslate"><span class="pre">shift</span></code> and
+press the number 7 above the letters Y and U on your keyboard.  To
+type a pipe hold <code class="docutils literal notranslate"><span class="pre">shift</span></code> and press the backslash key, which is in
+between <code class="docutils literal notranslate"><span class="pre">enter/return</span></code> and <code class="docutils literal notranslate"><span class="pre">backspace/delete</span></code>.</p>
 <p>Did you notice that I added the unused category <code class="docutils literal notranslate"><span class="pre">&quot;doh&quot;</span></code>?  On the
 one hand, this shows that you can add multiple new categories at once,
 just use a list.  On the other hand, you may very well end up with an
@@ -1003,6 +1013,10 @@ Categories (3, object): [&#39;nope&#39;, &#39;yup&#39;, &#39;meh&#39;]
 </pre></div>
 </div>
 </div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://colab.research.google.com/drive/1os3hSTKNFblsA1MUTe25pvCjtaKfId30?usp=sharing">Week 02 Assignment</a></p>
 </div>
 </section>
 </section>

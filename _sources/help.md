@@ -18,7 +18,7 @@ TODO
 
 ## Common error messages
 
-## Where can I get help using R outside of class time?
+## Where can I get help using Python outside of class time?
 
 ### From a live person
 

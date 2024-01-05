@@ -14,7 +14,8 @@ kernelspec:
 
 # Week 01: Python basics
 
-[Homework 01 (Colab notebook)](https://colab.research.google.com/drive/1hh49hQRkhxcE1ldXCB7QKNkr3RkCiA4J?usp=sharing)
+* [Week 01 Notes](https://colab.research.google.com/drive/1VQhUmSxM6WfSw1ZZeKfhkRhkfM9JPXQx?usp=sharing)
+* [Week 01 Assignment](https://colab.research.google.com/drive/1h9Ck7kWNN9_I2Yun9Yc4uBoI2lgv6chi?usp=sharing)
 
 ## Learning objectives
 
@@ -30,6 +31,15 @@ This lesson is designed to explain the basics of programming in Python.
 * logical statements
 * array
 * DataFrame, Series, some details
+
+## Preparation
+
+To follow along with this Lesson, please open the Colab notebook [Week
+01
+Notes](https://colab.research.google.com/drive/1VQhUmSxM6WfSw1ZZeKfhkRhkfM9JPXQx?usp=sharing).
+The first code cell of this notebook calls to the remote computer, on
+which the notebook is running, and installs the necessary packages.
+For practice, you are repsonible for importing the necessary packages.
 
 ## Variable
 
@@ -263,11 +273,12 @@ l[::-1]
 The slice `::-1` says to start at index `0`, go up to the last index, and take
 steps of size `-1`.  Hence, one gets a list in reverse order.
 
-### Dict
+### Dictionary
 
-A `dict` indexes its elements with keys.  In other computer science worlds, a
-Python `dict` might be called an associative container because it associates to
-each key a value.
+A dictionary indexes its elements with keys.  The type of a dictionary
+in Python is `dict`.  In other computer science worlds, a Python
+`dict` might be called an associative container because it associates
+to each key a value.
 
 ```{code-cell}
 d = {
@@ -582,11 +593,14 @@ diamonds.  Notice the `~`, read tilde, in front of `idx`.
 np.mean(diamonds.loc[~idx, "price"])
 ```
 
-
 ```{seealso}
 For more about indexing in Pandas see [Selection by
 label](https://pandas.pydata.org/docs/user_guide/indexing.html#indexing-label)
 and [Selection by
 position](https://pandas.pydata.org/docs/user_guide/indexing.html#indexing-integer).
 Such tools have a steep learning curve and a huge payoff.
+```
+
+```{seealso}
+[Week 01 Assignment](https://colab.research.google.com/drive/1h9Ck7kWNN9_I2Yun9Yc4uBoI2lgv6chi?usp=sharing)
 ```

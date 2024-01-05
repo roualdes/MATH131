@@ -14,16 +14,21 @@ kernelspec:
 
 # Week 03: Graphing and aggregating
 
+* [Week 03 Notes](https://colab.research.google.com/drive/1HqqhJvfHsWJAj_3dgBt0SOV5E90Sq1pG?usp=sharing)
+* [Week 03 Assignment](https://colab.research.google.com/drive/1_ZTWGesIh5DUB_l3UdTmR5KK9AFPEy_9?usp=sharing)
+
 ## Learning outcomes
 
 After completing this lesson students will be able to
 
-* create basic data visualizations
+* create basic data visualizations using plotnine
+* build and execute a chain of commands to accomplish a data management task
+* create summary statistics using `groupby` and `aggregate`
 
 ## Preparation
 
 To follow along with this Lesson, please open the Colab notebook
-[Week-03-Notes](#TODO).  The first code cell of this notebook calls to
+[Week 03 Notes](https://colab.research.google.com/drive/1HqqhJvfHsWJAj_3dgBt0SOV5E90Sq1pG?usp=sharing).  The first code cell of this notebook calls to
 the remote computer, on which the notebook is running, and installs
 the necessary packages.  For practice, you are repsonible for
 importing the necessary packages.
@@ -182,9 +187,10 @@ to the entire table, use `"all"`.
 pd.crosstab(msleep["conservation"], msleep["vore"], normalize = "all").round(3)
 ```
 
-The plot equivalent of a cross tabulated table might be a grouped bar chart.  As
-of 2023-12-20, the plotting package will yell at you if there are any missing
-data, so let's remove the missing data from our two variables of interest first.
+The plot equivalent of a cross tabulated table might be a grouped bar
+chart.  As of 2023-12-20, plotnine will yell at you if there are any
+missing data, so let's remove the missing data from our two variables
+of interest first.
 
 ```{code-cell}
 df = msleep.dropna(subset = ["conservation_cat_ord", "vore"])
@@ -335,4 +341,8 @@ odf["se"] = odf["sd"] / np.sqrt(odf["count"])
 p = (pn.ggplot(odf)
     + pn.geom_point(pn.aes(x = odf["vore"].cat.codes, y = "mean"), color = "blue"))
 p.draw()
+```
+
+```{seealso}
+[Week 03 Assignment](https://colab.research.google.com/drive/1_ZTWGesIh5DUB_l3UdTmR5KK9AFPEy_9?usp=sharing)
 ```

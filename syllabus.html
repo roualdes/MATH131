@@ -382,9 +382,34 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistics">Logistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#canvas-usage">Canvas usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-support">Student support</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#office-hours">office hours</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discord">Discord</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#community-coding">Community Coding</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schedule-of-topics">Schedule of Topics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-materials">Required Materials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-commitment">Time commitment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-policies-and-statements">Class policies and statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#everyone-is-welcome-here">Everyone is welcome here</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#appreciation">Appreciation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#university-policies-and-campus-resources">University policies and campus resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-dropping-the-course">Adding and dropping the course</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-integrity">Academic integrity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#it-support-services">IT Support Services</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#americans-with-disabilities-act">Americans with Disabilities Act</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chico-state-basic-needs-project">Chico State Basic Needs Project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confidentiality-and-mandatory-reporting">Confidentiality and mandatory reporting</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -398,48 +423,297 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="syllabus">
 <h1>Syllabus<a class="headerlink" href="#syllabus" title="Permalink to this heading">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Permalink to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
-</pre></div>
-</div>
-</div>
-</div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
-</div>
+<section id="course-description">
+<h2>Course description<a class="headerlink" href="#course-description" title="Permalink to this heading">#</a></h2>
+<p>This course is designed as a primer to get the complete novice up and
+running with the basic knowledge of how to use the programming
+language Python in an environment that emphasizes reproducible
+research and data analysis.  The target audience is anyone who wants
+to do their own data analysis.  The course will culminate with a
+peer-evaluated exploratory data analysis project on either a
+pre-specified dataset or your dataset of choice.</p>
 </section>
-<section id="create-a-notebook-with-myst-markdown">
-<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Permalink to this heading">#</a></h2>
-<p>MyST Markdown notebooks are defined by two things:</p>
-<ol class="arabic simple">
-<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-See the YAML at the top of this page for example.</p></li>
-<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
-</ol>
-<p>That’s all that is needed to get started!</p>
+<section id="logistics">
+<h2>Logistics<a class="headerlink" href="#logistics" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Course website: <a class="reference external" href="https://roualdes.github.io/MATH131">https://roualdes.github.io/MATH131</a></p></li>
+<li><p>Prerequisite: basic computer literacy</p></li>
+<li><p>Modality: this course run for 5 weeks only.</p></li>
+<li><p>Discord server: <a class="reference external" href="https://discord.gg/ck497bJty5">https://discord.gg/ck497bJty5</a></p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Section 01</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>days</p></td>
+<td><p>TODO</p></td>
+</tr>
+<tr class="row-odd"><td><p>time</p></td>
+<td><p>TODO</p></td>
+</tr>
+<tr class="row-even"><td><p>location</p></td>
+<td><p>TODO</p></td>
+</tr>
+<tr class="row-odd"><td><p>instructor</p></td>
+<td><p>Edward</p></td>
+</tr>
+<tr class="row-even"><td><p>office location</p></td>
+<td><p>Holt 204</p></td>
+</tr>
+<tr class="row-odd"><td><p>email</p></td>
+<td><p><a class="reference external" href="mailto:eroualdes&#37;&#52;&#48;csuchico&#46;edu">eroualdes<span>&#64;</span>csuchico<span>&#46;</span>edu</a></p></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="quickly-add-yaml-metadata-for-myst-notebooks">
-<h2>Quickly add YAML metadata for MyST Notebooks<a class="headerlink" href="#quickly-add-yaml-metadata-for-myst-notebooks" title="Permalink to this heading">#</a></h2>
-<p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
-</pre></div>
-</div>
+<section id="canvas-usage">
+<h2>Canvas usage<a class="headerlink" href="#canvas-usage" title="Permalink to this heading">#</a></h2>
+<p>The Course website listed above will be used instead of Canvas.  A
+link in Canvas leads to this website.</p>
+</section>
+<section id="student-support">
+<h2>Student support<a class="headerlink" href="#student-support" title="Permalink to this heading">#</a></h2>
+<section id="office-hours">
+<h3>office hours<a class="headerlink" href="#office-hours" title="Permalink to this heading">#</a></h3>
+<p>TODO in Holt 204</p>
+</section>
+<section id="discord">
+<h3>Discord<a class="headerlink" href="#discord" title="Permalink to this heading">#</a></h3>
+<p>To facilitate peer to peer and effective instructor to peer assistance
+Discord will be used for discussion and questions outside of
+class. This server hosts students across multiple Statistics and Data
+Science classes, with a specific channel for all sections of Math 131.</p>
+<p>Click this link to join the server:
+<a class="reference external" href="https://discord.gg/ck497bJty5">https://discord.gg/ck497bJty5</a>. Verify your email and agree to the
+rules and code of conduct. This helps create a safe learning
+environment.</p>
+<p>Go to the #get-roles text channel in the left sidebar, choose your
+pronouns (optional but helpful), and click the Python TODO icon emoji
+under the second post to self-assign you to the Math-131 role.  This
+will let you see and access the class channels.  More on how to use
+Discord in Week 01.</p>
+</section>
+<section id="community-coding">
+<h3>Community Coding<a class="headerlink" href="#community-coding" title="Permalink to this heading">#</a></h3>
+<p>Similar to drop in Mathematics tutoring hours, students, staff,
+faculty, and the public are invited to join our Community Coding
+sessions.  Bring your computer, coding projects, and your questions to
+this open working environment.</p>
+<p>Schedule and info found at <a class="reference external" href="https://www.csuchico.edu/datascience/community-coding.shtml">https://www.csuchico.edu/datascience/community-coding.shtml</a>.</p>
+</section>
+</section>
+<section id="learning-outcomes">
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this heading">#</a></h2>
+<p>By the end of the course, students will be able to</p>
+<ul class="simple">
+<li><p>Import data into Python from external files such as text files and spreadsheets.</p></li>
+<li><p>Calculate summary statistics.</p></li>
+<li><p>Create new variables using different data types.</p></li>
+<li><p>Perform data management techniques such as filtering, grouping, and summarizing/aggregating.</p></li>
+<li><p>Create informative data visualizations and tables.</p></li>
+<li><p>Create a reproducible research document.</p></li>
+<li><p>Conduct an exploratory data analysis in a reproducible manner.</p></li>
+</ul>
+</section>
+<section id="schedule-of-topics">
+<h2>Schedule of Topics<a class="headerlink" href="#schedule-of-topics" title="Permalink to this heading">#</a></h2>
+<p>The general outline of topics is listed below.</p>
+<ul class="simple">
+<li><p>Week 01</p>
+<ul>
+<li><p>Introduction to the Python language and Google Colab</p></li>
+<li><p>Conducting reproducible research within a Colab notebook using Markdown and Python code</p></li>
+</ul>
+</li>
+<li><p>Week 02</p>
+<ul>
+<li><p>How to use functions</p></li>
+<li><p>Introduction to data processing</p></li>
+</ul>
+</li>
+<li><p>Week 03</p>
+<ul>
+<li><p>Univariate Data Visualization using base, and plotnine graphics</p></li>
+<li><p>Data processing and Aggregation with Pandas</p></li>
+</ul>
+</li>
+<li><p>Week 04</p>
+<ul>
+<li><p>Bivariate and Multivariate Data Visualization using ggplot2</p></li>
+<li><p>Importing data into Python from external files</p></li>
+</ul>
+</li>
+<li><p>Week 05</p>
+<ul>
+<li><p>Exploratory Data Analysis (individual project)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="required-materials">
+<h2>Required Materials<a class="headerlink" href="#required-materials" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A reliable laptop, chromebook, or tablet that can use a browser to
+access the internet.</p></li>
+<li><p>Reliable internet connection while on and off campus.</p></li>
+</ul>
+<p>Students who do not have a computer (i.e. a iPad or Chromebook) can
+use the Wildcat virtual lab</p>
+</section>
+<section id="time-commitment">
+<h2>Time commitment<a class="headerlink" href="#time-commitment" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p>For all CSU degree programs and courses bearing academic credit, the
+“credit hour” is defined as … not less than one hour of classroom or
+direct faculty instruction and a minimum of two hours of
+out-of-class student work each week for approximately fifteen weeks
+for one semester or trimester hour of credit.</p>
+</div></blockquote>
+<p>This adds up to 15 hours in class, and 30 hours outside of class
+during these 5 weeks.  That’s 3 hours in class, and 10 hours of
+homework per week.  If you are new to programming and unfamiliar with
+computers, you may end up taking more time.  Be sure to schedule
+sufficient time during Week 05 to work on the project.</p>
+<p>You will get out of this class what you put into it.  Recall this is
+just a co-curriculuar or supplemental introductory class.  You will
+not learn everything there is to know about Python, nor necessarily
+feel proficient by the time you are done. But you will be on a better
+path towards learning Python than when you started.</p>
+</section>
+<section id="grading">
+<h2>Grading<a class="headerlink" href="#grading" title="Permalink to this heading">#</a></h2>
+<p>Credit / No Credit. There are 100 points available in this course. You
+must earn 75 points to receive credit for the course.</p>
+<ul class="simple">
+<li><p>Assignments: 4 &#64; 10 pts each.</p></li>
+<li><p>Fill out course notes: 7 &#64; 5 pts each</p></li>
+<li><p>Project:</p>
+<ul>
+<li><p>Exploratory Data Analysis (20 pts)</p></li>
+<li><p>Peer Review (5 pts)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="class-policies-and-statements">
+<h2>Class policies and statements<a class="headerlink" href="#class-policies-and-statements" title="Permalink to this heading">#</a></h2>
+<section id="everyone-is-welcome-here">
+<h3>Everyone is welcome here<a class="headerlink" href="#everyone-is-welcome-here" title="Permalink to this heading">#</a></h3>
+<p>It is our intent that students from all diverse backgrounds and
+perspectives be well-served by this course, that students’ learning
+needs be addressed both in and out of class, and that the diversity
+that the students bring to this class be viewed as a resource,
+strength and benefit. It is our intent to present materials and
+activities that are respectful of diversity: gender identity,
+sexuality, disability, age, socioeconomic status, ethnicity, race,
+nationality, religion, and culture. Your suggestions are encouraged
+and appreciated. Please let us know ways to improve the effectiveness
+of the course for you personally, or for other students or student
+groups.</p>
+<p>We would like to create a learning environment that supports a
+diversity of thoughts, perspectives and experiences, and honors your
+identities (including race, gender, class, sexuality, religion,
+ability, etc.) To help accomplish this:</p>
+<ul class="simple">
+<li><p>If you have a name and/or set of pronouns that differ from those
+that appear in your official Chico records, please let us know!</p></li>
+<li><p>If you feel like your performance in the class is being impacted by
+your experiences outside of class, please don’t hesitate to come and
+talk with us.  We want to be a resource for you. Remember that you
+can also submit anonymous feedback (which may lead to a general
+announcement to the class, if necessary to address the
+concerns). TODO: set up anonymous feedback</p></li>
+<li><p>If you prefer to speak with someone outside of the course, the
+Office of Diversity and Inclusion is here to assist. Their number is
+530-898-4764, and email <a class="reference external" href="mailto:diversityoffice&#37;&#52;&#48;csuchico&#46;edu">diversityoffice<span>&#64;</span>csuchico<span>&#46;</span>edu</a></p></li>
+<li><p>We (like many people) are still in the process of learning about
+diverse perspectives and identities. If something was said in class
+(by anyone) that made you feel uncomfortable, please talk to me
+about it. (Again, anonymous feedback is always an option).</p></li>
+</ul>
+<p>Adapted from <a class="reference external" href="https://www.brown.edu/sheridan/teaching-learning-resources/inclusive-teaching/statements">Monica Linden at Brown University</a>.</p>
+</section>
+<section id="appreciation">
+<h3>Appreciation<a class="headerlink" href="#appreciation" title="Permalink to this heading">#</a></h3>
+<p>We acknowledge and are mindful that Chico State stands on lands that
+were originally occupied by the first people of this area, the
+Mechoopda, and we recognize their distinctive spiritual relationship
+with this land, the flora, the fauna, and the waters that run through
+campus.</p>
+<p>We are humbled that our campus resides upon sacred lands that since
+time immemorial have sustained the Mechoopda people and continue to do
+so today.</p>
+</section>
+</section>
+<section id="university-policies-and-campus-resources">
+<h2>University policies and campus resources<a class="headerlink" href="#university-policies-and-campus-resources" title="Permalink to this heading">#</a></h2>
+<section id="adding-and-dropping-the-course">
+<h3>Adding and dropping the course<a class="headerlink" href="#adding-and-dropping-the-course" title="Permalink to this heading">#</a></h3>
+<p>This course only runs for a few weeks and all materials are available
+on the course website.  It will be difficult to get caught up if you
+add the class after the first week.</p>
+</section>
+<section id="academic-integrity">
+<h3>Academic integrity<a class="headerlink" href="#academic-integrity" title="Permalink to this heading">#</a></h3>
+<p>Students are expected to be familiar with the University’s Academic
+Integrity Policy. Your own commitment to learning, as evidenced by
+your enrollment at California State University, Chico, and the
+University’s Academic Integrity Policy requires you to be honest in
+all your academic course work. Faculty members are required to report
+all infractions to the Office of Student Judicial Affairs. The policy
+on academic integrity and other resources related to student conduct
+can be found on the Student Judicial Affairs web site at
+<a class="reference external" href="http://www.csuchico.edu/sjd/integrity.shtml">http://www.csuchico.edu/sjd/integrity.shtml</a>.</p>
+</section>
+<section id="it-support-services">
+<h3>IT Support Services<a class="headerlink" href="#it-support-services" title="Permalink to this heading">#</a></h3>
+<p>Computer labs for student use are located on the first and fourth
+floor of the Meriam Library, Room 116 and 450, Tehama Hall Room 131,
+and the Bell Memorial Union (BMU) basement. You can get help using
+your computer from IT Support Services; contact them through the ITSS
+web site at <a class="reference external" href="http://www.csuchico.edu/itss">http://www.csuchico.edu/itss</a>. Additional labs may be
+available to students in your department or college.</p>
+</section>
+<section id="americans-with-disabilities-act">
+<h3>Americans with Disabilities Act<a class="headerlink" href="#americans-with-disabilities-act" title="Permalink to this heading">#</a></h3>
+<p>If you need course adaptations or accommodations because of a
+disability or chronic illness, or if you need to make special
+arrangements in case the building must be evacuated, please make an
+appointment with me as soon as possible, or see me during office
+hours. Please also contact Accessibility Resource Center (ARC) as they
+are the designated department responsible for approving and
+coordinating reasonable accommodations and services for students with
+disabilities. ARC will help you understand your rights and
+responsibilities under the Americans with Disabilities Act and provide
+you further assistance with requesting and arranging accommodations.</p>
+<p>Accessibility Resource Center 530-898-5959 Student Services Center 170
+<a class="reference external" href="mailto:arcdept&#37;&#52;&#48;csuchico&#46;edu">arcdept<span>&#64;</span>csuchico<span>&#46;</span>edu</a> <a class="reference external" href="http://www.csuchico.edu/arc">http://www.csuchico.edu/arc</a></p>
+</section>
+<section id="chico-state-basic-needs-project">
+<h3>Chico State Basic Needs Project<a class="headerlink" href="#chico-state-basic-needs-project" title="Permalink to this heading">#</a></h3>
+<p>The Hungry Wildcat Food Pantry provides supplemental food, fresh
+produce, CalFresh application assistance and basic needs referral
+services for students experiencing food and housing insecurity.</p>
+<p>All students are welcomed to visit the Pantry located in the Student
+Service Center 196. Check the website for a location map and for the
+most up to date information on open hours:
+<a class="reference external" href="https://www.csuchico.edu/basic-needs/pantry.shtml">https://www.csuchico.edu/basic-needs/pantry.shtml</a>.</p>
+</section>
+<section id="confidentiality-and-mandatory-reporting">
+<h3>Confidentiality and mandatory reporting<a class="headerlink" href="#confidentiality-and-mandatory-reporting" title="Permalink to this heading">#</a></h3>
+<p>As an instructor, one of my responsibilities is to help create a safe
+learning environment on our campus. I also have a mandatory reporting
+responsibility related to my role as a your instructor. I am required
+to share information regarding sexual misconduct with the
+University. Students may speak to someone confidentially by contacting
+the Counseling and Wellness Center (898-6345) or Safe Place
+(898-3030). Information on campus reporting obligations and other
+Title IX related resources are available here:
+&lt;<a class="reference external" href="http://www.csuchico.edu/title-ix">www.csuchico.edu/title-ix</a>&gt;.</p>
+</section>
 </section>
 </section>
 
@@ -507,9 +781,34 @@ See the YAML at the top of this page for example.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistics">Logistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#canvas-usage">Canvas usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-support">Student support</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#office-hours">office hours</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discord">Discord</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#community-coding">Community Coding</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schedule-of-topics">Schedule of Topics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-materials">Required Materials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-commitment">Time commitment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-policies-and-statements">Class policies and statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#everyone-is-welcome-here">Everyone is welcome here</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#appreciation">Appreciation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#university-policies-and-campus-resources">University policies and campus resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-dropping-the-course">Adding and dropping the course</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-integrity">Academic integrity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#it-support-services">IT Support Services</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#americans-with-disabilities-act">Americans with Disabilities Act</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chico-state-basic-needs-project">Chico State Basic Needs Project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confidentiality-and-mandatory-reporting">Confidentiality and mandatory reporting</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

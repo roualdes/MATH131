@@ -16,6 +16,9 @@ kernelspec:
 
 # Week 04: Filling in some details
 
+* [Week 04 Notes](https://colab.research.google.com/drive/1FvGDi4MQxNzVOJRk6w07RWy3nnGNNF2K?usp=sharing)
+* [Week 04 Assignment](https://colab.research.google.com/drive/1pn-YYBwmYQbjf8gmVyhv2zqPrmvQ4Bxm?usp=sharing)
+
 ## Learning outcomes
 
 After completing this lesson, you will be able to
@@ -29,7 +32,7 @@ After completing this lesson, you will be able to
 ## Preparation
 
 To follow along with this Lesson, please open the Colab notebook
-[Week-04-Notes](https://colab.research.google.com/drive/1FvGDi4MQxNzVOJRk6w07RWy3nnGNNF2K?usp=sharing).  The first code cell of this notebook calls to
+[Week 04 Notes](https://colab.research.google.com/drive/1FvGDi4MQxNzVOJRk6w07RWy3nnGNNF2K?usp=sharing).  The first code cell of this notebook calls to
 the remote computer, on which the notebook is running, and installs
 the necessary packages.  For practice, you are repsonible for
 importing the necessary packages.
@@ -552,4 +555,8 @@ tags: [raises-exception, remove-output]
 ---
 
 df = pd.read_csv("./data/research_data.csv")
+```
+
+```{seealso}
+[Week 04 Assignment](https://colab.research.google.com/drive/1pn-YYBwmYQbjf8gmVyhv2zqPrmvQ4Bxm?usp=sharing)
 ```
