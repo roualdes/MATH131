@@ -14,8 +14,8 @@ kernelspec:
 
 # Week 01: Python basics
 
-* [Week 01 Notes](https://colab.research.google.com/drive/1VQhUmSxM6WfSw1ZZeKfhkRhkfM9JPXQx?usp=sharing)
-* [Week 01 Assignment](https://colab.research.google.com/drive/1h9Ck7kWNN9_I2Yun9Yc4uBoI2lgv6chi?usp=sharing)
+* <a href="https://colab.research.google.com/drive/1VQhUmSxM6WfSw1ZZeKfhkRhkfM9JPXQx?usp=sharing" target="_blank">Week 01 Notes</a>
+* <a href="https://colab.research.google.com/drive/1h9Ck7kWNN9_I2Yun9Yc4uBoI2lgv6chi?usp=sharing" target="_blank">Week 01 Assignment</a>
 
 ## Learning objectives
 
@@ -39,7 +39,7 @@ To follow along with this Lesson, please open the Colab notebook [Week
 Notes](https://colab.research.google.com/drive/1VQhUmSxM6WfSw1ZZeKfhkRhkfM9JPXQx?usp=sharing).
 The first code cell of this notebook calls to the remote computer, on
 which the notebook is running, and installs the necessary packages.
-For practice, you are repsonible for importing the necessary packages.
+For practice, you are responsible for importing the necessary packages.
 
 ## Variable
 
@@ -602,5 +602,5 @@ Such tools have a steep learning curve and a huge payoff.
 ```
 
 ```{seealso}
-[Week 01 Assignment](https://colab.research.google.com/drive/1h9Ck7kWNN9_I2Yun9Yc4uBoI2lgv6chi?usp=sharing)
+<a href="https://colab.research.google.com/drive/1h9Ck7kWNN9_I2Yun9Yc4uBoI2lgv6chi?usp=sharing" target="_blank">Week 01 Assignment</a>
 ```

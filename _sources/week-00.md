@@ -44,13 +44,15 @@ username@csuchico.edu account).
 
 ## Google Colab
 
-[Google Colab](https://colab.research.google.com) provides a notebook
-environment where the user can develop a reproducible document that blends text
-and code together.  Such reproducible documents are popular in the world of data
-science, statistics, machine learning, and the various applied sciences that use
-programming.  By combining text and code, you can walk (via text) your audience
-through an analysis (usually via code and/or math), showing the exact code you
-used to draw any conclusions about the data or otherwise.
+<a href="https://colab.research.google.com" target="_blank">Google
+Colab</a> provides a notebook environment where the user can develop a
+reproducible document that blends text and code together.  Such
+reproducible documents are popular in the world of data science,
+statistics, machine learning, and the various applied sciences that
+use programming.  By combining text and code, you can walk (via text)
+your audience through an analysis (usually via code and/or math),
+showing the exact code you used to draw any conclusions about the data
+or otherwise.
 
 We will use Google Colab for free, as part of your campus Google
 account username@mail.csuchico.edu.  The free aspect means we'll have
@@ -61,8 +63,10 @@ install Python on your personal machine, because I believe we can get
 started faster this way.  If you want to follow along with this course
 using different tools, and you understand the consequences you face
 for doing so, please see your options on the page [Week 06 and
-beyond][./and-beyond.md].
+beyond](./and-beyond.md).
 
-From here, there's really no better way to learn about Google Colab than to go
-touch it.  Here's a link to [the Colab notebook associated with Week 00: Start
-here](https://colab.research.google.com/drive/1weKuFgd98W76BloyuuB4d2HudB5KLYew?usp=sharing).
+From here, there's really no better way to learn about Google Colab
+than to go touch it.  Here's a link to <a
+href="https://colab.research.google.com/drive/1weKuFgd98W76BloyuuB4d2HudB5KLYew?usp=sharing"
+target="_blank">the Colab notebook associated with Week 00: Start
+here</a>.

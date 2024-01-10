@@ -96,10 +96,8 @@ of Dr. D’s teaching course website. Here are some viable choices:
 * Police Shootings: Characteristics of individuals killed by police in
   2015.
 
-Any other data sets require instructor approval. Data sets such as the
-plants or arm strength data sets are insufficiently complex for this
-project. Also you can’t use the dsmall, diamonds, or NCbirths data
-sets because we’ve used them too much already.
+Any other datasets, and/or any that we've already used in class
+require instructor approval.
 
 ## How to submit
 

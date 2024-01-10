@@ -14,8 +14,8 @@ kernelspec:
 
 # Week 03: Graphing and aggregating
 
-* [Week 03 Notes](https://colab.research.google.com/drive/1HqqhJvfHsWJAj_3dgBt0SOV5E90Sq1pG?usp=sharing)
-* [Week 03 Assignment](https://colab.research.google.com/drive/1_ZTWGesIh5DUB_l3UdTmR5KK9AFPEy_9?usp=sharing)
+* <a href="https://colab.research.google.com/drive/1HqqhJvfHsWJAj_3dgBt0SOV5E90Sq1pG?usp=sharing" target="_blank">Week 03 Notes</a>
+* <a href="https://colab.research.google.com/drive/1_ZTWGesIh5DUB_l3UdTmR5KK9AFPEy_9?usp=sharing" target="_blank">Week 03 Assignment</a>
 
 ## Learning outcomes
 
@@ -344,5 +344,5 @@ p.draw()
 ```
 
 ```{seealso}
-[Week 03 Assignment](https://colab.research.google.com/drive/1_ZTWGesIh5DUB_l3UdTmR5KK9AFPEy_9?usp=sharing)
+<a href="https://colab.research.google.com/drive/1_ZTWGesIh5DUB_l3UdTmR5KK9AFPEy_9?usp=sharing" target="_blank">Week 03 Assignment</a>
 ```

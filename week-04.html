@@ -390,11 +390,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-directory-structure">visualizing directory structure</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-paths">file paths</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delimited-files">delimited files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entering-data">entering data</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dos">DOs</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#don-ts">DON’Ts</a></li>
-</ul>
-</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-your-own-data">read in your own data</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#your-data-in-a-google-colab-notebook">your data in a Google Colab notebook</a></li>
 </ul>
@@ -416,8 +411,8 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="week-04-filling-in-some-details">
 <h1>Week 04: Filling in some details<a class="headerlink" href="#week-04-filling-in-some-details" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://colab.research.google.com/drive/1FvGDi4MQxNzVOJRk6w07RWy3nnGNNF2K?usp=sharing">Week 04 Notes</a></p></li>
-<li><p><a class="reference external" href="https://colab.research.google.com/drive/1pn-YYBwmYQbjf8gmVyhv2zqPrmvQ4Bxm?usp=sharing">Week 04 Assignment</a></p></li>
+<li><p><a href="https://colab.research.google.com/drive/1FvGDi4MQxNzVOJRk6w07RWy3nnGNNF2K?usp=sharing" target="_blank">Week 04 Notes</a></p></li>
+<li><p><a href="https://colab.research.google.com/drive/1pn-YYBwmYQbjf8gmVyhv2zqPrmvQ4Bxm?usp=sharing" target="_blank">Week 04 Assignment</a></p></li>
 </ul>
 <section id="learning-outcomes">
 <h2>Learning outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this heading">#</a></h2>
@@ -440,12 +435,14 @@ importing the necessary packages.</p>
 </section>
 <section id="graphing-details">
 <h2>Graphing details<a class="headerlink" href="#graphing-details" title="Permalink to this heading">#</a></h2>
-<p>In this section, we cover some details about customizing a plotnine plot.  This
-lesson will not explore all available options, nor are you expected to memorize
-all the details we cover.  This lesson is intended to be an introduction to the
-types of things you can easily change on a plotnine plot.  For details and/or
-reference material on computer software, you should consult the <a class="reference external" href="https://plotnine.readthedocs.io/en/stable/api.html">plotnine
-documentation</a>.</p>
+<p>In this section, we cover some details about customizing a plotnine
+plot.  This lesson will not explore all available options, nor are you
+expected to memorize all the details we cover.  This lesson is
+intended to be an introduction to the types of things you can easily
+change on a plotnine plot.  For details and/or reference material on
+computer software, you should consult the <a
+href="https://plotnine.readthedocs.io/en/stable/api.html"
+target="_blank">plotnine documentation</a>.</p>
 <p>Let’s continue developing the plot we started at the end of <a class="reference internal" href="week-03.html#aggregating"><span class="std std-ref">Week
 03</span></a>.  Our goal is to display information about the mean
 total amount of sleep mamals (in our dataset) get, where the data are
@@ -484,9 +481,9 @@ Since <code class="docutils literal notranslate"><span class="pre">vore</span></
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2002/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
-/tmp/ipykernel_2002/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7f3ee8751700&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
-/tmp/ipykernel_2002/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7f3ee8751820&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2021/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2021/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7fd70c21e700&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
+/tmp/ipykernel_2021/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7fd70c21e820&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
 </pre></div>
 </div>
 </div>
@@ -520,14 +517,16 @@ piece.  Below is the code we used from <a class="reference internal" href="week-
 </div>
 </div>
 </div>
-<p>The keyword arguments <code class="docutils literal notranslate"><span class="pre">color</span></code> and <code class="docutils literal notranslate"><span class="pre">shape</span></code>, when they appear inside a <code class="docutils literal notranslate"><span class="pre">geom_</span></code>
-layer and outside of <code class="docutils literal notranslate"><span class="pre">aes</span></code>, take just one color and one shape.  Because plotnine
-is built on top of other Python packages, <a class="reference external" href="https://matplotlib.org/stable/">matplotlib</a> specifically, finding the
-available colors and shapes can be tricky.  Here are links to the <a class="reference external" href="https://matplotlib.org/stable/gallery/color/named_colors.html#base-colors">matplotlib
-named
-colors</a>
-and the <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers">matplotlib available
-shapes</a>.</p>
+<p>The keyword arguments <code class="docutils literal notranslate"><span class="pre">color</span></code> and <code class="docutils literal notranslate"><span class="pre">shape</span></code>, when they appear inside a
+<code class="docutils literal notranslate"><span class="pre">geom_</span></code> layer and outside of <code class="docutils literal notranslate"><span class="pre">aes</span></code>, take just one color and one shape.
+Because plotnine is built on top of other Python packages, <a
+href="https://matplotlib.org/stable/" target="_blank">matplotlib</a>
+specifically, finding the available colors and shapes can be tricky.
+Here are links to the <a
+href="https://matplotlib.org/stable/gallery/color/named_colors.html#base-colors"
+target="_blank">matplotlib named colors</a> and the <a
+href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers"
+target="_blank">matplotlib available shapes</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
@@ -629,7 +628,7 @@ the plot theme.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/559aa8885ab31225702da0b09e00732d58428696bb5bac577f35651f06893d43.png" src="_images/559aa8885ab31225702da0b09e00732d58428696bb5bac577f35651f06893d43.png" />
+<img alt="_images/4f857011502159d7f402ca6d760c498db8ea0e9fd03962e8ff4f5090de248dd6.png" src="_images/4f857011502159d7f402ca6d760c498db8ea0e9fd03962e8ff4f5090de248dd6.png" />
 </div>
 </div>
 <p>Some final thoughts on the plot above.  I’d prefer the confidence intervals not
@@ -665,7 +664,7 @@ show off your plotting skills, use both.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/61d7d3c1d03f647ec486cf9f94932b9e2de2e0ec0bbbb3291da99e93c235e96f.png" src="_images/61d7d3c1d03f647ec486cf9f94932b9e2de2e0ec0bbbb3291da99e93c235e96f.png" />
+<img alt="_images/de6d1e6ec5c5c9f16e4dd8547c6ffa68b13fb6f5c7fb3cc4b2926da6cee66734.png" src="_images/de6d1e6ec5c5c9f16e4dd8547c6ffa68b13fb6f5c7fb3cc4b2926da6cee66734.png" />
 </div>
 </div>
 </section>
@@ -825,113 +824,6 @@ thus your job to get your data into a csv file appropriately.  The easiest
 solution is to type your data into a spreadsheet and then export your
 spreadsheet data into csv format.</p>
 </section>
-<section id="entering-data">
-<h3>entering data<a class="headerlink" href="#entering-data" title="Permalink to this heading">#</a></h3>
-<p>Entering data into a spreadsheet is easy.  And that’s good.  But there are some
-gotchas that we’d like you to avoid.  This section will list the dos and then
-explain them, and list the don’ts and then explain them.</p>
-<section id="dos">
-<h4>DOs<a class="headerlink" href="#dos" title="Permalink to this heading">#</a></h4>
-<ul class="simple">
-<li><p>be consistent</p></li>
-<li><p>use simple variable names</p>
-<ul>
-<li><p>prefer all lower case letters</p></li>
-<li><p>minimize numbers and special characters</p></li>
-<li><p>use underscore <code class="docutils literal notranslate"><span class="pre">_</span></code> instead of space <code class="docutils literal notranslate"> </code></p></li>
-</ul>
-</li>
-<li><p>organize files within directories</p></li>
-</ul>
-<p><strong>Be consistent</strong>. When programming, having to repeated look back at your
-spreadsheet to figure out your variable names is beyond annoying.  It is beyond
-annoying because it interrupts your programming.  Programming is hard enough,
-try to minimize inconsistencies that can otherwise be settled by being
-consistent.</p>
-<p><strong>Use simple variable names</strong>.  Consider two variables you might want
-to name with multiple words, like miles per gallon and brain to body
-weight ratio. It is easy to name one variable using camel case,
-e.g. <code class="docutils literal notranslate"><span class="pre">MilesPerGallon</span></code>, and another capitalized,
-e.g. <code class="docutils literal notranslate"><span class="pre">Brain(g)bodyWeight(KG)</span></code>.  The first name is fine, so long as you
-are consistent and choose camel case for all of your variable names.
-The second variable name is both not simple and inconsistent.  Camel
-case would have you capitalize each new work, as in <code class="docutils literal notranslate"><span class="pre">BrainBodyWight</span></code>.
-In this case, even the units are not capitalized the same.  This is a
-recipe for frustration.  Also see below, <em>don’t put units in variabl
-names</em>.</p>
-<p>It is recommended to make yourself a simple rule, like <em>prefer all
-lowercase letters</em>.  Maybe that’s not the rule for you, but don’t get
-caught up on the rule.  The rule itself doesn’t matter.  Just be
-simple and consistently so.</p>
-<p>My go to rule is all lowercase letters, no numbers or special
-characters other than <code class="docutils literal notranslate"><span class="pre">_</span></code>, and to separate words when there are
-contiguous repeated letters, <code class="docutils literal notranslate"><span class="pre">ee</span></code> or <code class="docutils literal notranslate"><span class="pre">ss</span></code>, and otherwise don’t
-separate words.  The separator I prefer is underscore <code class="docutils literal notranslate"><span class="pre">_</span></code> instead of
-space <code class="docutils literal notranslate"> </code>, which is mostly a carry over rule from programming in R.
-Remember, the rule matters less than consistency with the rule.</p>
-<p><strong>Organize files within directories</strong>.  When editing files, it is
-tempting to write metadata into the file name.  For instance, it is
-unfortunately common for people to write file names such as
-<code class="docutils literal notranslate"><span class="pre">draft_manuscript.docx</span></code>, <code class="docutils literal notranslate"><span class="pre">draft2_manuscript.docx</span></code>,
-<code class="docutils literal notranslate"><span class="pre">draft3_manuscript.docx</span></code>, <code class="docutils literal notranslate"><span class="pre">final_manuscript.docx</span></code>,
-<code class="docutils literal notranslate"><span class="pre">final_final_manuscript.docx</span></code>.  File names are not intended to carry
-the metadata associated with draft versions.</p>
-<p>If you really need to maintain copies of drafts, and I guess you most
-often do not need such copies, then you should create directories such as
-<code class="docutils literal notranslate"><span class="pre">draft</span></code> and <code class="docutils literal notranslate"><span class="pre">final</span></code>.  Each directory should contain a (singular) copy
-of the files you absolutely need with each and every copy of the file.
-Any files, such as data, that are the same for all copies of the file
-should have their own directory.  It might help future you to put a
-separate notes file in each directory that reminds you of exact
-purpose of the directory.</p>
-</section>
-<section id="don-ts">
-<h4>DON’Ts<a class="headerlink" href="#don-ts" title="Permalink to this heading">#</a></h4>
-<ul class="simple">
-<li><p>don’t start a variable name with a number</p></li>
-<li><p>don’t use special character in variable names</p></li>
-<li><p>don’t put units in variable names</p></li>
-<li><p>don’t use abbreviations</p></li>
-<li><p>don’t organize through file names</p></li>
-<li><p>don’t put dates in your file names</p></li>
-<li><p>don’t have multiple copies of your data</p></li>
-</ul>
-<p><strong>Don’t start a variable name with a number</strong>.  In most programming
-languages, you can’t start a variable name with a number.  So it’s
-easiest to just avoid putting numbers in variable names altogether.
-Occassionaly, it makes sense to use a number in a variable name.  Just
-don’t start your variable name with a number.</p>
-<p><strong>Don’t use special characters in variable names</strong>.  This rule is much
-like the rule above.  In my experience, special characters,
-e.g. <code class="docutils literal notranslate"><span class="pre">~!&#64;#$%^&amp;*()+=,&lt;&gt;/|\</span></code>, only make remembering a variable name more
-difficult.  The only special character that you should allow, when
-necessary, in your variable names is underscore <code class="docutils literal notranslate"><span class="pre">_</span></code>.  See <strong>Use simple
-variable names</strong> above.</p>
-<p><strong>Don’t put units in variable names</strong>.  Units in variable names just
-open the door for inconsistent variable names.  It is easiest to just
-avoid putting units or other metadata into variable names.  Your data
-should instead have a separate file of all the associated metadata.</p>
-<p><strong>Don’t use abbreviations</strong>.  Abbreviated variable names are
-attractive, because they save typing.  For instance, one could imagine
-abbreviating micrograms as <code class="docutils literal notranslate"><span class="pre">ug</span></code>, <code class="docutils literal notranslate"><span class="pre">mg</span></code>, or <code class="docutils literal notranslate"><span class="pre">μg</span></code>.  This creates
-opportunity for misremembering and inconsistency.  Such abbreviations
-in variable names also breaks the rule <strong>Don’t put units in variable
-names</strong>.  Further, see <strong>Use simple variable names above</strong> above.
-Instead, put such metadata in a separate file.</p>
-<p><strong>Don’t organize through file names</strong>.  The only metadata a file name
-should contain is the name of the file.  Instead, use directories to
-organize your files.  See <strong>Organize files within directories</strong> above.</p>
-<p><strong>Don’t put dates in your file names</strong>.  Dates are metadata, see
-<strong>Don’t organize through file names</strong> above.</p>
-<p><strong>Don’t have multiple copies of your data</strong>.  Generally, you should
-only have one copy of your dataset.  See <strong>Don’t put dates in your
-file names</strong> above.  If there are necessary edits to your data for a
-specific analysis, then you should program those edits in Python code
-and save that code for future re-use.  This way you can re-create data
-changes as necessary, and you minimize introducing permanent errors
-into your dataset.</p>
-</section>
-</section>
 <section id="read-in-your-own-data">
 <h3>read in your own data<a class="headerlink" href="#read-in-your-own-data" title="Permalink to this heading">#</a></h3>
 <p>This whole section is prep-work.  Once you understand file paths and
@@ -984,7 +876,7 @@ to read this file into Python, using Pandas, is</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference external" href="https://colab.research.google.com/drive/1pn-YYBwmYQbjf8gmVyhv2zqPrmvQ4Bxm?usp=sharing">Week 04 Assignment</a></p>
+<p><a href="https://colab.research.google.com/drive/1pn-YYBwmYQbjf8gmVyhv2zqPrmvQ4Bxm?usp=sharing" target="_blank">Week 04 Assignment</a></p>
 </div>
 </section>
 </section>
@@ -1063,11 +955,6 @@ to read this file into Python, using Pandas, is</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-directory-structure">visualizing directory structure</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-paths">file paths</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delimited-files">delimited files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entering-data">entering data</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dos">DOs</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#don-ts">DON’Ts</a></li>
-</ul>
-</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-your-own-data">read in your own data</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#your-data-in-a-google-colab-notebook">your data in a Google Colab notebook</a></li>
 </ul>
