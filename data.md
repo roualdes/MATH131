@@ -15,6 +15,6 @@ kernelspec:
 # Data
 
 Dr. Robin Donatello hosts a number of datasets on her website:
-<https://www.norcalbiostat.com/data/>.  You can use any of these
-datasets for practice or for the Exploratory Data Analysis Project
-which concludes MATH 131.
+<https://www.norcalbiostat.com/data/>.  Consider using the datasets
+`Email Spam`, `HIV`, `Depression`, or `Police Shootings` for the
+Exploratory Data Analysis Project which concludes MATH 131.
