@@ -14,8 +14,8 @@ kernelspec:
 
 # Week 02: Introduction to working with data
 
-* [Week 02 Notes](https://colab.research.google.com/drive/1qHzeZ_1RdfNe1l3KQsZi7xsSjLMVHbel?usp=sharing)
-* [Week 02 Assignment](https://colab.research.google.com/drive/1os3hSTKNFblsA1MUTe25pvCjtaKfId30?usp=sharing)
+* <a href="https://colab.research.google.com/drive/1qHzeZ_1RdfNe1l3KQsZi7xsSjLMVHbel?usp=sharing" target="_blank">Week 02 Notes</a>
+* <a href="https://colab.research.google.com/drive/1os3hSTKNFblsA1MUTe25pvCjtaKfId30?usp=sharing" target="_blank">Week 02 Assignment</a>
 
 ## Learning objectives
 
@@ -281,5 +281,5 @@ msleep["smrt"]
 ```
 
 ```{seealso}
-[Week 02 Assignment](https://colab.research.google.com/drive/1os3hSTKNFblsA1MUTe25pvCjtaKfId30?usp=sharing)
+<a href="https://colab.research.google.com/drive/1os3hSTKNFblsA1MUTe25pvCjtaKfId30?usp=sharing" target="_blank">Week 02 Assignment</a>
 ```

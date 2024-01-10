@@ -16,8 +16,8 @@ kernelspec:
 
 # Week 04: Filling in some details
 
-* [Week 04 Notes](https://colab.research.google.com/drive/1FvGDi4MQxNzVOJRk6w07RWy3nnGNNF2K?usp=sharing)
-* [Week 04 Assignment](https://colab.research.google.com/drive/1pn-YYBwmYQbjf8gmVyhv2zqPrmvQ4Bxm?usp=sharing)
+* <a href="https://colab.research.google.com/drive/1FvGDi4MQxNzVOJRk6w07RWy3nnGNNF2K?usp=sharing" target="_blank">Week 04 Notes</a>
+* <a href="https://colab.research.google.com/drive/1pn-YYBwmYQbjf8gmVyhv2zqPrmvQ4Bxm?usp=sharing" target="_blank">Week 04 Assignment</a>
 
 ## Learning outcomes
 
@@ -39,12 +39,14 @@ importing the necessary packages.
 
 ## Graphing details
 
-In this section, we cover some details about customizing a plotnine plot.  This
-lesson will not explore all available options, nor are you expected to memorize
-all the details we cover.  This lesson is intended to be an introduction to the
-types of things you can easily change on a plotnine plot.  For details and/or
-reference material on computer software, you should consult the [plotnine
-documentation](https://plotnine.readthedocs.io/en/stable/api.html).
+In this section, we cover some details about customizing a plotnine
+plot.  This lesson will not explore all available options, nor are you
+expected to memorize all the details we cover.  This lesson is
+intended to be an introduction to the types of things you can easily
+change on a plotnine plot.  For details and/or reference material on
+computer software, you should consult the <a
+href="https://plotnine.readthedocs.io/en/stable/api.html"
+target="_blank">plotnine documentation</a>.
 
 Let's continue developing the plot we started at the end of [Week
 03](aggregating).  Our goal is to display information about the mean
@@ -105,14 +107,16 @@ p = (pn.ggplot(odf)
     + pn.geom_point(pn.aes(x = odf["vore"].cat.codes, y = "mean"), color = "blue", shape = "X", size = 2.5))
 ```
 
-The keyword arguments `color` and `shape`, when they appear inside a `geom_`
-layer and outside of `aes`, take just one color and one shape.  Because plotnine
-is built on top of other Python packages, [matplotlib](https://matplotlib.org/stable/) specifically, finding the
-available colors and shapes can be tricky.  Here are links to the [matplotlib
-named
-colors](https://matplotlib.org/stable/gallery/color/named_colors.html#base-colors)
-and the [matplotlib available
-shapes](https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers).
+The keyword arguments `color` and `shape`, when they appear inside a
+`geom_` layer and outside of `aes`, take just one color and one shape.
+Because plotnine is built on top of other Python packages, <a
+href="https://matplotlib.org/stable/" target="_blank">matplotlib</a>
+specifically, finding the available colors and shapes can be tricky.
+Here are links to the <a
+href="https://matplotlib.org/stable/gallery/color/named_colors.html#base-colors"
+target="_blank">matplotlib named colors</a> and the <a
+href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers"
+target="_blank">matplotlib available shapes</a>.
 
 ```{code-cell}
 p.draw()
@@ -385,120 +389,6 @@ thus your job to get your data into a csv file appropriately.  The easiest
 solution is to type your data into a spreadsheet and then export your
 spreadsheet data into csv format.
 
-### entering data
-
-Entering data into a spreadsheet is easy.  And that's good.  But there are some
-gotchas that we'd like you to avoid.  This section will list the dos and then
-explain them, and list the don'ts and then explain them.
-
-#### DOs
-
-* be consistent
-* use simple variable names
-  * prefer all lower case letters
-  * minimize numbers and special characters
-  * use underscore `_` instead of space ` `
-* organize files within directories
-
-**Be consistent**. When programming, having to repeated look back at your
-spreadsheet to figure out your variable names is beyond annoying.  It is beyond
-annoying because it interrupts your programming.  Programming is hard enough,
-try to minimize inconsistencies that can otherwise be settled by being
-consistent.
-
-**Use simple variable names**.  Consider two variables you might want
-to name with multiple words, like miles per gallon and brain to body
-weight ratio. It is easy to name one variable using camel case,
-e.g. `MilesPerGallon`, and another capitalized,
-e.g. `Brain(g)bodyWeight(KG)`.  The first name is fine, so long as you
-are consistent and choose camel case for all of your variable names.
-The second variable name is both not simple and inconsistent.  Camel
-case would have you capitalize each new work, as in `BrainBodyWight`.
-In this case, even the units are not capitalized the same.  This is a
-recipe for frustration.  Also see below, *don't put units in variabl
-names*.
-
-It is recommended to make yourself a simple rule, like *prefer all
-lowercase letters*.  Maybe that's not the rule for you, but don't get
-caught up on the rule.  The rule itself doesn't matter.  Just be
-simple and consistently so.
-
-My go to rule is all lowercase letters, no numbers or special
-characters other than `_`, and to separate words when there are
-contiguous repeated letters, `ee` or `ss`, and otherwise don't
-separate words.  The separator I prefer is underscore `_` instead of
-space ` `, which is mostly a carry over rule from programming in R.
-Remember, the rule matters less than consistency with the rule.
-
-**Organize files within directories**.  When editing files, it is
-tempting to write metadata into the file name.  For instance, it is
-unfortunately common for people to write file names such as
-`draft_manuscript.docx`, `draft2_manuscript.docx`,
-`draft3_manuscript.docx`, `final_manuscript.docx`,
-`final_final_manuscript.docx`.  File names are not intended to carry
-the metadata associated with draft versions.
-
-If you really need to maintain copies of drafts, and I guess you most
-often do not need such copies, then you should create directories such as
-`draft` and `final`.  Each directory should contain a (singular) copy
-of the files you absolutely need with each and every copy of the file.
-Any files, such as data, that are the same for all copies of the file
-should have their own directory.  It might help future you to put a
-separate notes file in each directory that reminds you of exact
-purpose of the directory.
-
-#### DON'Ts
-
-* don't start a variable name with a number
-* don't use special character in variable names
-* don't put units in variable names
-* don't use abbreviations
-* don't organize through file names
-* don't put dates in your file names
-* don't have multiple copies of your data
-
-**Don't start a variable name with a number**.  In most programming
-languages, you can't start a variable name with a number.  So it's
-easiest to just avoid putting numbers in variable names altogether.
-Occassionaly, it makes sense to use a number in a variable name.  Just
-don't start your variable name with a number.
-
-**Don't use special characters in variable names**.  This rule is much
-like the rule above.  In my experience, special characters,
-e.g. `~!@#$%^&*()+=,<>/|\`, only make remembering a variable name more
-difficult.  The only special character that you should allow, when
-necessary, in your variable names is underscore `_`.  See **Use simple
-variable names** above.
-
-**Don't put units in variable names**.  Units in variable names just
-open the door for inconsistent variable names.  It is easiest to just
-avoid putting units or other metadata into variable names.  Your data
-should instead have a separate file of all the associated metadata.
-
-**Don't use abbreviations**.  Abbreviated variable names are
-attractive, because they save typing.  For instance, one could imagine
-abbreviating micrograms as `ug`, `mg`, or `μg`.  This creates
-opportunity for misremembering and inconsistency.  Such abbreviations
-in variable names also breaks the rule **Don't put units in variable
-names**.  Further, see **Use simple variable names above** above.
-Instead, put such metadata in a separate file.
-
-**Don't organize through file names**.  The only metadata a file name
-should contain is the name of the file.  Instead, use directories to
-organize your files.  See **Organize files within directories** above.
-
-**Don't put dates in your file names**.  Dates are metadata, see
-**Don't organize through file names** above.
-
-**Don't have multiple copies of your data**.  Generally, you should
-only have one copy of your dataset.  See **Don't put dates in your
-file names** above.  If there are necessary edits to your data for a
-specific analysis, then you should program those edits in Python code
-and save that code for future re-use.  This way you can re-create data
-changes as necessary, and you minimize introducing permanent errors
-into your dataset.
-
-
 ### read in your own data
 
 This whole section is prep-work.  Once you understand file paths and
@@ -558,5 +448,5 @@ df = pd.read_csv("./data/research_data.csv")
 ```
 
 ```{seealso}
-[Week 04 Assignment](https://colab.research.google.com/drive/1pn-YYBwmYQbjf8gmVyhv2zqPrmvQ4Bxm?usp=sharing)
+<a href="https://colab.research.google.com/drive/1pn-YYBwmYQbjf8gmVyhv2zqPrmvQ4Bxm?usp=sharing" target="_blank">Week 04 Assignment</a>
 ```
