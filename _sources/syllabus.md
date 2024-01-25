@@ -33,9 +33,9 @@ pre-specified dataset or your dataset of choice.
 
 | | Section 01 |
 |-|------------|
-|days | TODO |
-|time | TODO |
-| location | TODO |
+|days | TTh |
+|time | 2 - 3.15pm |
+| location | Holt 277 |
 |instructor | Edward |
 | office location | Holt 204 |
 | email | <eroualdes@csuchico.edu> |
@@ -49,7 +49,10 @@ link in Canvas leads to this website.
 
 ### office hours
 
-TODO in Holt 204
+* M 2 - 3pm and Th 10 - 11am in Holt 204
+* W 12 - 1pm in Selvester's Cafe (SELV) 100
+* If none of the above times work for you, please email me so we can find a time
+  that works for us both.
 
 ### Discord
 
@@ -62,12 +65,6 @@ Click this link to join the server:
 https://discord.gg/ck497bJty5. Verify your email and agree to the
 rules and code of conduct. This helps create a safe learning
 environment.
-
-Go to the #get-roles text channel in the left sidebar, choose your
-pronouns (optional but helpful), and click the Python TODO icon emoji
-under the second post to self-assign you to the Math-131 role.  This
-will let you see and access the class channels.  More on how to use
-Discord in Week 01.
 
 ### Community Coding
 
@@ -160,10 +157,12 @@ Credit / No Credit. There are 100 points available in this course. You
 must earn 75 points to receive credit for the course.
 
 * Assignments: 4 @ 10 pts each.
-* Fill out course notes: 7 @ 5 pts each
+* Fill out course Notes: 7 @ 5 pts each
 * Project:
     * Exploratory Data Analysis (20 pts)
     * Peer Review (5 pts)
+
+Assignments and Notes are due after each week, TODO [Friday or Sunday by midnight? let's vote]
 
 ## Class policies and statements
 
@@ -189,12 +188,15 @@ ability, etc.) To help accomplish this:
 * If you have a name and/or set of pronouns that differ from those
   that appear in your official Chico records, please let us know!
 
-* If you feel like your performance in the class is being impacted by
-  your experiences outside of class, please don’t hesitate to come and
-  talk with us.  We want to be a resource for you. Remember that you
-  can also submit anonymous feedback (which may lead to a general
-  announcement to the class, if necessary to address the
-  concerns). TODO: set up anonymous feedback
+* If you feel like your performance in the class is being impacted by your
+  experiences outside of class, please don’t hesitate to come and talk with us.
+  We want to be a resource for you. Remember that you can also submit anonymous
+  feedback (which may lead to a general announcement to the class, if necessary
+  to address the concerns). Please use our Google form named [Anonymous
+  feedback](https://forms.gle/rS5g9zNTHMwAWdZ17).  You must be signed in with
+  your campus Google account student_username@mail.csuchico.edu to access the
+  form, but we do not record (hence anonymous) any information about how submits
+  feedback.
 
 * If you prefer to speak with someone outside of the course, the
   Office of Diversity and Inclusion is here to assist. Their number is

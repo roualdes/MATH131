@@ -221,8 +221,8 @@ creates a variable named `l` which references a list of heterogeneous types, and
 then indexes the first element of the list `l`.
 
 ```{code-cell}
-l = [1, 2.1, "Chico State", True]
-l[1]
+lst = [12.4, 7.3, "Chico State", True]
+lst[1]
 ```
 
 To define the list `l` the expression on the right hand side of `=`
@@ -237,15 +237,37 @@ zero-th element of the list `l` is the value `1`.
 One can also index a list with a slice of integers, e.g. `0:2`.
 
 ```{code-cell}
-[l[0:2], l[1:], l[:1], l[0:3:2]]
+lst[0:2]
 ```
 
-Indexing lists with slices takes a fair bit of practice.  The above code creates
-a new unreferenced list, which containes as elements sub-lists of the list `l`.  The zero-th
-sub-list consists of the zero-th and first elements of `l`.  Notice though,
-despite the slice `0:2`, the second element of `l` is not retreived.  The slice
-`a:b` indexes from a list all elements at position `a` up to but not
-including `b`.
+Notice though, despite the slice `0:2`, the second element of `lst` is not
+retreived.  The slice `a:b` indexes from a list all elements at position `a` up
+to but not including `b`.
+
+By not specifying the beginning of a slice, one can index from the beginning up
+to but not including the specified end point `b`.
+
+```{code-cell}
+lst[:2]
+```
+
+Or the opposite, where the beginning is specified `a`, but the end is not.
+
+```{code-cell}
+lst[2:]
+```
+
+For sure, indexing lists with slices takes a fair bit of practice.
+
+#### Advanced and optional (not required)
+
+```{code-cell}
+[lst[0:2], lst[1:], lst[:1], lst[0:3:2]]
+```
+
+The above code creates a new unreferenced list, which containes as elements
+sub-lists of the list `lst`.  The zero-th sub-list consists of the zero-th and
+first elements of `lst`.
 
 The slice `1:` indexes the first element up to and including the last element.
 
@@ -261,13 +283,14 @@ indices around the back of the list starting from the zero-th element.
 Thus the `-1`-th element is the last element.
 
 ```{code-cell}
-l[-1]
+lst[-1]
 ```
 
-And for fun, even crazier indexing expressions exist.
+And for fun, even crazier indexing expressions exist.  This effectively reverses
+a list.
 
 ```{code-cell}
-l[::-1]
+lst[::-1]
 ```
 
 The slice `::-1` says to start at index `0`, go up to the last index, and take
@@ -281,38 +304,37 @@ in Python is `dict`.  In other computer science worlds, a Python
 to each key a value.
 
 ```{code-cell}
-d = {
+dct = {
   "MATH 131": "Introduction to Python",
   "MATH 450": True,
   "pi": x,
-  "list": l
+  "list": lst
   # key: value,
 }
-d["pi"]
+dct["pi"]
 ```
 
-
-The `dict` referenced by the name `d` is created using curcly braces,
+The `dict` referenced by the name `dct` is created using curcly braces,
 instead of square brackets like for a list.  Between the curly braces
 the pattern repeats `key: value` pairs separated by commas, where the
 colon `:` distinguishes the key from the value.  There are lots of
 options for the key types, but it will be easiest if we think of the
 keys as specifically type `str` for now.
 
-The dict `d` associates with key `"pi"` the value stored in the variable
+The dict `dct` associates with key `"pi"` the value stored in the variable
 `x`, that we created earlier.  The key `"list"` associates the list
 `l`.
 
 The options for indexing `dict`s are, in some sense, more restrictive than for
 `list`s.  There are no slices with `dict`s.  However, one can mutate (think
 edit) a `dict` by indexing into a key that doesn't exist in order to mutate the
-dict `d` and associate the new key with a specified value.  If the key happens
+dict `dct` and associate the new key with a specified value.  If the key happens
 to exist already, the equals sign below will instead over-write the value
 previously associated with the key.
 
 ```{code-cell}
-d["python"] = "seems fancy"
-d["python"]
+dct["python"] = "seems fancy"
+dct["python"]
 ```
 
 These data structures show up all over Python code.  Python `list`s
