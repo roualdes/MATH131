@@ -156,13 +156,13 @@ path towards learning Python than when you started.
 Credit / No Credit. There are 100 points available in this course. You
 must earn 75 points to receive credit for the course.
 
-* Assignments: 4 @ 10 pts each.
-* Fill out course Notes: 7 @ 5 pts each
+* Assignments: 4 @ 10 points each
+* Fill out course Notes: 4 @ 7.5 points each
 * Project:
-    * Exploratory Data Analysis (20 pts)
-    * Peer Review (5 pts)
+    * Exploratory Data Analysis (20 points)
+    * Peer Review (10 points)
 
-Assignments and Notes are due after each week, TODO [Friday or Sunday by midnight? let's vote]
+Assignments and Notes are due after each week, Sunday by midnight.
 
 ## Class policies and statements
 
