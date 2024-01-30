@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Week 04: Filling in some details &#8212; MATH 131 -- Introduction to Python</title>
   
@@ -29,39 +28,43 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'week-04';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -160,7 +163,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -402,13 +416,13 @@ document.write(`
                   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <section class="tex2jax_ignore mathjax_ignore" id="week-04-filling-in-some-details">
-<h1>Week 04: Filling in some details<a class="headerlink" href="#week-04-filling-in-some-details" title="Permalink to this heading">#</a></h1>
+<h1>Week 04: Filling in some details<a class="headerlink" href="#week-04-filling-in-some-details" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p><a href="https://colab.research.google.com/drive/1FvGDi4MQxNzVOJRk6w07RWy3nnGNNF2K?usp=sharing" target="_blank">Week 04 Notes</a></p></li>
 <li><p><a href="https://colab.research.google.com/drive/1pn-YYBwmYQbjf8gmVyhv2zqPrmvQ4Bxm?usp=sharing" target="_blank">Week 04 Assignment</a></p></li>
 </ul>
 <section id="learning-outcomes">
-<h2>Learning outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this heading">#</a></h2>
+<h2>Learning outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
 <p>After completing this lesson, you will be able to</p>
 <ul class="simple">
 <li><p>customize many aspects of plotnine plots</p></li>
@@ -419,7 +433,7 @@ document.write(`
 </ul>
 </section>
 <section id="preparation">
-<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this heading">#</a></h2>
+<h2>Preparation<a class="headerlink" href="#preparation" title="Link to this heading">#</a></h2>
 <p>To follow along with this Lesson, please open the Colab notebook
 <a class="reference external" href="https://colab.research.google.com/drive/1FvGDi4MQxNzVOJRk6w07RWy3nnGNNF2K?usp=sharing">Week 04 Notes</a>.  The first code cell of this notebook calls to
 the remote computer, on which the notebook is running, and installs
@@ -427,7 +441,7 @@ the necessary packages.  For practice, you are repsonible for
 importing the necessary packages.</p>
 </section>
 <section id="graphing-details">
-<h2>Graphing details<a class="headerlink" href="#graphing-details" title="Permalink to this heading">#</a></h2>
+<h2>Graphing details<a class="headerlink" href="#graphing-details" title="Link to this heading">#</a></h2>
 <p>In this section, we cover some details about customizing a plotnine
 plot.  This lesson will not explore all available options, nor are you
 expected to memorize all the details we cover.  This lesson is
@@ -456,7 +470,7 @@ a confidence interval for the mean.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2037/4086373496.py:2: DeprecationWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2077/4086373496.py:2: DeprecationWarning: 
 Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
 (to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
 but was not found to be installed on your system.
@@ -486,9 +500,9 @@ Since <code class="docutils literal notranslate"><span class="pre">vore</span></
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2037/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
-/tmp/ipykernel_2037/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7fb7c031ec10&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
-/tmp/ipykernel_2037/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7fb7c031ed30&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2077/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2077/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7fc4e8755c10&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
+/tmp/ipykernel_2077/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7fc4e8755d30&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
 </pre></div>
 </div>
 </div>
@@ -633,7 +647,7 @@ the plot theme.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f8c7e4825daba93a9d1b05953c5d3b749d96a1a7d617773ab932411eb6613db4.png" src="_images/f8c7e4825daba93a9d1b05953c5d3b749d96a1a7d617773ab932411eb6613db4.png" />
+<img alt="_images/2876087de77a688c6f6fd4f8a98595ff39836f5c1fc5f1b24d8c7367c97adc71.png" src="_images/2876087de77a688c6f6fd4f8a98595ff39836f5c1fc5f1b24d8c7367c97adc71.png" />
 </div>
 </div>
 <p>Some final thoughts on the plot above.  I’d prefer the confidence intervals not
@@ -669,12 +683,12 @@ show off your plotting skills, use both.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7f55c5e062e18366ee1493b45b9dce2a318f5c01e56a185345ed2c79d3a69718.png" src="_images/7f55c5e062e18366ee1493b45b9dce2a318f5c01e56a185345ed2c79d3a69718.png" />
+<img alt="_images/faef0204d64107ccad05e168c54a1264043b8e0fecf0800e09faa7980f9bcca4.png" src="_images/faef0204d64107ccad05e168c54a1264043b8e0fecf0800e09faa7980f9bcca4.png" />
 </div>
 </div>
 </section>
 <section id="your-own-data">
-<h2>Your own data<a class="headerlink" href="#your-own-data" title="Permalink to this heading">#</a></h2>
+<h2>Your own data<a class="headerlink" href="#your-own-data" title="Link to this heading">#</a></h2>
 <p>In this section, we’ll learn about where/how files, such as a dataset,
 are stored on your computer and how to properly enter data into a
 spreadsheet for later data analyses.  We begin with understanding
@@ -686,7 +700,7 @@ The main reason behind this is that file paths can be confusing at
 first.  And so we’ve delayed this topic until near the end.
 Invariably, though, you will need to load your own dataset.</p>
 <section id="directories">
-<h3>directories<a class="headerlink" href="#directories" title="Permalink to this heading">#</a></h3>
+<h3>directories<a class="headerlink" href="#directories" title="Link to this heading">#</a></h3>
 <p>All computers organize their files in <strong>directories</strong>, which are sometimes
 called <strong>folders</strong>.  Think of a directory as a specific drawer in which
 logically grouped files go.</p>
@@ -706,7 +720,7 @@ of a computer, is called their <strong>home directory</strong>.</p>
 parent directory is spelled <code class="docutils literal notranslate"><span class="pre">..</span></code>.</p>
 </section>
 <section id="visualizing-directory-structure">
-<h3>visualizing directory structure<a class="headerlink" href="#visualizing-directory-structure" title="Permalink to this heading">#</a></h3>
+<h3>visualizing directory structure<a class="headerlink" href="#visualizing-directory-structure" title="Link to this heading">#</a></h3>
 <p>There are many different ways to visualize directory structure.  On a
 Mac, the application Finder, and on Windows machines File Explorer,
 both help users navigate files and directory structure.  A more
@@ -725,7 +739,7 @@ horizontal lines to help your eye better visualize where the directory
 boundaries are.</p>
 </section>
 <section id="file-paths">
-<h3>file paths<a class="headerlink" href="#file-paths" title="Permalink to this heading">#</a></h3>
+<h3>file paths<a class="headerlink" href="#file-paths" title="Link to this heading">#</a></h3>
 <p>Every directory on a computer is referenced by a file path (an
 address).  Directories are separated by a forward slash <code class="docutils literal notranslate"><span class="pre">/</span></code>, as is
 each file name.  Imagine a dataset named <code class="docutils literal notranslate"><span class="pre">bike.csv</span></code> contained in a
@@ -742,7 +756,7 @@ directory.  File paths that begin with the root directory are called
 relative file paths.</p>
 </section>
 <section id="delimited-files">
-<h3>delimited files<a class="headerlink" href="#delimited-files" title="Permalink to this heading">#</a></h3>
+<h3>delimited files<a class="headerlink" href="#delimited-files" title="Link to this heading">#</a></h3>
 <p>We next look at the ways in which most small to medium sized datasets are
 organized.  Any larger datasets should use a database and databases are beyond
 this course.  Consider the following table of data.</p>
@@ -830,7 +844,7 @@ solution is to type your data into a spreadsheet and then export your
 spreadsheet data into csv format.</p>
 </section>
 <section id="read-in-your-own-data">
-<h3>read in your own data<a class="headerlink" href="#read-in-your-own-data" title="Permalink to this heading">#</a></h3>
+<h3>read in your own data<a class="headerlink" href="#read-in-your-own-data" title="Link to this heading">#</a></h3>
 <p>This whole section is prep-work.  Once you understand file paths and
 have entered your data into a delimeted file structure (.csv, .tsv, or
 otherwise), the Python package Pandas makes reading in the data
@@ -844,7 +858,7 @@ file into a DataFrame, just as we worked with beginning in Week 01.</p>
 </div>
 </div>
 <section id="your-data-in-a-google-colab-notebook">
-<h4>your data in a Google Colab notebook<a class="headerlink" href="#your-data-in-a-google-colab-notebook" title="Permalink to this heading">#</a></h4>
+<h4>your data in a Google Colab notebook<a class="headerlink" href="#your-data-in-a-google-colab-notebook" title="Link to this heading">#</a></h4>
 <p>When dealing with your own data while working in a Google Colab
 notebook, you have to remember that the computer on which your
 notebook runs is not the computer in front of you.  This means, to

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Week 02: Introduction to working with data &#8212; MATH 131 -- Introduction to Python</title>
   
@@ -29,39 +28,43 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'week-02';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -160,7 +163,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -393,13 +407,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week-02-introduction-to-working-with-data">
-<h1>Week 02: Introduction to working with data<a class="headerlink" href="#week-02-introduction-to-working-with-data" title="Permalink to this heading">#</a></h1>
+<h1>Week 02: Introduction to working with data<a class="headerlink" href="#week-02-introduction-to-working-with-data" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p><a href="https://colab.research.google.com/drive/1qHzeZ_1RdfNe1l3KQsZi7xsSjLMVHbel?usp=sharing" target="_blank">Week 02 Notes</a></p></li>
 <li><p><a href="https://colab.research.google.com/drive/1os3hSTKNFblsA1MUTe25pvCjtaKfId30?usp=sharing" target="_blank">Week 02 Assignment</a></p></li>
 </ul>
 <section id="learning-objectives">
-<h2>Learning objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<h2>Learning objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <p>In this lesson we learn how to summarize data in a DataFrame, and do basic data
 management tasks such as making new variables, recoding data, and dealing with
 missing data.</p>
@@ -414,7 +428,7 @@ missing data.</p>
 plotnine.</p>
 </section>
 <section id="preparation">
-<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this heading">#</a></h2>
+<h2>Preparation<a class="headerlink" href="#preparation" title="Link to this heading">#</a></h2>
 <p>To follow along with this Lesson, please open the Colab notebook
 <a class="reference external" href="https://colab.research.google.com/drive/1qHzeZ_1RdfNe1l3KQsZi7xsSjLMVHbel?usp=sharing">Week 02 Notes</a>.  The first code cell of this notebook calls to
 the remote computer, on which the notebook is running, and installs
@@ -422,7 +436,7 @@ the necessary packages.  For practice, you are repsonible for
 importing the necessary packages.</p>
 </section>
 <section id="missing-data">
-<h2>Missing data<a class="headerlink" href="#missing-data" title="Permalink to this heading">#</a></h2>
+<h2>Missing data<a class="headerlink" href="#missing-data" title="Link to this heading">#</a></h2>
 <p>Missing data occurs when the value for a variable is missing.  Think
 of it as a blank cell in an spreadsheet.  Missing values can cause
 some problems during analysis, so let’s see how to detect missing
@@ -733,7 +747,7 @@ Name: count, dtype: int64
 </div>
 </section>
 <section id="summarize-data">
-<h2>Summarize data<a class="headerlink" href="#summarize-data" title="Permalink to this heading">#</a></h2>
+<h2>Summarize data<a class="headerlink" href="#summarize-data" title="Link to this heading">#</a></h2>
 <p>In the subsection above, Missing data, we learned that accounting for
 missing data can be tricky.  The Pandas property
 <code class="docutils literal notranslate"><span class="pre">describe</span></code> which excludes <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.  Thus, you have a choice.  Use
@@ -803,7 +817,7 @@ indexed by <code class="docutils literal notranslate"><span class="pre">False</s
 of <code class="docutils literal notranslate"><span class="pre">True</span></code>s and <code class="docutils literal notranslate"><span class="pre">False</span></code>s to count the number of missing data.</p>
 </section>
 <section id="creating-editing-new-variables">
-<h2>Creating/Editing new variables<a class="headerlink" href="#creating-editing-new-variables" title="Permalink to this heading">#</a></h2>
+<h2>Creating/Editing new variables<a class="headerlink" href="#creating-editing-new-variables" title="Link to this heading">#</a></h2>
 <p>Imagine you want to create a new variable <code class="docutils literal notranslate"><span class="pre">brnbdywt</span></code> in the DataFrame
 <code class="docutils literal notranslate"><span class="pre">msleep</span></code>.  This new variable might tell you something about how smart
 the animal is.  The bigger the brain to body weight ratio, maybe the
@@ -876,7 +890,7 @@ about in <a class="reference internal" href="week-01.html#week-01-dataframes"><s
 </div>
 </section>
 <section id="categorical-variables">
-<span id="id1"></span><h2>Categorical variables<a class="headerlink" href="#categorical-variables" title="Permalink to this heading">#</a></h2>
+<span id="id1"></span><h2>Categorical variables<a class="headerlink" href="#categorical-variables" title="Link to this heading">#</a></h2>
 <p>A categorical variable is a variable that has names or labels as
 values.  We basically created a categorical variable above, with only
 two values <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code>, and named it <code class="docutils literal notranslate"><span class="pre">smrt</span></code>.  The only thing we
