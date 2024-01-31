@@ -91,7 +91,7 @@ The plotting package plotnine, by default, includes `NaN`s as its own category,
 which can be undesirable.
 
 ```{code-cell}
-p = pn.ggplot(data = msleep) + pn.geom_bar(pn.aes("conservation"))
+p = pn.ggplot(data = msleep) + pn.geom_bar(pn.aes(x = "conservation"))
 p.draw()
 ```
 
@@ -104,7 +104,7 @@ you do care about.
 
 ```{code-cell}
 df = msleep.dropna(subset = "conservation")
-p = pn.ggplot(data = df) + pn.geom_bar(pn.aes("conservation"))
+p = pn.ggplot(data = df) + pn.geom_bar(pn.aes(x = "conservation"))
 p.draw()
 ```
 
@@ -279,6 +279,13 @@ remove any unused categories.
 msleep["smrt"] = msleep["smrt"].cat.remove_unused_categories()
 msleep["smrt"]
 ```
+
+The function `remove_unused_categories()` is a safe bet, because no used
+category will be removed.  Alternatively, the function
+[`remove_categories([...])`](https://pandas.pydata.org/docs/reference/api/pandas.Series.cat.remove_categories.html#pandas.Series.cat.remove_categories)
+will remove any specified categories, whether or not they are used.  The
+function documentation warns "Values which were in the removed categories will
+be set to NaN".
 
 ```{seealso}
 <a href="https://colab.research.google.com/drive/1os3hSTKNFblsA1MUTe25pvCjtaKfId30?usp=sharing" target="_blank">Week 02 Assignment</a>
