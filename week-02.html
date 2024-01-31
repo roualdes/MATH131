@@ -698,7 +698,7 @@ about the code or its output tells you when <code class="docutils literal notran
 which can be undesirable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s2">&quot;conservation&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">msleep</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;conservation&quot;</span><span class="p">))</span>
 <span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -716,7 +716,7 @@ you do care about.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">msleep</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span> <span class="o">=</span> <span class="s2">&quot;conservation&quot;</span><span class="p">)</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s2">&quot;conservation&quot;</span><span class="p">))</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_bar</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;conservation&quot;</span><span class="p">))</span>
 <span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1021,6 +1021,12 @@ Categories (3, object): [&#39;nope&#39;, &#39;yup&#39;, &#39;meh&#39;]
 </div>
 </div>
 </div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">remove_unused_categories()</span></code> is a safe bet, because no used
+category will be removed.  Alternatively, the function
+<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.cat.remove_categories.html#pandas.Series.cat.remove_categories"><code class="docutils literal notranslate"><span class="pre">remove_categories([...])</span></code></a>
+will remove any specified categories, whether or not they are used.  The
+function documentation warns “Values which were in the removed categories will
+be set to NaN”.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a href="https://colab.research.google.com/drive/1os3hSTKNFblsA1MUTe25pvCjtaKfId30?usp=sharing" target="_blank">Week 02 Assignment</a></p>
