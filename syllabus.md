@@ -50,7 +50,7 @@ link in Canvas leads to this website.
 ### office hours
 
 * M 2 - 3pm and Th 10 - 11am in Holt 204
-* W 12 - 1pm in Selvester's Cafe (SELV) 100
+* W 12 - 1pm in <s>Selvester's Cafe (SELV) 100</s> <a href="https://library.csuchico.edu/innovation-lab">Meriam Library's Innovation Lab</a>
 * If none of the above times work for you, please email me so we can find a time
   that works for us both.
 
