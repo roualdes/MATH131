@@ -84,16 +84,16 @@ If you do not have your own data, you can choose from one of the
 following data sets, all of which can be downloaded from the Data page
 of Dr. D’s teaching course website. Here are some viable choices:
 
-* Email Spam: Characteristics of emails used to predict if the email
+* [Email Spam](https://www.norcalbiostat.com/data/#Email): Characteristics of emails used to predict if the email
   is spam or not.
 
-* HIV: Data on adolescent children living with HIV positive parents.
+* [HIV](https://www.norcalbiostat.com/data/#Parental_HIV): Data on adolescent children living with HIV positive parents.
 
-* Depression: Level of depression (cesd), health care, and demographic
+* [Depression](https://www.norcalbiostat.com/data/#Depression): Level of depression (cesd), health care, and demographic
   characteristics.  High School and Beyond: Educational, vocational,
   and personal development of elementary and high school students.
 
-* Police Shootings: Characteristics of individuals killed by police in
+* [Police Shootings](https://www.norcalbiostat.com/data/#Police_Shootings): Characteristics of individuals killed by police in
   2015.
 
 Any other datasets, and/or any that we've already used in class

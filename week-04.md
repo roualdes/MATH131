@@ -103,7 +103,7 @@ piece.  Below is the code we used from [Week 03](aggregating).
 
 
 ```{code-cell}
-p = (pn.ggplot(odf)
+p = (pn.ggplot(data = odf)
     + pn.geom_point(pn.aes(x = odf["vore"].cat.codes, y = "mean"), color = "blue", shape = "X", size = 2.5))
 ```
 
