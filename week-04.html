@@ -462,7 +462,7 @@ a confidence interval for the mean.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1938/4086373496.py:2: DeprecationWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1977/4086373496.py:2: DeprecationWarning: 
 Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
 (to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
 but was not found to be installed on your system.
@@ -492,9 +492,9 @@ Since <code class="docutils literal notranslate"><span class="pre">vore</span></
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1938/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
-/tmp/ipykernel_1938/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7fa7a479b280&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
-/tmp/ipykernel_1938/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7fa7a479b3a0&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1977/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_1977/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7fae2022f3a0&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
+/tmp/ipykernel_1977/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7fae2022f4c0&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
 </pre></div>
 </div>
 </div>
@@ -522,7 +522,7 @@ started by creating the variable <code class="docutils literal notranslate"><spa
 piece.  Below is the code we used from <a class="reference internal" href="week-03.html#aggregating"><span class="std std-ref">Week 03</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">odf</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">odf</span><span class="p">)</span>
     <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_point</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -639,7 +639,7 @@ the plot theme.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fed85e48bd06c3f14c79af0ca1cc18e59de6a2ef3b61e4df0e927b6f3a9099f1.png" src="_images/fed85e48bd06c3f14c79af0ca1cc18e59de6a2ef3b61e4df0e927b6f3a9099f1.png" />
+<img alt="_images/b0e6bf1e112d250f36e39aa4dd0221039317e4244da32c7899a828f64a0f674b.png" src="_images/b0e6bf1e112d250f36e39aa4dd0221039317e4244da32c7899a828f64a0f674b.png" />
 </div>
 </div>
 <p>Some final thoughts on the plot above.  I’d prefer the confidence intervals not
@@ -675,7 +675,7 @@ show off your plotting skills, use both.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cb6d8629a9acf17956e3f439bf03019bc69e6339f8a1a3b18af2ba73c71a5969.png" src="_images/cb6d8629a9acf17956e3f439bf03019bc69e6339f8a1a3b18af2ba73c71a5969.png" />
+<img alt="_images/3442ac3c3dd60d398c71e3f6b4fec8681d25a6efeebcb282856c08c796711f52.png" src="_images/3442ac3c3dd60d398c71e3f6b4fec8681d25a6efeebcb282856c08c796711f52.png" />
 </div>
 </div>
 </section>
