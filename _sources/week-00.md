@@ -26,10 +26,10 @@ the Assignments.  You are currently reading the Lesson associated with
 Week 00.  There is one Lesson for each of the five weeks of this
 course.
 
-The Lessons have associated Notes.  Each Note is a Google
-Colab notebook, e.g. Week 01 Notes.  Notes are par-baked Colab
-notebooks that are meant to provide you with a space to follow along
-with the programming in the Lesson.  Google Colab notebooks are
+The Lessons have associated Notes, starting with Week 01.  Each Note
+is a Google Colab notebook, e.g. Week 01 Notes.  Notes are par-baked
+Colab notebooks that are meant to provide you with a space to follow
+along with the programming in the Lesson.  Google Colab notebooks are
 discussed in more detail below.
 
 Each week has an Assignment, e.g. Week 02 Assignment, starting with
@@ -38,8 +38,7 @@ throughout the course. Each Lesson will have a link to the associated
 Assignment for you to complete.
 
 For assignments, we will use Google Colab with your
-username@mail.csuchico.edu account (same password as your
-username@csuchico.edu account).
+username@csuchico.edu account.
 
 
 ## Google Colab
@@ -54,8 +53,8 @@ your audience through an analysis (usually via code and/or math),
 showing the exact code you used to draw any conclusions about the data
 or otherwise.
 
-We will use Google Colab for free, as part of your campus Google
-account username@mail.csuchico.edu.  The free aspect means we'll have
+We will use Google Colab for free, as part of your Chico State Google
+account username@csuchico.edu.  The free aspect means we'll have
 to deal with some issues that don't otherwise come about if we were to
 install Python on our own personal machines.  I, Edward, have made the
 active choice to try Google Colab instead of teaching you how to
@@ -66,7 +65,7 @@ for doing so, please see your options on the page [Week 06 and
 beyond](./and-beyond.md).
 
 From here, there's really no better way to learn about Google Colab
-than to go touch it.  Here's a link to <a
+than to go use it.  Here's a link to <a
 href="https://colab.research.google.com/drive/1weKuFgd98W76BloyuuB4d2HudB5KLYew?usp=sharing"
 target="_blank">the Colab notebook associated with Week 00: Start
 here</a>.
