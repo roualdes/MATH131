@@ -22,7 +22,7 @@ language Python in an environment that emphasizes reproducible
 research and data analysis.  The target audience is anyone who wants
 to do their own data analysis.  The course will culminate with a
 peer-evaluated exploratory data analysis project on either a
-pre-specified dataset or your dataset of choice.
+pre-specified dataset or a dataset of your choice.
 
 ## Logistics
 
@@ -33,9 +33,8 @@ pre-specified dataset or your dataset of choice.
 
 | | Section 01 |
 |-|------------|
-|days | TTh |
-|time | 2 - 3.15pm |
-| location | Holt 277 |
+|time | asynchronous |
+| location | online  |
 |instructor | Edward |
 | office location | Holt 204 |
 | email | <eroualdes@csuchico.edu> |
@@ -49,10 +48,9 @@ link in Canvas leads to this website.
 
 ### office hours
 
-* M 2 - 3pm and Th 10 - 11am in Holt 204
-* W 12 - 1pm in <s>Selvester's Cafe (SELV) 100</s> <a href="https://library.csuchico.edu/innovation-lab">Meriam Library's Innovation Lab</a>
-* If none of the above times work for you, please email me so we can find a time
-  that works for us both.
+* Time and day TBD. Location: <a href="https://library.csuchico.edu/innovation-lab">Meriam Library's Innovation Lab</a>.
+* If none of the above times work for you, please email me so we can
+  find a time that works for us both.
 
 ### Discord
 
