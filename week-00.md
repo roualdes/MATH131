@@ -16,9 +16,9 @@ kernelspec:
 
 MATH 131: Introduction to Python is a 1 unit, 5 week course offered at
 Chico State through the Department of Mathematics and Statistics.  The
-course consists of Lessons, with accompanying Notes, and Assignments.
-We will learn to code in the programming language Python using Google
-Colab notebooks.
+course consists of Lessons, with accompanying Notes, Videos, and
+Assignments.  We will learn to code in the programming language Python
+using Google Colab notebooks.
 
 Lessons are the webpages found on this website, named after each week
 of the course.  Lessons contain the explanations of what's to come in
@@ -31,6 +31,14 @@ is a Google Colab notebook, e.g. Week 01 Notes.  Notes are par-baked
 Colab notebooks that are meant to provide you with a space to follow
 along with the programming in the Lesson.  Google Colab notebooks are
 discussed in more detail below.
+
+The Videos seek to replace or complement lectures, dependent on the
+format of the course for each semester.  There are one or more Videos
+for each week's Lesson.  Each Video walks you through the Lesson,
+explaining most pieces of code.  Some parts of a Lesson might be
+skipped in a Video, in an attempt to not bore you with Videos that are
+too long.  For the skipped parts of a Lesson, you should pause the
+Video and work on your own to complete your Notes.
 
 Each week has an Assignment, e.g. Week 02 Assignment, starting with
 Week 01.  You are responsible for completing the Assignments
