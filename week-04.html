@@ -469,9 +469,9 @@ Since <code class="docutils literal notranslate"><span class="pre">vore</span></
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2036/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
-/tmp/ipykernel_2036/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7f2ad04aa9d0&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
-/tmp/ipykernel_2036/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7f2ad04aaaf0&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2038/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2038/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7f85503aa9d0&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
+/tmp/ipykernel_2038/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7f85503aaaf0&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
 </pre></div>
 </div>
 </div>
@@ -508,7 +508,7 @@ unique numeric values for each level of <code class="docutils literal notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2036/766632350.py:1: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2038/766632350.py:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -523,7 +523,7 @@ piece.  Below is an alternative version of the code we used from <a class="refer
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">odf</span><span class="p">)</span>
-    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_point</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;numeric_vore&quot;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">),</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_point</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;numeric_vore&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">),</span>
         <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -640,7 +640,7 @@ the plot.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2aab45f4afb4c7e686bd00732d7c84ba171e490395b04d129305b24898927b50.png" src="_images/2aab45f4afb4c7e686bd00732d7c84ba171e490395b04d129305b24898927b50.png" />
+<img alt="_images/606216734296ef88f51c0d6aa6e41c1769c78063c98d9cf0b312ba21c7177147.png" src="_images/606216734296ef88f51c0d6aa6e41c1769c78063c98d9cf0b312ba21c7177147.png" />
 </div>
 </div>
 <p>Some final thoughts on the plot above.  I’d prefer the means not be
