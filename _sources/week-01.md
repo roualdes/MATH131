@@ -12,6 +12,7 @@ kernelspec:
   name: python3
 ---
 
+(week-01)=
 # Week 01: Python basics
 
 * <a href="https://colab.research.google.com/drive/1VQhUmSxM6WfSw1ZZeKfhkRhkfM9JPXQx?usp=sharing" target="_blank">Week 01 Notes</a>

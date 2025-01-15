@@ -30,7 +30,7 @@
   <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -397,7 +397,7 @@
                   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <section class="tex2jax_ignore mathjax_ignore" id="week-04-filling-in-some-details">
-<h1>Week 04: Filling in some details<a class="headerlink" href="#week-04-filling-in-some-details" title="Link to this heading">#</a></h1>
+<span id="week-04"></span><h1>Week 04: Filling in some details<a class="headerlink" href="#week-04-filling-in-some-details" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p><a href="https://colab.research.google.com/drive/1FvGDi4MQxNzVOJRk6w07RWy3nnGNNF2K?usp=sharing" target="_blank">Week 04 Notes</a></p></li>
 <li><p><a href="https://colab.research.google.com/drive/1pn-YYBwmYQbjf8gmVyhv2zqPrmvQ4Bxm?usp=sharing" target="_blank">Week 04 Assignment</a></p></li>
@@ -434,19 +434,19 @@ target="_blank">plotnine documentation</a>.</p>
 <p>Let’s continue developing the plot we started at the end of <a class="reference internal" href="week-03.html#aggregating"><span class="std std-ref">Week
 03</span></a>.  Our goal is to display information about the mean
 total amount of sleep mamals (in our dataset) get, where the data are
-grouped by their <code class="docutils literal notranslate"><span class="pre">vore</span></code> status.  This is a task for aggregating: group
-by <code class="docutils literal notranslate"><span class="pre">vore</span></code> and summarize <code class="docutils literal notranslate"><span class="pre">sleep_total</span></code> with the function <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>.
-Since the mean of any dataset is random, as part of the random
-sampling of the data, we should also calculate and display the error
-in our estimate associated with the mean.  That is, we should display
-a confidence interval for the mean.</p>
+grouped by the categorical variable <code class="docutils literal notranslate"><span class="pre">vore</span></code>.  This is a task for
+aggregating: group by <code class="docutils literal notranslate"><span class="pre">vore</span></code> and summarize <code class="docutils literal notranslate"><span class="pre">sleep_total</span></code> with the
+function <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>.  Since the mean of any dataset is random, as part
+of the random sampling of the data, we should also calculate and
+display the error in our estimate associated with the mean.  That is,
+we should display a confidence interval for the mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">plotnine</span> <span class="k">as</span> <span class="nn">pn</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotnine</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pn</span>
 
-<span class="kn">from</span> <span class="nn">plotnine.data</span> <span class="kn">import</span> <span class="n">msleep</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">plotnine.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">msleep</span>
 </pre></div>
 </div>
 </div>
@@ -469,38 +469,62 @@ Since <code class="docutils literal notranslate"><span class="pre">vore</span></
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2106/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
-/tmp/ipykernel_2106/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7fcef06b7dc0&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
-/tmp/ipykernel_2106/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7fcef06b7ee0&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2036/944327102.py:3: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2036/944327102.py:3: FutureWarning: The provided callable &lt;function mean at 0x7f2ad04aa9d0&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
+/tmp/ipykernel_2036/944327102.py:3: FutureWarning: The provided callable &lt;function std at 0x7f2ad04aaaf0&gt; is currently using SeriesGroupBy.std. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;std&quot; instead.
 </pre></div>
 </div>
 </div>
 </div>
-<p>Next, we’ll calculate the lower and upper bound of the confidence interval.</p>
+<p>Next, we’ll calculate confidence intervals, to visualize our
+uncertainty in the mean estimates given the fact that we only have a
+sample (subset) of the vores.  In fact, let’s calculate two confidence
+intervals, a wider interval with a greater level of confidence for
+which we will capture the true mean of all vores, and a narrower
+interval with a (relatively) smaller level of confidence that we will
+capture the true mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">odf</span><span class="p">[</span><span class="s2">&quot;se&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;sd&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">odf</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">])</span>
-<span class="n">odf</span><span class="p">[</span><span class="s2">&quot;ub&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1.96</span> <span class="o">*</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;se&quot;</span><span class="p">]</span>
-<span class="n">odf</span><span class="p">[</span><span class="s2">&quot;lb&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.96</span> <span class="o">*</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;se&quot;</span><span class="p">]</span>
+<span class="c1"># 95% confidence</span>
+<span class="n">odf</span><span class="p">[</span><span class="s2">&quot;ub2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1.96</span> <span class="o">*</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;se&quot;</span><span class="p">]</span>
+<span class="n">odf</span><span class="p">[</span><span class="s2">&quot;lb2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.96</span> <span class="o">*</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;se&quot;</span><span class="p">]</span>
+<span class="c1"># 68% confidence</span>
+<span class="n">odf</span><span class="p">[</span><span class="s2">&quot;ub1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;se&quot;</span><span class="p">]</span>
+<span class="n">odf</span><span class="p">[</span><span class="s2">&quot;lb1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;se&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>title</p></li>
-<li><p>labels</p></li>
-<li><p>other geoms: errorbar, jitter</p></li>
-<li><p>change tick labels</p></li>
-<li><p>re-consider bar charts</p></li>
-<li><p>multivariate plotting</p></li>
-</ul>
+<p>In the upcoming plot, we’ll also plot the categorical (non-numeric)
+variable <code class="docutils literal notranslate"><span class="pre">Vore</span></code> on a numeric-continuous scale.  To help us do that,
+let’s create a new column in both DataFrames <code class="docutils literal notranslate"><span class="pre">df</span></code> and <code class="docutils literal notranslate"><span class="pre">odf</span></code> that holds
+unique numeric values for each level of <code class="docutils literal notranslate"><span class="pre">Vore</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;numeric_vore&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span>
+<span class="n">odf</span><span class="p">[</span><span class="s2">&quot;numeric_vore&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2036/766632350.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+</pre></div>
+</div>
+</div>
+</div>
 <p>Since plotnine plots are created by adding layers of information, let’s get
 started by creating the variable <code class="docutils literal notranslate"><span class="pre">p</span></code> to hold our plot as we build it up piece by
-piece.  Below is the code we used from <a class="reference internal" href="week-03.html#aggregating"><span class="std std-ref">Week 03</span></a>.</p>
+piece.  Below is an alternative version of the code we used from <a class="reference internal" href="week-03.html#aggregating"><span class="std std-ref">Week 03</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">odf</span><span class="p">)</span>
-    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_point</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">))</span>
+    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_point</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;numeric_vore&quot;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">),</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -522,25 +546,26 @@ target="_blank">matplotlib available shapes</a>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/604d77e8e686cbe9c2cbcdc2b5c2712d42e48f48be99e7bbedf92e47fd4909b5.png" src="_images/604d77e8e686cbe9c2cbcdc2b5c2712d42e48f48be99e7bbedf92e47fd4909b5.png" />
+<img alt="_images/8311fb3fb2afcdb01b64122cf3df81841d1c51594cd421834b0b453f95d78a8c.png" src="_images/8311fb3fb2afcdb01b64122cf3df81841d1c51594cd421834b0b453f95d78a8c.png" />
 </div>
 </div>
-<p>So far, we have “X”s for means for each group.  No confidence intervals, no
+<p>So far, we used “X”s for the mean of each group.  No confidence intervals, no
 group names (just numbers representing their group names), no original data, and
 no plot title.  And maybe we want to change the axis labels.  Let’s take each of
 these in turn.  We leave it to the reader to display the plot after each update,
 if they so choose.  We’ll show the complete plot only at the end of all of our
 updates.</p>
-<p>Let’s add the confidence interval, useing the <code class="docutils literal notranslate"><span class="pre">geom_errorbar</span></code> layer.</p>
+<p>Let’s add the confidence intervals, using the <code class="docutils literal notranslate"><span class="pre">geom_linerange</span></code> layer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+=</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_linerange</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">,</span> <span class="n">ymin</span> <span class="o">=</span> <span class="s2">&quot;lb&quot;</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="s2">&quot;ub&quot;</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+=</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_linerange</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;numeric_vore&quot;</span><span class="p">,</span> <span class="n">ymin</span> <span class="o">=</span> <span class="s2">&quot;lb2&quot;</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="s2">&quot;ub2&quot;</span><span class="p">))</span> <span class="c1"># 95%</span>
+<span class="n">p</span> <span class="o">+=</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_linerange</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;numeric_vore&quot;</span><span class="p">,</span> <span class="n">ymin</span> <span class="o">=</span> <span class="s2">&quot;lb1&quot;</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="s2">&quot;ub1&quot;</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">)</span> <span class="c1"># 68%</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>The syntax <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">+=</span> <span class="pre">expression</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">p</span> <span class="pre">+</span> <span class="pre">expression</span></code>.  It
-certainly takes some time to get used to, but it also very convenient.  For all
+certainly takes some time to get used to, but it is also very convenient.  For all
 of the layers we are interested in adding on to our plot <code class="docutils literal notranslate"><span class="pre">p</span></code>, we just want to
 update <code class="docutils literal notranslate"><span class="pre">p</span></code> to hold the latest version of our plot.  There is no sense in keeping
 around the previous version of our plot.  So this syntax is just what we want.</p>
@@ -551,26 +576,26 @@ more) groups may appear different.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+=</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_jitter</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>              <span class="c1"># notice the change in dataset</span>
-    <span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">,</span> <span class="c1"># unique numeric codes of the labels in vore</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sleep_total&quot;</span><span class="p">,</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;vore&quot;</span><span class="p">),</span>
-    <span class="n">width</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>                    <span class="c1"># the maximal width of horizontal noise/jitter</span>
-    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
-    <span class="p">)</span>
+        <span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;numeric_vore&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sleep_total&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;vore&quot;</span><span class="p">),</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>                <span class="c1"># the maximal width of horizontal noise/jitter</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The layer <code class="docutils literal notranslate"><span class="pre">geom_jitter</span></code> is like <code class="docutils literal notranslate"><span class="pre">geom_point</span></code> but adds a bit of horizontal noise/jitter
-in the x-axis.  Since the x-axis of this plot is <code class="docutils literal notranslate"><span class="pre">vore</span></code> status, and not actually
-numbers adding horizontal noise doesn’t change the information in the data at
-all.  For each category of <code class="docutils literal notranslate"><span class="pre">vore</span></code>, the numeric values on the y-axis is where the
-information in the data are contained.</p>
+<p>The layer <code class="docutils literal notranslate"><span class="pre">geom_jitter</span></code> is like <code class="docutils literal notranslate"><span class="pre">geom_point</span></code> but adds a bit of
+horizontal noise/jitter in the x-axis.  Since the x-axis of this plot
+is <code class="docutils literal notranslate"><span class="pre">vore</span></code> status, and not actually numbers, adding horizontal noise
+doesn’t change the information in the data at all.  For clarity, we
+want to prevent overlap of data between the levels of <code class="docutils literal notranslate"><span class="pre">vore</span></code>, so
+choosing the right value for the keyword argument <code class="docutils literal notranslate"><span class="pre">width</span></code> takes some
+care.</p>
 <p>By specifying a categorical variable for the keyword argument <code class="docutils literal notranslate"><span class="pre">color</span></code> within
 <code class="docutils literal notranslate"><span class="pre">aes</span></code>, the jittered points will show up in unique colors for each category of
 the variable specified, <code class="docutils literal notranslate"><span class="pre">vore</span></code> in this case.  Further, a legend will
 automatically be displayed.  Changing the category names of the variable <code class="docutils literal notranslate"><span class="pre">vore</span></code> is
-best done by renaming the categories, as in <a class="reference internal" href="week-02.html#categorical-variables"><span class="std std-ref">Week 02: Categorical
+best done by renaming the categories, as in <a class="reference internal" href="week-02.html#week-02-categorical-variables"><span class="std std-ref">Week 02: Categorical
 variables</span></a>, but we can easily change the
 legend title from plotnine.</p>
 <div class="cell docutils container">
@@ -585,9 +610,9 @@ variable, let’s change the tick labels to better represent what information th
 actually contain.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+=</span> <span class="n">pn</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span>                  <span class="c1"># continuous x-axis scale based on numeric codes of vore</span>
-    <span class="n">breaks</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> <span class="c1"># breaks dictate where on the x-axis, a list of numeric values</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>            <span class="c1"># list of labels at breaks</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+=</span> <span class="n">pn</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span>                <span class="c1"># continuous x-axis scale based on numeric codes of vore</span>
+    <span class="n">breaks</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;numeric_vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> <span class="c1"># breaks dictate where on the x-axis, a list of numeric values</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;numeric_vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>  <span class="c1"># list of labels at breaks</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -597,8 +622,7 @@ actually contain.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+=</span> <span class="n">pn</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Vore status&quot;</span><span class="p">,</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Sleep (hours)&quot;</span><span class="p">,</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Vore status&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Sleep (hours)&quot;</span><span class="p">,</span>
     <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Hours of sleep by vore status&quot;</span>
 <span class="p">)</span>
 </pre></div>
@@ -607,7 +631,7 @@ actually contain.</p>
 </div>
 <p>Last, let’s change the plot theme and font size, just to show that you can.
 Actually, I much prefer simpler themes, so as to highlight the data instead of
-the plot theme.</p>
+the plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+=</span> <span class="n">pn</span><span class="o">.</span><span class="n">theme_minimal</span><span class="p">(</span><span class="n">base_size</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
@@ -616,19 +640,20 @@ the plot theme.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ed5ec36a65e13e9b2c616ec57b8c1b7467686513b8b4afd433365bf6c575b3c9.png" src="_images/ed5ec36a65e13e9b2c616ec57b8c1b7467686513b8b4afd433365bf6c575b3c9.png" />
+<img alt="_images/2aab45f4afb4c7e686bd00732d7c84ba171e490395b04d129305b24898927b50.png" src="_images/2aab45f4afb4c7e686bd00732d7c84ba171e490395b04d129305b24898927b50.png" />
 </div>
 </div>
-<p>Some final thoughts on the plot above.  I’d prefer the confidence intervals not
-be blue.  The default black would probably be better, but then I wouldn’t have
-been able to tell you more about the keyword argument <code class="docutils literal notranslate"><span class="pre">color</span></code>.</p>
-<p>The units of your variables show up in your plots, to inform you reader, but do
-now show up in your variable names.</p>
-<p>The categories for <code class="docutils literal notranslate"><span class="pre">vore</span></code> should be changed.  Using abbreviations in your
-writing and/or plots is usually not helpful to anyone but you.  There are ways
-to change the categories through plotnine, instead of by changing your
-DataFrame.  I don’t recommend this.  There’s little to no reason to use
-abbreviations for label names.</p>
+<p>Some final thoughts on the plot above.  I’d prefer the means not be
+blue.  The default black would probably be better, but then I wouldn’t
+have been able to tell you more about the keyword argument <code class="docutils literal notranslate"><span class="pre">color</span></code>.</p>
+<p>The units of your variables show up in your plots, to inform you
+reader, but do now show up in your variable names.</p>
+<p>The categories for <code class="docutils literal notranslate"><span class="pre">vore</span></code> should be changed.  Using abbreviations in
+your writing and/or plots is usually not helpful to anyone but you.
+There are ways to change the categories through plotnine, instead of
+by changing your DataFrame.  I don’t recommend this.  There’s little
+to no reason to use abbreviations for label names in your original
+data; refer to <a class="reference internal" href="week-02.html#week-02-categorical-variables"><span class="std std-ref">Week 02: Categorical variables</span></a>.</p>
 <p>Some people would have reached for <code class="docutils literal notranslate"><span class="pre">geom_errorbar</span></code> before <code class="docutils literal notranslate"><span class="pre">geom_linerange</span></code>.  The
 difference is a pair of horizontal lines on the top and bottom of the confidence
 intervals.  I see the appeal of this, but prefer the minimalism of
@@ -638,23 +663,7 @@ standard errors were better, when drawing lines extending from a mean as we have
 done here.  The correct answer is it depends.  If you want to talk about means
 across groups, then use standard errors.  If you want to talk about population
 distributions across groups, then your data should at least be roughly
-symmetric, and then use standard deviations.  If on the other hand you want to
-show off your plotting skills, use both.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">odf</span><span class="p">[</span><span class="s2">&quot;sd_ub&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;sd&quot;</span><span class="p">]</span>
-<span class="n">odf</span><span class="p">[</span><span class="s2">&quot;sd_lb&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;sd&quot;</span><span class="p">]</span>
-
-<span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_linerange</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">,</span> <span class="n">ymin</span> <span class="o">=</span> <span class="s2">&quot;lb&quot;</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="s2">&quot;ub&quot;</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">)</span>
-    <span class="o">+</span> <span class="n">pn</span><span class="o">.</span><span class="n">geom_linerange</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">odf</span><span class="p">[</span><span class="s2">&quot;vore&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">,</span> <span class="n">ymin</span> <span class="o">=</span> <span class="s2">&quot;sd_lb&quot;</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="s2">&quot;sd_ub&quot;</span><span class="p">)))</span>
-<span class="n">p</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/e5d5e17698cd3855fbc22a18200827ebb645370838c07f12783e9be51cbfdecf.png" src="_images/e5d5e17698cd3855fbc22a18200827ebb645370838c07f12783e9be51cbfdecf.png" />
-</div>
-</div>
+symmetric, and then use standard deviations.</p>
 </section>
 <section id="your-own-data">
 <h2>Your own data<a class="headerlink" href="#your-own-data" title="Link to this heading">#</a></h2>
@@ -685,18 +694,18 @@ directory.  The root of the directory tree is called the <strong>root directory<
 <p>Each user on a computer has their own directory, which is a (not necessarily
 immediate) child of the root directory.  Such a directory, unique to each user
 of a computer, is called their <strong>home directory</strong>.</p>
-<p>Every file and every folder on a computer has exactly one parent directory.  The
-parent directory is spelled <code class="docutils literal notranslate"><span class="pre">..</span></code>.</p>
+<p>Every file and every folder on a computer has exactly one parent
+directory.  The parent directory is spelled <code class="docutils literal notranslate"><span class="pre">..</span></code>.</p>
 </section>
 <section id="visualizing-directory-structure">
 <h3>visualizing directory structure<a class="headerlink" href="#visualizing-directory-structure" title="Link to this heading">#</a></h3>
 <p>There are many different ways to visualize directory structure.  On a
 Mac, the application Finder, and on Windows machines File Explorer,
 both help users navigate files and directory structure.  A more
-~~basic~~ traditional way to visualize directory structure is with the
-command <code class="docutils literal notranslate"><span class="pre">tree</span></code>.</p>
+traditional way to visualize directory structure is with the command
+<code class="docutils literal notranslate"><span class="pre">tree</span></code>.</p>
 <p>From a Colab notebook, one can access the remote computer, on which the notebook
-is running, by prepending an appropriate command with <code class="docutils literal notranslate"><span class="pre">!</span></code>, read as bang.  The
+is running, by prepending an appropriate command with <code class="docutils literal notranslate"><span class="pre">!</span></code>, commonly called bang.  The
 command <code class="docutils literal notranslate"><span class="pre">pwd</span></code> prints the current working directory.  The command <code class="docutils literal notranslate"><span class="pre">tree</span></code> prints
 the directory structure below its one argument, a file path.</p>
 <p>For instance, the command <code class="docutils literal notranslate"><span class="pre">tree</span> <span class="pre">.</span></code>, where <code class="docutils literal notranslate"><span class="pre">.</span></code> represents the current working
@@ -718,7 +727,8 @@ are in a directory <code class="docutils literal notranslate"><span class="pre">
 The directory <code class="docutils literal notranslate"><span class="pre">math131</span></code> itself contains a directory named <code class="docutils literal notranslate"><span class="pre">data</span></code>, and
 the directory <code class="docutils literal notranslate"><span class="pre">data</span></code> contains a file named <code class="docutils literal notranslate"><span class="pre">bike.csv</span></code>.  We will learn
 about the file extension <code class="docutils literal notranslate"><span class="pre">.csv</span></code> in the next sub-section.</p>
-<p>File paths that begin with <code class="docutils literal notranslate"><span class="pre">.</span></code> or <code class="docutils literal notranslate"><span class="pre">..</span></code> are called <strong>relative file
+<p>File paths that begin with <code class="docutils literal notranslate"><span class="pre">.</span></code> (current working directory) or <code class="docutils literal notranslate"><span class="pre">..</span></code>
+(parent of the current working directory) are called <strong>relative file
 paths</strong>.  Such file paths are relative to the current working
 directory.  File paths that begin with the root directory are called
 <strong>absolute file paths</strong>.  For the most part, we will encourage use of
@@ -727,7 +737,7 @@ relative file paths.</p>
 <section id="delimited-files">
 <h3>delimited files<a class="headerlink" href="#delimited-files" title="Link to this heading">#</a></h3>
 <p>We next look at the ways in which most small to medium sized datasets are
-organized.  Any larger datasets should use a database and databases are beyond
+organized.  Large datasets should use a database and databases are beyond
 this course.  Consider the following table of data.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -770,11 +780,12 @@ each column is a variable.  Variable names show up in the first, or zero-th row,
 and the data are in all subsequent rows.</p>
 <p>Such a dataset is often stored in a <strong>delimited file</strong>.  Within a row,
 a delimited file separates, or delimits, each variable’s value with a
-special character.  The most common delimiters are comma <code class="docutils literal notranslate"><span class="pre">,</span></code> or some
-amount of white space, a single space <code class="docutils literal notranslate"> </code>, or a tab spelled <code class="docutils literal notranslate"><span class="pre">\t</span></code> and
-often written as visually equivalent to four or eight spaces.  Each
-has its own faults.  The world has mostly settled on comma separated
-values, hence <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file extensions.</p>
+special character.  The most common delimiters are comma <code class="docutils literal notranslate"><span class="pre">,</span></code>, or some
+amount of white space, a single space <code class="docutils literal notranslate"> </code> or a fixed number of
+spaces,, or a tab spelled <code class="docutils literal notranslate"><span class="pre">\t</span></code> and often written as visually
+equivalent to two, four, or eight spaces.  Each has its own faults.  The
+world has mostly settled on comma separated values, hence <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file
+extensions.</p>
 <p>Comma separated values would list in a text file the row for trouser
 as <code class="docutils literal notranslate"><span class="pre">trouser,6,black</span></code>.  A file of tabular data such as this would have
 file extention <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, which helps quickly identify the type of file.
@@ -803,9 +814,9 @@ them.  There’s solutions to this problem, too: escape characters.  The most
 common espace character is a back slash <code class="docutils literal notranslate"><span class="pre">\</span></code>.</p>
 <p>As you can see, in extreme cases csv files are challenging to get
 right.  So are tab delimited files, <code class="docutils literal notranslate"><span class="pre">.tsv</span></code>, for similar reasons.  We
-generally rely spreadsheet software and mature programming packages,
+generally rely on spreadsheet software and mature programming packages,
 like the Python package Pandas, to simplify our lives for writing and
-reading delimited files..</p>
+reading delimited files.</p>
 <p>The Python package Pandas function named <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> should be used to read in
 your own data.  The function <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> defaults to a comma as delimiter, double
 quotes as quote character, and back slash <code class="docutils literal notranslate"><span class="pre">\</span></code> as an escape character.  It is
@@ -819,7 +830,7 @@ spreadsheet data into csv format.</p>
 have entered your data into a delimeted file structure (.csv, .tsv, or
 otherwise), the Python package Pandas makes reading in the data
 relatively simple.  The code below is an example of reading in a .csv
-file into a DataFrame, just as we worked with beginning in Week 01.</p>
+file into a DataFrame, just as we worked with beginning in <a class="reference internal" href="week-01.html#week-01-dataframes"><span class="std std-ref">Week 01: Dataframes</span></a>.</p>
 <div class="cell tag_raises-exception tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./path/to/your/data.csv&quot;</span><span class="p">)</span>

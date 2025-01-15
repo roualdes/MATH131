@@ -12,6 +12,7 @@ kernelspec:
   name: python3
 ---
 
+(week-03)=
 # Week 03: Graphing and aggregating
 
 * <a href="https://colab.research.google.com/drive/1HqqhJvfHsWJAj_3dgBt0SOV5E90Sq1pG?usp=sharing" target="_blank">Week 03 Notes</a>
@@ -281,7 +282,7 @@ drop the NAs.
 (aggregating)=
 ## Aggregating
 
-In Week 02, we learned how to summarize numerical variables by themselves.  The
+In [Week 02](week-02), we learned how to summarize numerical variables by themselves.  The
 latter plots above provide **graphical** summaries of numerical variables across
 a categorical variable.  Aggregating, or aggregation, is all about
 **calculating** summaries of numerical across a categorical variable.
@@ -333,7 +334,7 @@ The output DataFrame can now be acted on just like anyother DataFrame we've
 worked with previously.  For instance, we can create a Series based on variables
 from `odf` and insert this new Series into the DataFrame `odf` or we can make
 plots from `odf`.  We'll spend some more time on the details of the plot below
-in [Week 04](../week-04.md).
+in [](week-04).
 
 ```{code-cell}
 odf["se"] = odf["sd"] / np.sqrt(odf["count"])

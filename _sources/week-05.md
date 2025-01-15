@@ -12,6 +12,7 @@ kernelspec:
   name: python3
 ---
 
+(week-05)=
 # Week 05: Puting it all together
 
 Time to put everything you learned in this class into action.  You
