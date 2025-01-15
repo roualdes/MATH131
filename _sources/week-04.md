@@ -197,7 +197,7 @@ actually contain.
 ```{code-cell}
 p += pn.scale_x_continuous(                # continuous x-axis scale based on numeric codes of vore
     breaks = df["numeric_vore"].to_list(), # breaks dictate where on the x-axis, a list of numeric values
-    labels = df["numeric_vore"].to_list()  # list of labels at breaks
+    labels = df["vore"].to_list()          # list of labels at breaks
 )
 ```
 
