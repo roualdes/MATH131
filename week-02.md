@@ -12,6 +12,7 @@ kernelspec:
   name: python3
 ---
 
+(week-02)=
 # Week 02: Introduction to working with data
 
 * <a href="https://colab.research.google.com/drive/1qHzeZ_1RdfNe1l3KQsZi7xsSjLMVHbel?usp=sharing" target="_blank">Week 02 Notes</a>
@@ -205,7 +206,7 @@ smrt_idx = msleep["brnbdywt"] >= 0.015
 msleep.loc[smrt_idx, "smrt"] = True
 ```
 
-(categorical-variables)=
+(week-02-categorical-variables)=
 ## Categorical variables
 
 A categorical variable is a variable that has names or labels as

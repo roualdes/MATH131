@@ -14,6 +14,7 @@ kernelspec:
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+(week-04)=
 # Week 04: Filling in some details
 
 * <a href="https://colab.research.google.com/drive/1FvGDi4MQxNzVOJRk6w07RWy3nnGNNF2K?usp=sharing" target="_blank">Week 04 Notes</a>
@@ -51,12 +52,12 @@ target="_blank">plotnine documentation</a>.
 Let's continue developing the plot we started at the end of [Week
 03](aggregating).  Our goal is to display information about the mean
 total amount of sleep mamals (in our dataset) get, where the data are
-grouped by their `vore` status.  This is a task for aggregating: group
-by `vore` and summarize `sleep_total` with the function `np.mean`.
-Since the mean of any dataset is random, as part of the random
-sampling of the data, we should also calculate and display the error
-in our estimate associated with the mean.  That is, we should display
-a confidence interval for the mean.
+grouped by the categorical variable `vore`.  This is a task for
+aggregating: group by `vore` and summarize `sleep_total` with the
+function `np.mean`.  Since the mean of any dataset is random, as part
+of the random sampling of the data, we should also calculate and
+display the error in our estimate associated with the mean.  That is,
+we should display a confidence interval for the mean.
 
 ```{code-cell}
 import numpy as np
@@ -82,29 +83,43 @@ odf = (df
         count = ("sleep_total", np.size)))
 ```
 
-Next, we'll calculate the lower and upper bound of the confidence interval.
+Next, we'll calculate confidence intervals, to visualize our
+uncertainty in the mean estimates given the fact that we only have a
+sample (subset) of the vores.  In fact, let's calculate two confidence
+intervals, a wider interval with a greater level of confidence for
+which we will capture the true mean of all vores, and a narrower
+interval with a (relatively) smaller level of confidence that we will
+capture the true mean.
 
 ```{code-cell}
 odf["se"] = odf["sd"] / np.sqrt(odf["count"])
-odf["ub"] = odf["mean"] + 1.96 * odf["se"]
-odf["lb"] = odf["mean"] - 1.96 * odf["se"]
+# 95% confidence
+odf["ub2"] = odf["mean"] + 1.96 * odf["se"]
+odf["lb2"] = odf["mean"] - 1.96 * odf["se"]
+# 68% confidence
+odf["ub1"] = odf["mean"] + odf["se"]
+odf["lb1"] = odf["mean"] - odf["se"]
 ```
 
-* title
-* labels
-* other geoms: errorbar, jitter
-* change tick labels
-* re-consider bar charts
-* multivariate plotting
+In the upcoming plot, we'll also plot the categorical (non-numeric)
+variable `Vore` on a numeric-continuous scale.  To help us do that,
+let's create a new column in both DataFrames `df` and `odf` that holds
+unique numeric values for each level of `Vore`.
+
+```{code-cell}
+df["numeric_vore"] = df["vore"].cat.codes
+odf["numeric_vore"] = odf["vore"].cat.codes
+```
 
 Since plotnine plots are created by adding layers of information, let's get
 started by creating the variable `p` to hold our plot as we build it up piece by
-piece.  Below is the code we used from [Week 03](aggregating).
+piece.  Below is an alternative version of the code we used from [Week 03](aggregating).
 
 
 ```{code-cell}
 p = (pn.ggplot(data = odf)
-    + pn.geom_point(pn.aes(x = odf["vore"].cat.codes, y = "mean"), color = "blue", shape = "X", size = 2.5))
+    + pn.geom_point(pn.aes(x = odf["numeric_vore"], y = "mean"),
+        color = "blue", shape = "X", size = 2.5))
 ```
 
 The keyword arguments `color` and `shape`, when they appear inside a
@@ -122,21 +137,22 @@ target="_blank">matplotlib available shapes</a>.
 p.draw()
 ```
 
-So far, we have "X"s for means for each group.  No confidence intervals, no
+So far, we used "X"s for the mean of each group.  No confidence intervals, no
 group names (just numbers representing their group names), no original data, and
 no plot title.  And maybe we want to change the axis labels.  Let's take each of
 these in turn.  We leave it to the reader to display the plot after each update,
 if they so choose.  We'll show the complete plot only at the end of all of our
 updates.
 
-Let's add the confidence interval, useing the `geom_errorbar` layer.
+Let's add the confidence intervals, using the `geom_linerange` layer.
 
 ```{code-cell}
-p += pn.geom_linerange(pn.aes(x = odf["vore"].cat.codes, ymin = "lb", ymax = "ub"), color = "blue")
+p += pn.geom_linerange(pn.aes(x = "numeric_vore", ymin = "lb2", ymax = "ub2")) # 95%
+p += pn.geom_linerange(pn.aes(x = "numeric_vore", ymin = "lb1", ymax = "ub1"), size = 1.5) # 68%
 ```
 
 The syntax `p += expression` is equivalent to `p = p + expression`.  It
-certainly takes some time to get used to, but it also very convenient.  For all
+certainly takes some time to get used to, but it is also very convenient.  For all
 of the layers we are interested in adding on to our plot `p`, we just want to
 update `p` to hold the latest version of our plot.  There is no sense in keeping
 around the previous version of our plot.  So this syntax is just what we want.
@@ -148,26 +164,26 @@ more) groups may appear different.
 
 ```{code-cell}
 p += pn.geom_jitter(df,              # notice the change in dataset
-    pn.aes(x = df["vore"].cat.codes, # unique numeric codes of the labels in vore
-    y = "sleep_total",
-    color = "vore"),
-    width = 0.25,                    # the maximal width of horizontal noise/jitter
-    alpha = 0.5
-    )
+        pn.aes(x = "numeric_vore", y = "sleep_total", color = "vore"),
+        width = 0.25,                # the maximal width of horizontal noise/jitter
+        alpha = 0.5
+)
 ```
 
-The layer `geom_jitter` is like `geom_point` but adds a bit of horizontal noise/jitter
-in the x-axis.  Since the x-axis of this plot is `vore` status, and not actually
-numbers adding horizontal noise doesn't change the information in the data at
-all.  For each category of `vore`, the numeric values on the y-axis is where the
-information in the data are contained.
+The layer `geom_jitter` is like `geom_point` but adds a bit of
+horizontal noise/jitter in the x-axis.  Since the x-axis of this plot
+is `vore` status, and not actually numbers, adding horizontal noise
+doesn't change the information in the data at all.  For clarity, we
+want to prevent overlap of data between the levels of `vore`, so
+choosing the right value for the keyword argument `width` takes some
+care.
 
 By specifying a categorical variable for the keyword argument `color` within
 `aes`, the jittered points will show up in unique colors for each category of
 the variable specified, `vore` in this case.  Further, a legend will
 automatically be displayed.  Changing the category names of the variable `vore` is
 best done by renaming the categories, as in [Week 02: Categorical
-variables](categorical-variables), but we can easily change the
+variables](week-02-categorical-variables), but we can easily change the
 legend title from plotnine.
 
 ```{code-cell}
@@ -179,9 +195,9 @@ variable, let's change the tick labels to better represent what information they
 actually contain.
 
 ```{code-cell}
-p += pn.scale_x_continuous(                  # continuous x-axis scale based on numeric codes of vore
-    breaks = df["vore"].cat.codes.to_list(), # breaks dictate where on the x-axis, a list of numeric values
-    labels = df["vore"].to_list()            # list of labels at breaks
+p += pn.scale_x_continuous(                # continuous x-axis scale based on numeric codes of vore
+    breaks = df["numeric_vore"].to_list(), # breaks dictate where on the x-axis, a list of numeric values
+    labels = df["numeric_vore"].to_list()  # list of labels at breaks
 )
 ```
 
@@ -189,33 +205,33 @@ Next, let's change the axis labels and title.
 
 ```{code-cell}
 p += pn.labs(
-    x = "Vore status",
-    y = "Sleep (hours)",
+    x = "Vore status", y = "Sleep (hours)",
     title = "Hours of sleep by vore status"
 )
 ```
 
 Last, let's change the plot theme and font size, just to show that you can.
 Actually, I much prefer simpler themes, so as to highlight the data instead of
-the plot theme.
+the plot.
 
 ```{code-cell}
 p += pn.theme_minimal(base_size = 12)
 p.draw()
 ```
 
-Some final thoughts on the plot above.  I'd prefer the confidence intervals not
-be blue.  The default black would probably be better, but then I wouldn't have
-been able to tell you more about the keyword argument `color`.
+Some final thoughts on the plot above.  I'd prefer the means not be
+blue.  The default black would probably be better, but then I wouldn't
+have been able to tell you more about the keyword argument `color`.
 
-The units of your variables show up in your plots, to inform you reader, but do
-now show up in your variable names.
+The units of your variables show up in your plots, to inform you
+reader, but do now show up in your variable names.
 
-The categories for `vore` should be changed.  Using abbreviations in your
-writing and/or plots is usually not helpful to anyone but you.  There are ways
-to change the categories through plotnine, instead of by changing your
-DataFrame.  I don't recommend this.  There's little to no reason to use
-abbreviations for label names.
+The categories for `vore` should be changed.  Using abbreviations in
+your writing and/or plots is usually not helpful to anyone but you.
+There are ways to change the categories through plotnine, instead of
+by changing your DataFrame.  I don't recommend this.  There's little
+to no reason to use abbreviations for label names in your original
+data; refer to [Week 02: Categorical variables](week-02-categorical-variables).
 
 Some people would have reached for `geom_errorbar` before `geom_linerange`.  The
 difference is a pair of horizontal lines on the top and bottom of the confidence
@@ -227,17 +243,7 @@ standard errors were better, when drawing lines extending from a mean as we have
 done here.  The correct answer is it depends.  If you want to talk about means
 across groups, then use standard errors.  If you want to talk about population
 distributions across groups, then your data should at least be roughly
-symmetric, and then use standard deviations.  If on the other hand you want to
-show off your plotting skills, use both.
-
-```{code-cell}
-odf["sd_ub"] = odf["mean"] + odf["sd"]
-odf["sd_lb"] = odf["mean"] - odf["sd"]
-
-p = (p + pn.geom_linerange(pn.aes(x = odf["vore"].cat.codes, ymin = "lb", ymax = "ub"), size = 1.5)
-    + pn.geom_linerange(pn.aes(x = odf["vore"].cat.codes, ymin = "sd_lb", ymax = "sd_ub")))
-p.draw()
-```
+symmetric, and then use standard deviations.
 
 
 ## Your own data
@@ -275,19 +281,19 @@ Each user on a computer has their own directory, which is a (not necessarily
 immediate) child of the root directory.  Such a directory, unique to each user
 of a computer, is called their **home directory**.
 
-Every file and every folder on a computer has exactly one parent directory.  The
-parent directory is spelled `..`.
+Every file and every folder on a computer has exactly one parent
+directory.  The parent directory is spelled `..`.
 
 ### visualizing directory structure
 
 There are many different ways to visualize directory structure.  On a
 Mac, the application Finder, and on Windows machines File Explorer,
 both help users navigate files and directory structure.  A more
-~~basic~~ traditional way to visualize directory structure is with the
-command `tree`.
+traditional way to visualize directory structure is with the command
+`tree`.
 
 From a Colab notebook, one can access the remote computer, on which the notebook
-is running, by prepending an appropriate command with `!`, read as bang.  The
+is running, by prepending an appropriate command with `!`, commonly called bang.  The
 command `pwd` prints the current working directory.  The command `tree` prints
 the directory structure below its one argument, a file path.
 
@@ -312,7 +318,8 @@ The directory `math131` itself contains a directory named `data`, and
 the directory `data` contains a file named `bike.csv`.  We will learn
 about the file extension `.csv` in the next sub-section.
 
-File paths that begin with `.` or `..` are called **relative file
+File paths that begin with `.` (current working directory) or `..`
+(parent of the current working directory) are called **relative file
 paths**.  Such file paths are relative to the current working
 directory.  File paths that begin with the root directory are called
 **absolute file paths**.  For the most part, we will encourage use of
@@ -321,7 +328,7 @@ relative file paths.
 ### delimited files
 
 We next look at the ways in which most small to medium sized datasets are
-organized.  Any larger datasets should use a database and databases are beyond
+organized.  Large datasets should use a database and databases are beyond
 this course.  Consider the following table of data.
 
 | type | size | color |
@@ -340,11 +347,12 @@ and the data are in all subsequent rows.
 
 Such a dataset is often stored in a **delimited file**.  Within a row,
 a delimited file separates, or delimits, each variable's value with a
-special character.  The most common delimiters are comma `,` or some
-amount of white space, a single space ` `, or a tab spelled `\t` and
-often written as visually equivalent to four or eight spaces.  Each
-has its own faults.  The world has mostly settled on comma separated
-values, hence `.csv` file extensions.
+special character.  The most common delimiters are comma `,`, or some
+amount of white space, a single space ` ` or a fixed number of
+spaces,, or a tab spelled `\t` and often written as visually
+equivalent to two, four, or eight spaces.  Each has its own faults.  The
+world has mostly settled on comma separated values, hence `.csv` file
+extensions.
 
 Comma separated values would list in a text file the row for trouser
 as `trouser,6,black`.  A file of tabular data such as this would have
@@ -378,9 +386,9 @@ common espace character is a back slash `\`.
 
 As you can see, in extreme cases csv files are challenging to get
 right.  So are tab delimited files, `.tsv`, for similar reasons.  We
-generally rely spreadsheet software and mature programming packages,
+generally rely on spreadsheet software and mature programming packages,
 like the Python package Pandas, to simplify our lives for writing and
-reading delimited files..
+reading delimited files.
 
 The Python package Pandas function named `read_csv` should be used to read in
 your own data.  The function `read_csv` defaults to a comma as delimiter, double
@@ -395,7 +403,7 @@ This whole section is prep-work.  Once you understand file paths and
 have entered your data into a delimeted file structure (.csv, .tsv, or
 otherwise), the Python package Pandas makes reading in the data
 relatively simple.  The code below is an example of reading in a .csv
-file into a DataFrame, just as we worked with beginning in Week 01.
+file into a DataFrame, just as we worked with beginning in [Week 01: Dataframes](week-01-dataframes).
 
 ```{code-cell}
 ---

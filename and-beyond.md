@@ -12,6 +12,7 @@ kernelspec:
   name: python3
 ---
 
+(week-06)=
 # Week 06 and beyond
 
 ## Python w/out Google Colab
@@ -19,6 +20,18 @@ kernelspec:
 * <a href="https://github.com/jupyterlab/jupyterlab-desktop" target="_blank">JupyterLab Desktop</a>
 * <a href="https://jupyterlab.readthedocs.io/en/latest/" target="_blank">JupyterLab</a>
 * <a href="https://docs.python.org/3/library/venv.html">Virtual environment -> Emacs/Vim/VS Code/other</a>
+
+## More Python
+
+There is much more to Python than we covered in this short class.  A
+reasonable website full of Python tutorials is <a
+href="https://realpython.com/" target="_blank">Real Python</a>.  In
+particular, the <a href="https://realpython.com/learning-paths/"
+target="_blank">Learning Paths</a> section has some good material.  If
+you made it through and mastered the subsections Python Core Language:
+Basics and Python Core Language: Intermediate, you'd have a really
+good understanding of Python and what the programming language has to
+offer.
 
 ## Creating you own dataset
 

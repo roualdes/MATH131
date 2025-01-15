@@ -11,7 +11,7 @@ kernelspec:
   language: python
   name: python3
 ---
-
+(week-00)=
 # Week 00: Start here
 
 MATH 131: Introduction to Python is a 1 unit, 5 week course offered at
@@ -70,7 +70,7 @@ install Python on your personal machine, because I believe we can get
 started faster this way.  If you want to follow along with this course
 using different tools, and you understand the consequences you face
 for doing so, please see your options on the page [Week 06 and
-beyond](./and-beyond.md).
+beyond](week-06).
 
 From here, there's really no better way to learn about Google Colab
 than to go use it.  Here's a link to <a
