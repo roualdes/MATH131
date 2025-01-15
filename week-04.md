@@ -118,7 +118,7 @@ piece.  Below is an alternative version of the code we used from [Week 03](aggre
 
 ```{code-cell}
 p = (pn.ggplot(data = odf)
-    + pn.geom_point(pn.aes(x = odf["numeric_vore"], y = "mean"),
+    + pn.geom_point(pn.aes(x = "numeric_vore", y = "mean"),
         color = "blue", shape = "X", size = 2.5))
 ```
 
