@@ -51,6 +51,8 @@ username@csuchico.edu account.
 
 ## Google Colab
 
+* YouTube videos: <a href="https://youtu.be/LE_BRvgu3vo" target="_blank">Introduction to Colab Notebooks</a>, <a href="https://youtu.be/wofT4NnnUXM" target="_blank">How to Copy Notes</a>
+
 <a href="https://colab.research.google.com" target="_blank">Google
 Colab</a> provides a notebook environment where the user can develop a
 reproducible document that blends text and code together.  Such
