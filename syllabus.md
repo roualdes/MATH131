@@ -14,6 +14,8 @@ kernelspec:
 
 # Syllabus
 
+* YouTube videos: <a href="https://youtu.be/OPGzuBwbCo8" target="_blank">Syllabus</a>
+
 ## Course description
 
 This course is designed as a primer to get the complete novice up and
@@ -39,18 +41,39 @@ pre-specified dataset or a dataset of your choice.
 | office location | Holt 204 |
 | email | <eroualdes@csuchico.edu> |
 
+## Course Structure
+
+**Asynchronous**: this class is fully online and asynchronous.
+
+There are no set meeting times, but assignments still have due
+dates. Lectures are all pre-recorded and linked from the class
+website. Students work through the Lessons and complete assignments at
+their own pace. Here's some <a
+href="https://norcalbiostat.github.io/MATH130/notes/01e_async_protocol.html"
+target="_blank">slides</a> that might help fill in some details on the
+course format.
+
 ## Canvas usage
 
-The Course website listed above will be used instead of Canvas.  A
-link in Canvas leads to this website.
+Generally speaking, this course website will be used instead of
+Canvas.  A link in Canvas leads to this website.  Canvas will only be
+used for announcements and friendly reminders to the class.
 
 ## Student support
 
 ### office hours
 
-* Time and day TBD. Location: <a href="https://library.csuchico.edu/innovation-lab">Meriam Library's Innovation Lab</a>.
-* If none of the above times work for you, please email me so we can
-  find a time that works for us both.
+For the first five weeks of the semester (1/21/2025 - 2/21/2025), my
+office hours will be in the <a href="https://library.csuchico.edu/innovation-lab" target="_blank">Meriam Library Innovation
+Lab</a>
+
+* Mondays 1pm - 2.30pm
+* Tuesdays 1pm - 2.30pm
+* Thursdays 11am - 11.50am
+* Fridays 2pm - 3.45pm
+
+If none of those times work for you, please email me so that we can
+find a time that works for us both: eroualdes@csuchico.edu
 
 ### Discord
 
@@ -59,10 +82,15 @@ Discord will be used for discussion and questions outside of
 class. This server hosts students across multiple Statistics and Data
 Science classes, with a specific channel for all sections of Math 131.
 
-Click this link to join the server:
-https://discord.gg/ck497bJty5. Verify your email and agree to the
-rules and code of conduct. This helps create a safe learning
-environment.
+* Click this link to join the server: https://discord.gg/ck497bJty5
+* Verify your email and agree to the rules and code of conduct. This
+  helps create a safe learning environment.
+* Go to the `#class-selection` text channel in the left sidebar,
+  choose your pronouns (optional but helpful), and click the Snake
+  icon emoji under any post to self-assign you to the Math-131
+  role. this will let you see and access the class channels.
+* Post a question or 10 to the Math-131 channel.
+
 
 ### Community Coding
 
@@ -154,13 +182,23 @@ path towards learning Python than when you started.
 Credit / No Credit. There are 100 points available in this course. You
 must earn 75 points to receive credit for the course.
 
-* Assignments: 4 @ 10 points each
+* Complete Assignments: 4 @ 10 points each
 * Fill out course Notes: 4 @ 7.5 points each
 * Project:
     * Exploratory Data Analysis (20 points)
     * Peer Review (10 points)
 
 Assignments and Notes are due after each week, Sunday by midnight.
+
+Any assignment can be submit as late within the week after it is due
+for a one point deduction.
+
+Assignments are submit by uploading the appropriate files to a Google
+Drive shared notebook, which I will create for you.  The shared Google
+Drive folder will be named MATH 131 Assignments for
+[student-username], where [student-username] is your student username.
+Only, specifically, you, me, and the course graders will have access
+to this folder.
 
 ## Class policies and statements
 

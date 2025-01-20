@@ -17,6 +17,7 @@ kernelspec:
 
 * <a href="https://colab.research.google.com/drive/1qHzeZ_1RdfNe1l3KQsZi7xsSjLMVHbel?usp=sharing" target="_blank">Week 02 Notes</a>
 * <a href="https://colab.research.google.com/drive/1os3hSTKNFblsA1MUTe25pvCjtaKfId30?usp=sharing" target="_blank">Week 02 Assignment</a>
+* YouTube videos: <a href="https://youtu.be/5fz0R24D-N8" target="_blank">Part A</a>, <a href="https://youtu.be/isBO_H8-uDQ" target="_blank">Part B</a>
 
 ## Learning objectives
 
