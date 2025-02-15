@@ -103,11 +103,29 @@ require instructor approval.
 ## How to submit
 
 Each student is to create a Google Colab notebook and set the Share
-permissions to General access Anyone with the link.
+permissions to General access Anyone with the link.  To share your
+, right click on it in Google Drive, click Share, and then under *General access* select *Anyone with the link*.
 
-A Google spreadsheet will be created and shared with everyone.  Each
-student will have their own row.  You are to paste the URL to your
-Colab notebook in your row.
+The [EDA Project: peer
+reviews](https://docs.google.com/spreadsheets/d/1tZSQMCEKLd4IUidR5r4Rkx_oYiHUcfYecu1d_HeVj2U/edit?usp=sharing)
+spreadsheet will list the Author, the URL to that author's notebook,
+and the email address of that author's peer reviewer.  You are to
+paste the URL to your Colab notebook in your row, where your row is
+identified by your email in the Author column.
+
+## Peer Review
+
+You will also score and provide feedback on a classmate's
+project. Your instructor will also score all projects for your class
+section.
+
+**How to do your reviews**:
+
+1. Find your name listed in each of the column *peer reviewer* in the [EDA Project: peer reviews](https://docs.google.com/spreadsheets/d/1tZSQMCEKLd4IUidR5r4Rkx_oYiHUcfYecu1d_HeVj2U/edit?usp=sharing) spreadsheet.
+2. Click the URL of the corresponding Author’s project.
+3. Provide 4 comments
+4. Score each project using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSffLmS7qwmbVk8H6RGotxvuihSBXCxI47UmFL7okKTI1f5IyQ/viewform?usp=sharing).
+   * Please use the Grading rubric below to grade your peer's project
 
 ## Deadline
 
