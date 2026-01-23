@@ -35,23 +35,25 @@ pre-specified dataset or a dataset of your choice.
 
 | | Section 01 |
 |-|------------|
-|time | asynchronous |
-| location | online  |
+|time | in person |
+| location | BSS Building 248 |
 |instructor | Edward |
 | office location | Holt 204 |
 | email | <eroualdes@csuchico.edu> |
 
 ## Course Structure
 
-**Asynchronous**: this class is fully online and asynchronous.
+Meets TTh 11 - 12.15pm until 2/20/2026.
 
-There are no set meeting times, but assignments still have due
-dates. Lectures are all pre-recorded and linked from the class
-website. Students work through the Lessons and complete assignments at
-their own pace. Here's some <a
-href="https://norcalbiostat.github.io/MATH130/notes/01e_async_protocol.html"
-target="_blank">slides</a> that might help fill in some details on the
-course format.
+<!-- **Asynchronous**: this class is fully online and asynchronous. -->
+
+<!-- There are no set meeting times, but assignments still have due -->
+<!-- dates. Lectures are all pre-recorded and linked from the class -->
+<!-- website. Students work through the Lessons and complete assignments at -->
+<!-- their own pace. Here's some <a -->
+<!-- href="https://norcalbiostat.github.io/MATH130/notes/01e_async_protocol.html" -->
+<!-- target="_blank">slides</a> that might help fill in some details on the -->
+<!-- course format. -->
 
 ## Canvas usage
 
@@ -63,14 +65,11 @@ used for announcements and friendly reminders to the class.
 
 ### office hours
 
-For the first five weeks of the semester (1/21/2025 - 2/21/2025), my
-office hours will be in the <a href="https://library.csuchico.edu/innovation-lab" target="_blank">Meriam Library Innovation
-Lab</a>
+For the first five weeks of the semester (1/20/2026 - 2/20/2026), my
+office hours are
 
-* Mondays 1pm - 2.30pm
-* Tuesdays 1pm - 2.30pm
-* Thursdays 11am - 11.50am
-* Fridays 2pm - 3.45pm
+* WTh 2 - 2.50 in Holt 204
+* F 11 - 11.50 in [Innovation Lab](https://library.csuchico.edu/innovation-lab)
 
 If none of those times work for you, please email me so that we can
 find a time that works for us both: eroualdes@csuchico.edu
@@ -226,13 +225,13 @@ ability, etc.) To help accomplish this:
 
 * If you feel like your performance in the class is being impacted by your
   experiences outside of class, please don’t hesitate to come and talk with us.
-  We want to be a resource for you. Remember that you can also submit anonymous
-  feedback (which may lead to a general announcement to the class, if necessary
-  to address the concerns). Please use our Google form named [Anonymous
-  feedback](https://forms.gle/GSjiCLi6xwXQ3N28A).  You must be signed in with
-  your campus Google account student_username@mail.csuchico.edu to access the
-  form, but we do not record (hence anonymous) any information about how submits
-  feedback.
+  <!-- We want to be a resource for you. Remember that you can also submit anonymous -->
+  <!-- feedback (which may lead to a general announcement to the class, if necessary -->
+  <!-- to address the concerns). Please use our Google form named [Anonymous -->
+  <!-- feedback](https://forms.gle/GSjiCLi6xwXQ3N28A).  You must be signed in with -->
+  <!-- your campus Google account student_username@mail.csuchico.edu to access the -->
+  <!-- form, but we do not record (hence anonymous) any information about how submits -->
+  <!-- feedback. -->
 
 * If you prefer to speak with someone outside of the course, the
   Office of Diversity and Inclusion is here to assist. Their number is
