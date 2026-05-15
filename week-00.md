@@ -1,16 +1,3 @@
----
-jupytext:
-  formats: md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.5
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
 (week-00)=
 # Week 00: Start here
 
@@ -72,7 +59,7 @@ install Python on your personal machine, because I believe we can get
 started faster this way.  If you want to follow along with this course
 using different tools, and you understand the consequences you face
 for doing so, please see your options on the page [Week 06 and
-beyond](week-06).
+beyond](#week-06).
 
 From here, there's really no better way to learn about Google Colab
 than to go use it.  Here's a link to <a

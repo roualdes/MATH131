@@ -1,0 +1,32 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 0bc688c0-c716-401f-b1d9-82f0a4f87b66
+  title: "MATH 131: Introduction to Python"
+  # description:
+  # keywords: []
+  authors:
+    - name: Edward A. Roualdes
+      affiliations:
+        - id: chico
+          institution: Chico State
+          department: Mathematics and Statistics
+  github: roualdes/MATH131
+  license: CC-BY-SA-4.0
+  toc:
+    - file: intro.md
+    - file: week-00.md
+    - file: week-01.md
+    - file: week-02.md
+    - file: week-03.md
+    - file: week-04.md
+    - file: week-05.md
+    - file: and-beyond.md
+site:
+  template: book-theme
+  title: MATH 131
+
+  options:
+    favicon: favicon.png
+    logo: logo-light.svg
+    logo_dark: logo-dark.svg

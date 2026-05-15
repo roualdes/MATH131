@@ -1,15 +1,8 @@
 ---
-jupytext:
-  formats: md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.5
 kernelspec:
-  display_name: Python 3
-  language: python
   name: python3
+  language: python
+  display_name: 'Python 3'
 ---
 
 (week-03)=
@@ -52,9 +45,7 @@ import plotnine as pn
 ```
 
 ```{code-cell}
----
-tags: [raises-exception, remove-output]
----
+:tags: [raises-exception, remove-output]
 
 pn.ggplot(data = DF) + pn.geom_PLOTTYPE(pn.aes(x = "X_VAR", y = "Y_VAR", fill = "FILL_VAR", group = "GROUP_VAR"))
 ```
@@ -283,7 +274,7 @@ drop the NAs.
 (aggregating)=
 ## Aggregating
 
-In [Week 02](week-02), we learned how to summarize numerical variables by themselves.  The
+In [Week 02](#week-02), we learned how to summarize numerical variables by themselves.  The
 latter plots above provide **graphical** summaries of numerical variables across
 a categorical variable.  Aggregating, or aggregation, is all about
 **calculating** summaries of numerical across a categorical variable.
@@ -335,14 +326,15 @@ The output DataFrame can now be acted on just like anyother DataFrame we've
 worked with previously.  For instance, we can create a Series based on variables
 from `odf` and insert this new Series into the DataFrame `odf` or we can make
 plots from `odf`.  We'll spend some more time on the details of the plot below
-in [](week-04).
+in [](#week-04).
 
 ```{code-cell}
 odf["se"] = odf["sd"] / np.sqrt(odf["count"])
+odf["vore"] = odf["vore"].astype("category")
 
 p = (pn.ggplot(odf)
     + pn.geom_point(pn.aes(x = odf["vore"].cat.codes, y = "mean"), color = "blue"))
-p.draw()
+p
 ```
 
 ```{seealso}

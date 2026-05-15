@@ -1,15 +1,8 @@
 ---
-jupytext:
-  formats: md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.5
 kernelspec:
-  display_name: Python 3
-  language: python
   name: python3
+  language: python
+  display_name: 'Python 3'
 ---
 
 (week-01)=
@@ -192,9 +185,7 @@ some practice though, you will learn that types help programmers write good and
 logical code.  For instance, if you write code like
 
 ```{code-cell}
----
-tags: [raises-exception]
----
+:tags: [raises-exception]
 abs(x)
 ```
 

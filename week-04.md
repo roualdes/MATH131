@@ -1,15 +1,8 @@
 ---
-jupytext:
-  formats: md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.5
 kernelspec:
-  display_name: Python 3
-  language: python
   name: python3
+  language: python
+  display_name: 'Python 3'
 ---
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -51,7 +44,7 @@ href="https://plotnine.readthedocs.io/en/stable/api.html"
 target="_blank">plotnine documentation</a>.
 
 Let's continue developing the plot we started at the end of [Week
-03](aggregating).  Our goal is to display information about the mean
+03](#aggregating).  Our goal is to display information about the mean
 total amount of sleep mamals (in our dataset) get, where the data are
 grouped by the categorical variable `vore`.  This is a task for
 aggregating: group by `vore` and summarize `sleep_total` with the
@@ -108,13 +101,16 @@ let's create a new column in both DataFrames `df` and `odf` that holds
 unique numeric values for each level of `Vore`.
 
 ```{code-cell}
+df["vore"] = df["vore"].astype("category")
+odf["vore"] = odf["vore"].astype("category")
+
 df["numeric_vore"] = df["vore"].cat.codes
 odf["numeric_vore"] = odf["vore"].cat.codes
 ```
 
 Since plotnine plots are created by adding layers of information, let's get
 started by creating the variable `p` to hold our plot as we build it up piece by
-piece.  Below is an alternative version of the code we used from [Week 03](aggregating).
+piece.  Below is an alternative version of the code we used from [Week 03](#aggregating).
 
 
 ```{code-cell}
@@ -135,7 +131,7 @@ href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.marke
 target="_blank">matplotlib available shapes</a>.
 
 ```{code-cell}
-p.draw()
+p
 ```
 
 So far, we used "X"s for the mean of each group.  No confidence intervals, no
@@ -184,7 +180,7 @@ By specifying a categorical variable for the keyword argument `color` within
 the variable specified, `vore` in this case.  Further, a legend will
 automatically be displayed.  Changing the category names of the variable `vore` is
 best done by renaming the categories, as in [Week 02: Categorical
-variables](week-02-categorical-variables), but we can easily change the
+variables](#week-02-categorical-variables), but we can easily change the
 legend title from plotnine.
 
 ```{code-cell}
@@ -217,7 +213,7 @@ the plot.
 
 ```{code-cell}
 p += pn.theme_minimal(base_size = 12)
-p.draw()
+p
 ```
 
 Some final thoughts on the plot above.  I'd prefer the means not be
@@ -232,7 +228,7 @@ your writing and/or plots is usually not helpful to anyone but you.
 There are ways to change the categories through plotnine, instead of
 by changing your DataFrame.  I don't recommend this.  There's little
 to no reason to use abbreviations for label names in your original
-data; refer to [Week 02: Categorical variables](week-02-categorical-variables).
+data; refer to [Week 02: Categorical variables](#week-02-categorical-variables).
 
 Some people would have reached for `geom_errorbar` before `geom_linerange`.  The
 difference is a pair of horizontal lines on the top and bottom of the confidence
@@ -361,9 +357,7 @@ file extention `.csv`, which helps quickly identify the type of file.
 In a .csv file, the entire table of data above would look as follows.
 
 ```{code-cell}
----
-tags: [raises-exception, remove-output]
----
+:tags: [raises-exception, remove-output]
 
 type,size,color
 trouser,6,black
@@ -404,12 +398,10 @@ This whole section is prep-work.  Once you understand file paths and
 have entered your data into a delimeted file structure (.csv, .tsv, or
 otherwise), the Python package Pandas makes reading in the data
 relatively simple.  The code below is an example of reading in a .csv
-file into a DataFrame, just as we worked with beginning in [Week 01: Dataframes](week-01-dataframes).
+file into a DataFrame, just as we worked with beginning in [Week 01: Dataframes](#week-01-dataframes).
 
 ```{code-cell}
----
-tags: [raises-exception, remove-output]
----
+:tags: [raises-exception, remove-output]
 
 df = pd.read_csv("./path/to/your/data.csv")
 ```
@@ -436,9 +428,7 @@ computer, then the file path will be `./research_data.csv`, and the
 code to read this file into Python, using Pandas, is
 
 ```{code-cell}
----
-tags: [raises-exception, remove-output]
----
+:tags: [raises-exception, remove-output]
 
 df = pd.read_csv("./research_data.csv")
 ```
@@ -449,9 +439,7 @@ If, before uploading your dataset, you created a new directory named
 to read this file into Python, using Pandas, is
 
 ```{code-cell}
----
-tags: [raises-exception, remove-output]
----
+:tags: [raises-exception, remove-output]
 
 df = pd.read_csv("./data/research_data.csv")
 ```

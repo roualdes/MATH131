@@ -1,15 +1,8 @@
 ---
-jupytext:
-  formats: md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.5
 kernelspec:
-  display_name: Python 3
-  language: python
   name: python3
+  language: python
+  display_name: 'Python 3'
 ---
 
 (week-02)=
@@ -200,7 +193,7 @@ Next, we create a boolean Series that indicates when an animal
 qualifies as `smrt`.  Then, we over-write with the value `True` just
 those rows for which we've identified a `smrt` animal.  Hence, we can
 edit a variable in a DataFrame using the indexing strategy we learned
-about in [Week 01: DataFrames](week-01-dataframes).
+about in [Week 01: DataFrames](#week-01-dataframes).
 
 ```{code-cell}
 smrt_idx = msleep["brnbdywt"] >= 0.015
